@@ -1,0 +1,25 @@
+{
+  "type": "PAGE_NAVIGATOR_TABS",
+  "navigatorTabsState": {
+    "layoutType": "grid",
+    "rows": 2,
+    "columns": 3,
+    "gap": 8,
+    "scrollDirection": "vertical",
+    "showScrollButtons": true,
+    "destinationType": {
+      "all": true,
+      "hidden": false,
+      "tooltip": false
+    }
+  },
+  "style": {
+    "DEFAULT": {
+      "shapeState": {
+        "text": {
+          "value": ""
+        }
+      }
+    }
+  }
+}

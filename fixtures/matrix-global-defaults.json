@@ -1,0 +1,23 @@
+{
+  "fontFamily": "Segoe UI",
+  "fontSize": "14",
+  "fontWeight": "normal",
+  "fontStyle": "normal",
+  "textColor": "#333333",
+  "hierarchyfontWeight": "bold",
+  "hierarchyFontStyle": "normal",
+  "columnHierarchyFontWeight": "normal",
+  "columnHierarchyFontStyle": "normal",
+  "subTotalFontWeight": "semiBold",
+  "headerFormat": false,
+  "headerHeight": 30,
+  "headerFontSize": "14px",
+  "headerFontColor": "#333333",
+  "headerLabelOrient": "initial",
+  "isHeightUpdatedManually": false,
+  "showRowLabelEditor": false,
+  "variableColor": "#0078D4",
+  "varianceBarFont": 12,
+  "kpiFontSize": 45,
+  "chartScale": "universal"
+}

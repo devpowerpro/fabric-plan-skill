@@ -1,0 +1,102 @@
+{
+  "request": "Prepare next year's pay review for 2027. Managers propose monthly merit rates from zero, capped at 8%, by employee. Show proposed local-currency salary and the additional cost. Bring the proposed pay into a quarterly department review without re-entry, compare it with base pay, and let reviewers explain each quarter.",
+  "assumptions": [],
+  "requirements": [
+    {
+      "id": "base",
+      "text": "compare it with base pay",
+      "intent": "reuse-values",
+      "details": {
+        "sourceOrigin": "semantic",
+        "source": "Current model monthly base-pay DAX measure; resolve exact ID",
+        "targetGrain": "Department / Employee by Year / Quarter / Month",
+        "transformation": "direct",
+        "grainCompatibility": "model-supported"
+      },
+      "evidence": [
+        "User names base pay; current model binding remains a required authoring step."
+      ]
+    },
+    {
+      "id": "merit",
+      "text": "Managers propose monthly merit rates from zero, capped at 8%, by employee",
+      "intent": "editable-value",
+      "details": {
+        "unit": "fractional percent",
+        "grain": "Employee by Month in 2027",
+        "default": 0,
+        "maximum": {
+          "measureExpression": "0.08"
+        },
+        "aggregation": "AverageLeaf",
+        "distribute": true
+      },
+      "evidence": [
+        "Explicit zero default and 8% maximum; fractional static maximum is unsupported."
+      ]
+    },
+    {
+      "id": "pay",
+      "text": "Show proposed local-currency salary and the additional cost",
+      "intent": "calculated-value",
+      "details": {
+        "expression": [
+          "base * (1 + merit)",
+          "proposed - base"
+        ],
+        "inputs": [
+          "base",
+          "merit"
+        ],
+        "aggregation": "sum monetary costs after evaluating each employee and period"
+      },
+      "dependsOn": [
+        "base",
+        "merit"
+      ]
+    },
+    {
+      "id": "review",
+      "text": "Bring the proposed pay into a quarterly department review without re-entry",
+      "intent": "reuse-values",
+      "details": {
+        "sourceOrigin": "sheet",
+        "source": "Produced proposed-pay formula",
+        "targetGrain": "Department by Year / Quarter",
+        "transformation": "direct",
+        "grainCompatibility": "coarser-compatible"
+      },
+      "dependsOn": [
+        "pay"
+      ]
+    },
+    {
+      "id": "variance",
+      "text": "compare it with base pay",
+      "intent": "comparison",
+      "details": {
+        "current": "Linked proposed pay",
+        "baseline": "Original model base pay at review grain",
+        "grain": "Department by Quarter",
+        "difference": "proposed - base",
+        "favorableDirection": "Higher difference denotes additional payroll cost, not automatically favorable",
+        "unit": "same local currency per comparison; do not total mixed currencies"
+      },
+      "dependsOn": [
+        "review"
+      ]
+    },
+    {
+      "id": "notes",
+      "text": "let reviewers explain each quarter",
+      "intent": "commentary",
+      "details": {
+        "grain": "Department by Quarter",
+        "placement": "period-repeated text measure"
+      },
+      "dependsOn": [
+        "review"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "isEnabled": true,
+  "placement": "custom",
+  "size": 30,
+  "transparency": 100,
+  "customIconScale": "fit",
+  "iconTypeMapping": {
+    "default": {
+      "src": "${DATA_IMAGE_URI}",
+      "customIcon": {
+        "name": "${IMAGE_FILE_NAME}",
+        "isEnabled": true
+      }
+    }
+  }
+}

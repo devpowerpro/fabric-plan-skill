@@ -1,0 +1,100 @@
+{
+  "name": "Workforce plan",
+  "requiredCapabilities": [
+    "planning.numeric",
+    "planning.filter-context",
+    "intelligence.slicers",
+    "intelligence.cards",
+    "intelligence.embeds"
+  ],
+  "sheets": [
+    {
+      "name": "Workforce inputs",
+      "rows": [
+        "Geography[Area]",
+        "Workforce[Name]"
+      ],
+      "columns": [
+        "Time[Month]"
+      ],
+      "context": [
+        {
+          "field": "Version[Name]",
+          "values": [
+            "Proposal"
+          ]
+        }
+      ],
+      "dimensionIdMappings": {
+        "Workforce[Name]": {
+          "ID": "Workforce[Key]"
+        },
+        "Version[Name]": {
+          "ID": "Version[Key]"
+        }
+      },
+      "measures": [
+        {
+          "key": "input",
+          "kind": "DataInput",
+          "label": "Planned amount",
+          "default_value": {
+            "Static": 10
+          }
+        }
+      ]
+    }
+  ],
+  "dashboards": [
+    {
+      "name": "Workforce workspace",
+      "owner": "Workforce inputs",
+      "title": "Plan the next period",
+      "description": "Review scope and edit the plan.",
+      "slicers": [
+        {
+          "field": "Time[Year]",
+          "label": "Planning year",
+          "between": [
+            2030,
+            2031
+          ],
+          "required": true
+        },
+        {
+          "field": "Geography[Area]",
+          "label": "Area",
+          "values": [
+            "West"
+          ],
+          "singleSelect": true,
+          "required": true
+        },
+        {
+          "field": "Workforce[Group]",
+          "label": "Group"
+        },
+        {
+          "field": "Workforce[Name]",
+          "label": "Detail"
+        }
+      ],
+      "cards": [
+        {
+          "field": "Facts[Total]",
+          "label": "Current total"
+        },
+        {
+          "field": "Facts[Amount]",
+          "aggregation": "sum",
+          "label": "Total amount"
+        },
+        {
+          "field": "Facts[Amount]",
+          "aggregation": "max",
+          "label": "Highest amount"
+        }
+      ]
+    }
+  ]
+}

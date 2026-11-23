@@ -1,0 +1,230 @@
+{
+  "name": "CF Planning Studio - Fresh Package Example",
+  "requiredCapabilities": [
+    "planning.numeric",
+    "planning.native-measure",
+    "planning.formula",
+    "planning.conditional-formatting",
+    "intelligence.charts",
+    "intelligence.slicers",
+    "intelligence.embeds",
+    "home.text",
+    "home.cards",
+    "home.visibility"
+  ],
+  "sheets": [
+    {
+      "name": "Revenue Estimate",
+      "rows": [
+        "Region[Region]",
+        "Product[Product]"
+      ],
+      "columns": [
+        "Period[Month]"
+      ],
+      "measures": [
+        {
+          "key": "baseline",
+          "label": "Baseline",
+          "kind": "Native",
+          "source": "Metrics[Units]"
+        },
+        {
+          "key": "adjustment",
+          "label": "Adjustment",
+          "kind": "DataInput",
+          "default_value": {
+            "Static": 0
+          }
+        },
+        {
+          "key": "estimate",
+          "label": "Estimate",
+          "kind": "Formula",
+          "formula": "IF(ISBLANK(${baseline}), BLANK, ${baseline} + ${adjustment})"
+        },
+        {
+          "key": "variance",
+          "label": "Variance",
+          "kind": "Formula",
+          "formula": "${estimate} - ${baseline}"
+        },
+        {
+          "key": "pct",
+          "label": "Variance %",
+          "kind": "Formula",
+          "formula": "IF(OR(ISBLANK(${baseline}), ${baseline} == 0), BLANK, ${variance} / ABS(${baseline}))",
+          "aggregation": "Formula"
+        }
+      ],
+      "header": "Illustrative units. Enter positive or negative adjustments; variance colors and arrows show the direction against the semantic baseline.",
+      "conditionalFormatting": [
+        {
+          "id": "favorable-variance",
+          "label": "Favorable Variance",
+          "target": "variance",
+          "test": "variance",
+          "operator": ">",
+          "threshold": 0,
+          "rowScope": "both",
+          "columnScope": "both",
+          "excludeRowTotal": false,
+          "excludeColumnTotal": false,
+          "appearance": {
+            "textColor": "#377D22"
+          }
+        },
+        {
+          "id": "unfavorable-variance",
+          "label": "Unfavorable Variance",
+          "target": "variance",
+          "test": "variance",
+          "operator": "<",
+          "threshold": 0,
+          "rowScope": "both",
+          "columnScope": "both",
+          "excludeRowTotal": false,
+          "excludeColumnTotal": false,
+          "appearance": {
+            "textColor": "#A60000"
+          }
+        },
+        {
+          "id": "favorable-percent",
+          "label": "Favorable Percent",
+          "target": "pct",
+          "test": "pct",
+          "operator": ">",
+          "threshold": 0,
+          "rowScope": "both",
+          "columnScope": "both",
+          "excludeRowTotal": false,
+          "excludeColumnTotal": false,
+          "appearance": {
+            "textColor": "#377D22",
+            "icon": "up",
+            "iconColor": "#377D22"
+          }
+        },
+        {
+          "id": "unfavorable-percent",
+          "label": "Unfavorable Percent",
+          "target": "pct",
+          "test": "pct",
+          "operator": "<",
+          "threshold": 0,
+          "rowScope": "both",
+          "columnScope": "both",
+          "excludeRowTotal": false,
+          "excludeColumnTotal": false,
+          "appearance": {
+            "textColor": "#A60000",
+            "icon": "down",
+            "iconColor": "#A60000"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cost Review",
+      "rows": [
+        "Region[Region]",
+        "Product[Product]"
+      ],
+      "columns": [
+        "Period[Month]"
+      ],
+      "measures": [
+        {
+          "key": "baseline",
+          "label": "Baseline",
+          "kind": "Native",
+          "source": "Metrics[Cost]"
+        },
+        {
+          "key": "adjustment",
+          "label": "Adjustment",
+          "kind": "DataInput",
+          "default_value": {
+            "Static": 0
+          }
+        },
+        {
+          "key": "estimate",
+          "label": "Estimate",
+          "kind": "Formula",
+          "formula": "IF(ISBLANK(${baseline}), BLANK, ${baseline} + ${adjustment})"
+        },
+        {
+          "key": "variance",
+          "label": "Variance",
+          "kind": "Formula",
+          "formula": "${estimate} - ${baseline}"
+        },
+        {
+          "key": "pct",
+          "label": "Variance %",
+          "kind": "Formula",
+          "formula": "IF(OR(ISBLANK(${baseline}), ${baseline} == 0), BLANK, ${variance} / ABS(${baseline}))",
+          "aggregation": "Formula"
+        },
+        {
+          "key": "exception",
+          "label": "Review Required",
+          "kind": "Formula",
+          "formula": "IF(${variance} > 0, 1, 0)",
+          "visible": false
+        }
+      ],
+      "header": "Illustrative cost review. Higher cost is unfavorable. A flag on Estimate is driven by a separate hidden exception measure.",
+      "conditionalFormatting": [
+        {
+          "id": "favorable-cost",
+          "label": "Favorable Cost",
+          "target": "variance",
+          "test": "variance",
+          "operator": "<",
+          "threshold": 0,
+          "rowScope": "both",
+          "columnScope": "both",
+          "excludeRowTotal": false,
+          "excludeColumnTotal": false,
+          "appearance": {
+            "textColor": "#377D22"
+          }
+        },
+        {
+          "id": "unfavorable-cost",
+          "label": "Unfavorable Cost",
+          "target": "variance",
+          "test": "variance",
+          "operator": ">",
+          "threshold": 0,
+          "rowScope": "both",
+          "columnScope": "both",
+          "excludeRowTotal": false,
+          "excludeColumnTotal": false,
+          "appearance": {
+            "textColor": "#A60000"
+          }
+        },
+        {
+          "id": "review-flag",
+          "label": "Review Flag",
+          "target": "estimate",
+          "test": "exception",
+          "operator": ">",
+          "threshold": 0,
+          "rowScope": "child",
+          "columnScope": "both",
+          "excludeRowTotal": true,
+          "excludeColumnTotal": false,
+          "appearance": {
+            "icon": "flag",
+            "iconColor": "#A60000"
+          }
+        }
+      ]
+    }
+  ]
+}

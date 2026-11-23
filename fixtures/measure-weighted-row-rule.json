@@ -1,0 +1,17 @@
+{
+  "id": "102",
+  "rule_id": "9007199254741002",
+  "name": "Allocate rows by current-year measure weights",
+  "is_disabled": false,
+  "is_updated": true,
+  "columns": "All",
+  "rows": "All",
+  "measures": {"SelectedMeasures": ["9007199254740993"]},
+  "rule_type": {"Distribute": {"operation": {"Row": {
+    "apply_to_dimensions": "All",
+    "reference": {"MeasureIdWithReference": {
+      "measure": {"Measure": "18446744073709551615"},
+      "weights_from": {"Period": "CurrentYear"}
+    }}
+  }}}}
+}

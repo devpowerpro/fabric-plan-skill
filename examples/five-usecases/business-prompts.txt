@@ -1,0 +1,14 @@
+1. Regional Sales Targets
+Create a 2026 sales target workspace by region and product. Start monthly targets from last year's sales in USD and let managers revise them. Show actual sales against target, highlight shortfalls, and make it easy to compare regions and product categories.
+
+2. Workforce Merit Planning
+Build a 2026 merit-planning workspace by department and employee. Let managers enter monthly salary increases from 0% to 15%, starting at zero. Use the model's base salary and exchange rate to show proposed salary and incremental cost in USD, with a department view of the cost impact. Keep bonuses and benefits outside this plan.
+
+3. Department Expense Budget
+Create a 2026 expense-budget workspace by department, expense account and region. Start from prior-year USD spending with a 3% inflation assumption that managers can change, plus discretionary adjustments. Show the proposed budget, actual spend and remaining budget. Flag overspending and provide a monthly explanation field.
+
+4. Rolling Forecast and Quarterly Review
+Create a rolling sales forecast with January to December 2026 open for planning. Closed periods should follow actuals; each open month should default to the previous month plus 10% and remain editable. Add a quarterly review that reuses the monthly forecast directly, compares it with actual sales, highlights negative variance and lets managers add quarterly commentary.
+
+5. Risk Adjusted Currency Outlook
+Build a 2026 sales outlook with three connected workspaces. First, let regional teams maintain monthly local-currency estimates starting from the current forecast. Second, reuse those estimates and let finance add risks, opportunities and an exchange-rate sensitivity to calculate a risk-adjusted USD outlook. Third, roll the USD results into a quarterly executive review with baseline comparisons, negative-impact flags and commentary. Changes must flow from the original inputs rather than copied values.

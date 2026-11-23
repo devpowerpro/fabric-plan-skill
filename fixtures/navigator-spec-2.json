@@ -1,0 +1,19 @@
+{
+  "navigatorButtonState": {
+    "actionType": "WEB_URL",
+    "webUrl": "https://example.com/forecast-guidance"
+  },
+  "style": {
+    "DEFAULT": {
+      "shapeState": {
+        "text": {
+          "value": "Forecast Guidance"
+        },
+        "tooltip": {
+          "isEnabled": true,
+          "content": "Open forecast guidance"
+        }
+      }
+    }
+  }
+}

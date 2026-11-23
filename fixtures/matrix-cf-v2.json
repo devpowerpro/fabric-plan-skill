@@ -1,0 +1,614 @@
+{
+  "contractId": "matrix-numeric-cf-ui-20261116-v2",
+  "scope": "Numeric single-condition Planning rules; text, background and up/down/flag icons",
+  "evidence": "Structure derived from two current UI-saved rules; rebuilt source and destination rule panels were user-confirmed. No single field was isolated as the sole cause.",
+  "sanitization": "No report, tenant, measure, row IDs, business data ranges or original date; inactive range values are synthetic percentages.",
+  "ruleSeed": {
+    "enabled": true,
+    "highlightedMeasure": "${target}",
+    "highlightedMeasureName": "",
+    "highlightedColumnMembers": null,
+    "highlightedRowMembers": null,
+    "name": "${target}${suffix}",
+    "ruleType": "rule",
+    "displayName": "Numeric indicator",
+    "basedOn": "${test}",
+    "basedOnMeasureName": "",
+    "excludeRowTotal": false,
+    "excludeColumnTotal": false,
+    "ruleFor": "both",
+    "columnRuleFor": "child",
+    "selectedColumnMeasures": null,
+    "hideCell": false,
+    "webUrlBasedOn": "",
+    "linkIcon": true,
+    "colorCodeBasedOn": "",
+    "colorCodeColorFor": "font",
+    "columnRuleType": "default",
+    "ruleLogs": [],
+    "newRule": true,
+    "classificationPosition": "left",
+    "colorScaleApplyTo": "seq",
+    "isIconGroupAltered": false,
+    "isTextGroupAltered": false,
+    "autoFontColor": true,
+    "colorOnly": false,
+    "invertColor": false,
+    "colorScaleColorFor": "background",
+    "colorScheme": {
+      "selectedColorScheme": "Blues",
+      "numberOfRanges": 5,
+      "colors": [
+        "#d0e1f2",
+        "#94c4df",
+        "#4a98c9",
+        "#1764ab",
+        "#08306b"
+      ],
+      "minColor": "red",
+      "middleColor": "blue",
+      "maxColor": "green"
+    },
+    "classificationType": "icon",
+    "applyClassificationToCharts": true,
+    "enableCustom": false,
+    "includeNull": false,
+    "textGroupName": "segmentation",
+    "targetValueType": "percent",
+    "iconGroupName": "accept",
+    "rankingBuckets": [
+      {
+        "id": "template-seed-rankingBuckets-0",
+        "from": "MIN",
+        "to": 9,
+        "fromPercentage": 0,
+        "toPercentage": 9,
+        "color": "#e66c3780",
+        "filterIconColor": ""
+      },
+      {
+        "id": "template-seed-rankingBuckets-1",
+        "from": 9,
+        "to": 18,
+        "fromPercentage": 9,
+        "toPercentage": 18,
+        "color": "#e66c378c",
+        "filterIconColor": ""
+      },
+      {
+        "id": "template-seed-rankingBuckets-2",
+        "from": 18,
+        "to": 27,
+        "fromPercentage": 18,
+        "toPercentage": 27,
+        "color": "#e66c3799",
+        "filterIconColor": ""
+      },
+      {
+        "id": "template-seed-rankingBuckets-3",
+        "from": 27,
+        "to": 36,
+        "fromPercentage": 27,
+        "toPercentage": 36,
+        "color": "#e66c37a6",
+        "filterIconColor": ""
+      },
+      {
+        "id": "template-seed-rankingBuckets-4",
+        "from": 36,
+        "to": 45,
+        "fromPercentage": 36,
+        "toPercentage": 45,
+        "color": "#e66c37b3",
+        "filterIconColor": ""
+      },
+      {
+        "id": "template-seed-rankingBuckets-5",
+        "from": 45,
+        "to": 54,
+        "fromPercentage": 45,
+        "toPercentage": 54,
+        "color": "#e66c37bf",
+        "filterIconColor": ""
+      },
+      {
+        "id": "template-seed-rankingBuckets-6",
+        "from": 54,
+        "to": 63,
+        "fromPercentage": 54,
+        "toPercentage": 63,
+        "color": "#e66c37cc",
+        "filterIconColor": ""
+      },
+      {
+        "id": "template-seed-rankingBuckets-7",
+        "from": 63,
+        "to": 72,
+        "fromPercentage": 63,
+        "toPercentage": 72,
+        "color": "#e66c37d9",
+        "filterIconColor": ""
+      },
+      {
+        "id": "template-seed-rankingBuckets-8",
+        "from": 72,
+        "to": 81,
+        "fromPercentage": 72,
+        "toPercentage": 81,
+        "color": "#e66c37e6",
+        "filterIconColor": ""
+      },
+      {
+        "id": "template-seed-rankingBuckets-9",
+        "from": 81,
+        "to": 90,
+        "fromPercentage": 81,
+        "toPercentage": 90,
+        "color": "#e66c37f2",
+        "filterIconColor": ""
+      },
+      {
+        "id": "template-seed-rankingBuckets-10",
+        "from": 90,
+        "to": "MAX",
+        "fromPercentage": 90,
+        "toPercentage": 100,
+        "color": "#e66c37",
+        "filterIconColor": ""
+      }
+    ],
+    "rankingBucketsValueType": "percent",
+    "iconGroupValueType": "percent",
+    "textGroupValueType": "percent",
+    "textColorFor": "font",
+    "ratingIcons": [
+      "cross",
+      "alert",
+      "tick"
+    ],
+    "conditionalOperator": "or",
+    "conditions": [],
+    "bold": false,
+    "italic": false,
+    "underline": false,
+    "underlineColor": "#000000",
+    "applyTextColor": true,
+    "color": "#FF4400",
+    "applyBackgroundColor": false,
+    "background": "#F5F5F5",
+    "gradientColorMin": "#a0d1ff",
+    "gradientColorMax": "#41A4FF",
+    "gradientValueMax": null,
+    "gradientValueMin": null,
+    "positiveColor": "#41A4FF",
+    "negativeColor": "#a0d1ff",
+    "gradientPlacement": "left",
+    "hatchedLineColor": "#DDDDDD",
+    "hatched": false,
+    "lineColor": "#666666",
+    "lineStyle": 1,
+    "isIconPresent": false,
+    "iconPosition": "left",
+    "iconColor": "#e66c37",
+    "icon": "up",
+    "iconType": "icon",
+    "isCustomIcon": false,
+    "customIconBase64Value": "",
+    "customIconName": "",
+    "isLeftAlignIcon": true,
+    "text": "",
+    "textDetailPosition": "none",
+    "shapeCount": 5,
+    "shapeColor": "#e66c37",
+    "ratingDetailPosition": "none",
+    "ratingTextColor": "#e66c37",
+    "reverseRating": false,
+    "ranking": {
+      "basedOn": null,
+      "rank_by": {
+        "Value": 5
+      },
+      "rank_type": "Top",
+      "column_measure_id": null,
+      "row_dimension_id": "${rowDimension}"
+    },
+    "bubbleColor": "#0881c7",
+    "actionDotMidPercentage": 50,
+    "isGradientBubble": false,
+    "bubbleBasedOn": "${test}",
+    "bubbleOverlay": true,
+    "applyTextColorForBubble": false,
+    "impactChartElements": [
+      {
+        "label": "chart",
+        "value": "chart"
+      }
+    ],
+    "textBackground": false,
+    "borderPosition": "left",
+    "borderWidth": 4,
+    "targetValues": [
+      {
+        "id": "template-seed-targetValues-0",
+        "from": "MIN",
+        "to": 10,
+        "fromPercentage": 0,
+        "toPercentage": 10,
+        "color": "rgba(0,128,0,0.8)",
+        "filterIconColor": ""
+      },
+      {
+        "id": "template-seed-targetValues-1",
+        "from": 10,
+        "to": 30,
+        "fromPercentage": 10,
+        "toPercentage": 30,
+        "color": "rgba(217,179,0,0.8)",
+        "filterIconColor": ""
+      },
+      {
+        "id": "template-seed-targetValues-2",
+        "from": 30,
+        "to": "MAX",
+        "fromPercentage": 30,
+        "toPercentage": 100,
+        "color": "rgba(230,108,55,0.8)",
+        "filterIconColor": ""
+      }
+    ],
+    "iconGroupValues": [
+      {
+        "id": "template-seed-iconGroupValues-0",
+        "from": "MIN",
+        "to": 10,
+        "fromPercentage": 0,
+        "toPercentage": 10,
+        "color": "rgba(0,128,0,0.8)",
+        "filterIconColor": "",
+        "iconConfig": {
+          "icon": "cross",
+          "isCustomIcon": false,
+          "customIconBase64Value": ""
+        }
+      },
+      {
+        "id": "template-seed-iconGroupValues-1",
+        "from": 10,
+        "to": 30,
+        "fromPercentage": 10,
+        "toPercentage": 30,
+        "color": "rgba(217,179,0,0.8)",
+        "filterIconColor": "",
+        "iconConfig": {
+          "icon": "alert",
+          "isCustomIcon": false,
+          "customIconBase64Value": ""
+        }
+      },
+      {
+        "id": "template-seed-iconGroupValues-2",
+        "from": 30,
+        "to": "MAX",
+        "fromPercentage": 30,
+        "toPercentage": 100,
+        "color": "rgba(230,108,55,0.8)",
+        "filterIconColor": "",
+        "iconConfig": {
+          "icon": "tick",
+          "isCustomIcon": false,
+          "customIconBase64Value": ""
+        }
+      }
+    ],
+    "actionTargetValues": [
+      {
+        "id": "template-seed-actionTargetValues-0",
+        "from": "MIN",
+        "to": 20,
+        "fromPercentage": 0,
+        "toPercentage": 20,
+        "color": "#36752b",
+        "text": "#36752b",
+        "filterIconColor": "",
+        "iconConfig": {
+          "icon": "cross",
+          "isCustomIcon": false,
+          "customIconBase64Value": ""
+        },
+        "actionConfig": {
+          "isSingleIcon": false
+        }
+      },
+      {
+        "id": "template-seed-actionTargetValues-1",
+        "from": 20,
+        "to": 25,
+        "fromPercentage": 20,
+        "toPercentage": 25,
+        "color": "#519346",
+        "text": "#519346",
+        "filterIconColor": "",
+        "iconConfig": {
+          "icon": "alert",
+          "isCustomIcon": false,
+          "customIconBase64Value": ""
+        },
+        "actionConfig": {
+          "isSingleIcon": false
+        }
+      },
+      {
+        "id": "template-seed-actionTargetValues-2",
+        "from": 25,
+        "to": 30,
+        "fromPercentage": 25,
+        "toPercentage": 30,
+        "color": "#BFD5BB",
+        "text": "#BFD5BB",
+        "filterIconColor": "",
+        "iconConfig": {
+          "icon": "tick",
+          "isCustomIcon": false,
+          "customIconBase64Value": ""
+        },
+        "actionConfig": {
+          "isSingleIcon": false
+        }
+      },
+      {
+        "id": "template-seed-actionTargetValues-3",
+        "from": 30,
+        "to": 35,
+        "fromPercentage": 30,
+        "toPercentage": 35,
+        "color": "#DAE7D9",
+        "text": "#DAE7D9",
+        "filterIconColor": "",
+        "iconConfig": {
+          "isCustomIcon": false,
+          "customIconBase64Value": ""
+        },
+        "actionConfig": {
+          "isSingleIcon": false
+        }
+      },
+      {
+        "id": "template-seed-actionTargetValues-4",
+        "from": 35,
+        "to": 40,
+        "fromPercentage": 35,
+        "toPercentage": 40,
+        "color": "#D8E6D8",
+        "text": "#D8E6D8",
+        "filterIconColor": "",
+        "iconConfig": {
+          "isCustomIcon": false,
+          "customIconBase64Value": ""
+        },
+        "actionConfig": {
+          "isSingleIcon": false
+        }
+      },
+      {
+        "id": "template-seed-actionTargetValues-5",
+        "from": 60,
+        "to": 65,
+        "fromPercentage": 60,
+        "toPercentage": 65,
+        "color": "#F3D6D7",
+        "text": "#F3D6D7",
+        "filterIconColor": "",
+        "iconConfig": {
+          "isCustomIcon": false,
+          "customIconBase64Value": ""
+        },
+        "actionConfig": {
+          "isSingleIcon": false
+        }
+      },
+      {
+        "id": "template-seed-actionTargetValues-6",
+        "from": 65,
+        "to": 70,
+        "fromPercentage": 65,
+        "toPercentage": 70,
+        "color": "#E5A0A2",
+        "text": "#E5A0A2",
+        "filterIconColor": "",
+        "iconConfig": {
+          "isCustomIcon": false,
+          "customIconBase64Value": ""
+        },
+        "actionConfig": {
+          "isSingleIcon": false
+        }
+      },
+      {
+        "id": "template-seed-actionTargetValues-7",
+        "from": 70,
+        "to": 75,
+        "fromPercentage": 70,
+        "toPercentage": 75,
+        "color": "#D86C66",
+        "text": "#D86C66",
+        "filterIconColor": "",
+        "iconConfig": {
+          "isCustomIcon": false,
+          "customIconBase64Value": ""
+        },
+        "actionConfig": {
+          "isSingleIcon": false
+        }
+      },
+      {
+        "id": "template-seed-actionTargetValues-8",
+        "from": 75,
+        "to": 80,
+        "fromPercentage": 75,
+        "toPercentage": 80,
+        "color": "#CF4D4A",
+        "text": "#CF4D4A",
+        "filterIconColor": "",
+        "iconConfig": {
+          "isCustomIcon": false,
+          "customIconBase64Value": ""
+        },
+        "actionConfig": {
+          "isSingleIcon": false
+        }
+      },
+      {
+        "id": "template-seed-actionTargetValues-9",
+        "from": 80,
+        "to": "MAX",
+        "fromPercentage": 80,
+        "toPercentage": 100,
+        "color": "#BA301B",
+        "text": "#BA301B",
+        "filterIconColor": "",
+        "iconConfig": {
+          "isCustomIcon": false,
+          "customIconBase64Value": ""
+        },
+        "actionConfig": {
+          "isSingleIcon": false
+        }
+      }
+    ],
+    "textGroupValues": [
+      {
+        "id": "template-seed-textGroupValues-0",
+        "from": "MIN",
+        "to": 20,
+        "fromPercentage": 0,
+        "toPercentage": 20,
+        "color": "#D64550",
+        "text": "VERY LOW",
+        "filterIconColor": "",
+        "iconConfig": {
+          "isCustomIcon": false,
+          "customIconBase64Value": ""
+        }
+      },
+      {
+        "id": "template-seed-textGroupValues-1",
+        "from": 20,
+        "to": 40,
+        "fromPercentage": 20,
+        "toPercentage": 40,
+        "color": "#e3828a",
+        "text": "LOW",
+        "filterIconColor": "",
+        "iconConfig": {
+          "isCustomIcon": false,
+          "customIconBase64Value": ""
+        }
+      },
+      {
+        "id": "template-seed-textGroupValues-2",
+        "from": 40,
+        "to": 60,
+        "fromPercentage": 40,
+        "toPercentage": 60,
+        "color": "#f8ca50",
+        "text": "MEDIUM",
+        "filterIconColor": "",
+        "iconConfig": {
+          "isCustomIcon": false,
+          "customIconBase64Value": ""
+        }
+      },
+      {
+        "id": "template-seed-textGroupValues-3",
+        "from": 60,
+        "to": 80,
+        "fromPercentage": 60,
+        "toPercentage": 80,
+        "color": "#00CC00",
+        "text": "HIGH",
+        "filterIconColor": "",
+        "iconConfig": {
+          "isCustomIcon": false,
+          "customIconBase64Value": ""
+        }
+      },
+      {
+        "id": "template-seed-textGroupValues-4",
+        "from": 80,
+        "to": "MAX",
+        "fromPercentage": 80,
+        "toPercentage": 100,
+        "color": "#008000",
+        "text": "VERY HIGH",
+        "filterIconColor": "",
+        "iconConfig": {
+          "isCustomIcon": false,
+          "customIconBase64Value": ""
+        }
+      }
+    ],
+    "heatMapType": "columnHeatMap"
+  },
+  "conditionSeed": {
+    "name": "Condition 0",
+    "basedOn": "${test}",
+    "conditionType": "singleMeasure",
+    "valueType": "static",
+    "comparisonMeasure": "${test}",
+    "operator": ">",
+    "comparisonValue": 0,
+    "from": 0,
+    "to": 100,
+    "aggregationType": "includes",
+    "calculationType1": "value",
+    "calculationValue1": 0,
+    "calculationMeasure1": "${test}",
+    "calculationOperator": "+",
+    "calculationType2": "measure",
+    "calculationValue2": 100,
+    "calculationMeasure2": "${test}",
+    "dimension": "",
+    "dimensionMembers": [],
+    "isAllSelected": false,
+    "variableMultiSelectMember": "default",
+    "variableDateRange": null,
+    "comparisonText": "",
+    "count": 10,
+    "fromMeasure": "${test}",
+    "toMeasure": "${test}",
+    "measureMembers": [
+      {
+        "displayName": "All",
+        "value": "allSelected",
+        "key": "allSelected"
+      }
+    ],
+    "measureMembersObj": {
+      "allSelected": true
+    },
+    "periodOperator": ">",
+    "variablePeriodRange": null,
+    "variablePeriodType": "day",
+    "offSetRange": null,
+    "isSkipOffSet": false,
+    "comparisonDate": {
+      "$L": "en",
+      "$d": "2000-01-01T00:00:00.000Z",
+      "$y": 2000,
+      "$M": 0,
+      "$D": 1,
+      "$W": 6,
+      "$H": 0,
+      "$m": 0,
+      "$s": 0,
+      "$ms": 0,
+      "$x": {},
+      "$isDayjsObject": true
+    },
+    "gapRange": null,
+    "dateCompareType": "custom",
+    "comparisonDimension": "",
+    "dateBoundary": "none",
+    "dynamicOperation": "includes"
+  }
+}

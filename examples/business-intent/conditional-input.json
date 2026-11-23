@@ -1,0 +1,22 @@
+{
+  "request": "Let planners edit in reading or editing view, except submitted requests must remain locked until reopened.",
+  "requirements": [
+    {
+      "id": "input-eligibility",
+      "text": "submitted requests must remain locked until reopened",
+      "intent": "conditional-input",
+      "details": {
+        "target": "Requested Amount",
+        "condition": "Current request is open or reopened and not submitted/approved; existing period and access rules still apply",
+        "expression": {
+          "BasedOnFormula": "${eligible} > 0"
+        },
+        "scope": "Current request row, time period and planning context"
+      },
+      "evidence": [
+        "Resolve eligible to the current model/business policy measure covering this condition. Do not invent a source field."
+      ]
+    }
+  ],
+  "assumptions": []
+}

@@ -1,0 +1,45 @@
+{
+  "type": "PAGE_NAVIGATOR_TABS",
+  "navigatorTabsState": {
+    "layoutType": "vertical",
+    "gap": 6,
+    "scrollDirection": "vertical",
+    "collapsible": {
+      "isEnabled": true,
+      "isCollapsed": true,
+      "collapsedWidth": 48,
+      "identifierType": "number",
+      "collapseAnimation": "smooth",
+      "collapseDirection": "start",
+      "collapseTriggerIcon": {
+        "position": "start",
+        "size": 16,
+        "fillColor": "#222222",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "hierarchy": {
+      "isEnabled": true,
+      "indentation": 16,
+      "triggerColor": "#222222",
+      "fixedHeight": {
+        "isEnabled": true,
+        "value": 48
+      }
+    }
+  },
+  "style": {
+    "ACTIVE": {
+      "shapeState": {
+        "accentBar": {
+          "isEnabled": true,
+          "value": {
+            "color": "#117865",
+            "side": "left",
+            "width": 3
+          }
+        }
+      }
+    }
+  }
+}

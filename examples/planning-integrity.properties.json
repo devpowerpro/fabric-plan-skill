@@ -1,0 +1,113 @@
+{
+  "pivotAssignments": [
+    {
+      "id": "Region[Country]",
+      "sourceId": "unchanged-source",
+      "sourceType": "PowerBI",
+      "columnType": "Column",
+      "dataRoleType": "Grouping",
+      "tableName": "Region",
+      "columnName": "Country",
+      "name": "Market",
+      "customName": "Market",
+      "isRenamed": true
+    }
+  ],
+  "visualState": {
+    "globalStyles": {
+      "fontFamily": "Arial",
+      "fontSize": "12",
+      "futureOption": true
+    },
+    "manage_measures": [
+      {
+        "id": "18446744073709550001",
+        "label": "EST LC FC Amt",
+        "formula": "[source]"
+      }
+    ],
+    "rowDimensions": [
+      {
+        "id": "stable-row",
+        "externalKey": "Region[Country]",
+        "isNative": true,
+        "label": "Market"
+      }
+    ],
+    "columnDimensions": [],
+    "dimension_id_mapping": {
+      "mappings": {
+        "Region[Country]": {
+          "Skip": {}
+        }
+      },
+      "pivot": [
+        {
+          "id": "Region[Country]",
+          "source_type": "PowerBI",
+          "column_type": "Column",
+          "column_name": "Country",
+          "name": "Market",
+          "custom_name": "Market"
+        }
+      ]
+    },
+    "filters": [
+      {
+        "pivotAssignments": [
+          {
+            "id": "Region[Country]",
+            "sourceId": "unchanged-source",
+            "sourceType": "PowerBI",
+            "columnType": "Column",
+            "dataRoleType": "Grouping",
+            "tableName": "Region",
+            "columnName": "Country",
+            "name": "Market",
+            "customName": "Market",
+            "isRenamed": true
+          }
+        ],
+        "configuration": {
+          "name": "Market"
+        },
+        "sort": {
+          "columnId": "Region[Country]",
+          "columnName": "Market"
+        },
+        "filterDTO": {
+          "columnIds": [
+            "Region[Country]"
+          ],
+          "columnNames": [
+            "Market"
+          ],
+          "tableNames": [
+            "Region"
+          ],
+          "sourceType": [
+            "PowerBI"
+          ],
+          "columnType": [
+            "Column"
+          ],
+          "valuesFilter": [
+            {
+              "value": "France",
+              "label": "France"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "unrelated": {
+    "sourceType": "Visual",
+    "columnType": "Column",
+    "dataRoleType": "Measure",
+    "id": "18446744073709550001",
+    "sourceId": "123",
+    "name": "Business label",
+    "columnName": "Source label"
+  }
+}

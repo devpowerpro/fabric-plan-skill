@@ -1,0 +1,194 @@
+{
+  "name": "Synthetic Connected Planning",
+  "sheets": [
+    {
+      "name": "Workforce",
+      "rows": [
+        "Region[Region]",
+        "Employee[Employee]",
+        "Version[Version]"
+      ],
+      "columns": [
+        "Period[Month]"
+      ],
+      "measures": [
+        {
+          "key": "allowed",
+          "kind": "Native",
+          "source": "Metrics[CanEdit]",
+          "label": "CanEdit",
+          "aggregation": "Sum"
+        },
+        {
+          "key": "base",
+          "kind": "Native",
+          "source": "Metrics[BasePay]",
+          "label": "BasePay",
+          "aggregation": "Sum"
+        },
+        {
+          "key": "salary",
+          "kind": "DataInput",
+          "label": "Monthly Salary",
+          "default_value": {
+            "Measure": "base"
+          },
+          "min_value": {
+            "Static": 0
+          },
+          "allow_input": {
+            "BasedOnFormula": "${allowed} > 0"
+          },
+          "aggregation": "Sum"
+        },
+        {
+          "key": "cost",
+          "kind": "Formula",
+          "label": "Compensation",
+          "formula": "${salary} * 1.20",
+          "aggregation": "Sum"
+        }
+      ]
+    },
+    {
+      "name": "Revenue",
+      "rows": [
+        "Region[Region]",
+        "Product[Product]",
+        "Version[Version]"
+      ],
+      "columns": [
+        "Period[Month]"
+      ],
+      "measures": [
+        {
+          "key": "allowed",
+          "kind": "Native",
+          "source": "Metrics[CanEdit]",
+          "label": "CanEdit",
+          "aggregation": "Sum"
+        },
+        {
+          "key": "baseUnits",
+          "kind": "Native",
+          "source": "Metrics[Units]",
+          "label": "Units",
+          "aggregation": "Sum"
+        },
+        {
+          "key": "price",
+          "kind": "Native",
+          "source": "Metrics[Price]",
+          "label": "Price",
+          "aggregation": "Sum"
+        },
+        {
+          "key": "units",
+          "kind": "DataInput",
+          "label": "Planned Units",
+          "default_value": {
+            "Measure": "baseUnits"
+          },
+          "min_value": {
+            "Static": 0
+          },
+          "allow_input": {
+            "BasedOnFormula": "${allowed} > 0"
+          },
+          "aggregation": "Sum"
+        },
+        {
+          "key": "revenue",
+          "kind": "Formula",
+          "label": "Revenue",
+          "formula": "${units} * ${price}",
+          "aggregation": "Sum"
+        }
+      ]
+    },
+    {
+      "name": "Operating Expense",
+      "rows": [
+        "Region[Region]",
+        "Account[Account]",
+        "Version[Version]"
+      ],
+      "columns": [
+        "Period[Month]"
+      ],
+      "measures": [
+        {
+          "key": "allowed",
+          "kind": "Native",
+          "source": "Metrics[CanEdit]",
+          "label": "CanEdit",
+          "aggregation": "Sum"
+        },
+        {
+          "key": "base",
+          "kind": "Native",
+          "source": "Metrics[Expense]",
+          "label": "Expense",
+          "aggregation": "Sum"
+        },
+        {
+          "key": "expense",
+          "kind": "DataInput",
+          "label": "Plan Expense",
+          "default_value": {
+            "Measure": "base"
+          },
+          "min_value": {
+            "Static": 0
+          },
+          "allow_input": {
+            "BasedOnFormula": "${allowed} > 0"
+          },
+          "aggregation": "Sum"
+        }
+      ]
+    },
+    {
+      "name": "Supply",
+      "rows": [
+        "Region[Region]",
+        "Product[Product]",
+        "Version[Version]"
+      ],
+      "columns": [
+        "Period[Month]"
+      ],
+      "measures": [
+        {
+          "key": "allowed",
+          "kind": "Native",
+          "source": "Metrics[CanEdit]",
+          "label": "CanEdit",
+          "aggregation": "Sum"
+        },
+        {
+          "key": "base",
+          "kind": "Native",
+          "source": "Metrics[Cost]",
+          "label": "Cost",
+          "aggregation": "Sum"
+        },
+        {
+          "key": "cost",
+          "kind": "DataInput",
+          "label": "Plan Cost",
+          "default_value": {
+            "Measure": "base"
+          },
+          "min_value": {
+            "Static": 0
+          },
+          "allow_input": {
+            "BasedOnFormula": "${allowed} > 0"
+          },
+          "aggregation": "Sum"
+        }
+      ]
+    }
+  ]
+}

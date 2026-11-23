@@ -1,0 +1,131 @@
+[
+  {
+    "shapeType": "CIRCLE"
+  },
+  {
+    "shapeType": "RECTANGLE",
+    "shapeState": {
+      "snip": {
+        "isEnabled": true,
+        "verticalSnipPosition": "top",
+        "horizontalSnipPosition": "right",
+        "snipSize": 20
+      }
+    }
+  },
+  {
+    "shapeType": "ROUNDED_RECTANGLE",
+    "shapeState": {
+      "cornerRadius": {
+        "radiusTopLeft": 25,
+        "radiusTopRight": 25,
+        "radiusBottomLeft": 25,
+        "radiusBottomRight": 25
+      }
+    }
+  },
+  {
+    "shapeType": "TRIANGLE",
+    "shapeState": {
+      "triangle": {
+        "isEnabled": true,
+        "tipPosition": 50
+      }
+    }
+  },
+  {
+    "shapeType": "RIGHTANGLEDTRIANGLE"
+  },
+  {
+    "shapeType": "ARROW",
+    "shapeState": {
+      "arrow": {
+        "isEnabled": true,
+        "direction": "right",
+        "arrowheadSize": 50,
+        "stemWidth": 25
+      }
+    }
+  },
+  {
+    "shapeType": "PENTAGON"
+  },
+  {
+    "shapeType": "HEXAGON",
+    "shapeState": {
+      "hexagon": {
+        "isEnabled": true,
+        "slant": 25
+      }
+    }
+  },
+  {
+    "shapeType": "HEART"
+  },
+  {
+    "shapeType": "CHEVRONARROW",
+    "shapeState": {
+      "arrow": {
+        "direction": "left"
+      },
+      "chevronArrow": {
+        "isEnabled": true,
+        "angle": 90
+      }
+    }
+  },
+  {
+    "shapeType": "OCTAGON",
+    "shapeState": {
+      "octagon": {
+        "isEnabled": true,
+        "snipSize": 33
+      }
+    }
+  },
+  {
+    "shapeType": "PARALLELOGRAM",
+    "shapeState": {
+      "parallelogram": {
+        "isEnabled": true,
+        "slant": 33
+      }
+    }
+  },
+  {
+    "shapeType": "PENTAGONARROW",
+    "shapeState": {
+      "arrow": {
+        "isEnabled": true,
+        "direction": "right",
+        "arrowheadSize": 80
+      }
+    }
+  },
+  {
+    "shapeType": "PILL"
+  },
+  {
+    "shapeType": "SPEECHBUBBLE",
+    "shapeState": {
+      "speechBubble": {
+        "isEnabled": true,
+        "chatBubbleHeight": 80,
+        "tailPosition": "bottom-left",
+        "tailAngle": 12.5
+      },
+      "cornerRadius": {
+        "radiusTopLeft": 10
+      }
+    }
+  },
+  {
+    "shapeType": "TRAPEZOID",
+    "shapeState": {
+      "trapezoid": {
+        "isEnabled": true,
+        "slant": 33
+      }
+    }
+  }
+]

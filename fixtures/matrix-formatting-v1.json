@@ -1,0 +1,330 @@
+{
+  "contractId": "matrix-formatting-v1-20261114",
+  "evidence": {
+    "basis": "User-supplied source investigation; revisions were not independently checked out during this update.",
+    "investigationSha256": "8fd796dd69ebd7a24ff301c04a32e4bc0969a822055f890c8e91d4a81ad30a2e",
+    "ruleSeed": "Complete prior bundled native negative-variance record, sanitized and appearance disabled; NOT a byte-exact copy of DEFAULT_RULE_PROPERTIES at the investigated revision.",
+    "conditionSeed": "Complete condition from the same prior bundled record; inactive role fields are preserved, not interpreted as active dependencies.",
+    "columnStyle": "Portable full white modal preset reconstructed from bundled F16 property table; borderSides uses schema-valid [] for new records; existing null is preserved.",
+    "rendering": "Not verified in any destination by this update"
+  },
+  "columnStyle": {
+    "presetType": "white",
+    "background": "transparent",
+    "textColor": "black",
+    "fillColor": "white",
+    "fillType": "none",
+    "fontSize": 12,
+    "borderStyle": "solid",
+    "borderColor": "#A6A6A6",
+    "borderWidth": 1,
+    "borderSides": []
+  },
+  "rowHeight": {
+    "default_row_height": 26,
+    "sub_total_row_height": 26,
+    "custom_row_height": {
+      "16017913890930171270": 26
+    },
+    "row_level_height": []
+  },
+  "ruleSeed": {
+    "actionDotMidPercentage": 50,
+    "actionTargetValues": [],
+    "applyBackgroundColor": false,
+    "applyClassificationToCharts": true,
+    "applyTextColor": false,
+    "applyTextColorForBubble": false,
+    "autoFontColor": false,
+    "background": "#FEE4E2",
+    "basedOn": "0",
+    "basedOnMeasureName": "",
+    "bold": false,
+    "bubbleBasedOn": "absolute_variance",
+    "bubbleColor": "#0881c7",
+    "bubbleOverlay": true,
+    "classificationPosition": "left",
+    "classificationType": "icon",
+    "color": "#B42318",
+    "colorCodeBasedOn": "",
+    "colorCodeColorFor": "font",
+    "colorOnly": false,
+    "colorScaleApplyTo": "seq",
+    "colorScaleColorFor": "font",
+    "colorScheme": {
+      "colors": [
+        "#d0e1f2",
+        "#94c4df",
+        "#4a98c9",
+        "#1764ab",
+        "#08306b"
+      ],
+      "maxColor": "green",
+      "middleColor": "blue",
+      "minColor": "red",
+      "numberOfRanges": 5,
+      "selectedColorScheme": "Blues"
+    },
+    "columnRuleFor": "both",
+    "columnRuleType": "default",
+    "conditionalOperator": "or",
+    "customIconBase64Value": "",
+    "customIconName": "",
+    "displayName": "Rule",
+    "enableCustom": false,
+    "enabled": false,
+    "excludeColumnTotal": false,
+    "excludeRowTotal": false,
+    "gradientColorMax": "#41A4FF",
+    "gradientColorMin": "#a0d1ff",
+    "gradientPlacement": "left",
+    "gradientValueMax": 0,
+    "gradientValueMin": 0,
+    "hatched": false,
+    "hatchedLineColor": "#DDDDDD",
+    "hideCell": false,
+    "highlightedColumnMembers": [],
+    "highlightedMeasure": "0",
+    "highlightedMeasureName": "",
+    "highlightedRowMembers": [],
+    "icon": "up",
+    "iconColor": "#e66c37",
+    "iconGroupName": "accept",
+    "iconGroupValueType": "percent",
+    "iconGroupValues": [],
+    "iconPosition": "left",
+    "iconType": "icon",
+    "impactChartElements": [
+      {
+        "label": "chart",
+        "value": "chart"
+      }
+    ],
+    "includeNull": false,
+    "invertColor": false,
+    "isCustomIcon": false,
+    "isGradientBubble": false,
+    "isIconGroupAltered": false,
+    "isIconPresent": false,
+    "isLeftAlignIcon": true,
+    "isTextGroupAltered": false,
+    "italic": false,
+    "lineColor": "#666666",
+    "lineStyle": 1,
+    "linkIcon": true,
+    "name": "rule",
+    "negativeColor": "#a0d1ff",
+    "newRule": false,
+    "positiveColor": "#41A4FF",
+    "ranking": {
+      "basedOn": "",
+      "column_measure_id": "",
+      "rank_by": {
+        "Value": 5
+      },
+      "rank_type": "Top",
+      "row_dimension_id": ""
+    },
+    "rankingBuckets": [],
+    "rankingBucketsValueType": "percent",
+    "ratingDetailPosition": "none",
+    "ratingIcons": [
+      "cross",
+      "alert",
+      "tick"
+    ],
+    "ratingTextColor": "#e66c37",
+    "reverseRating": false,
+    "ruleFor": "both",
+    "ruleLogs": [],
+    "ruleType": "rule",
+    "selectedColumnMeasures": [],
+    "shapeColor": "#e66c37",
+    "shapeCount": 5,
+    "targetValueType": "percent",
+    "targetValues": [],
+    "text": "",
+    "textBackground": false,
+    "textColorFor": "font",
+    "textDetailPosition": "none",
+    "textGroupName": "segmentation",
+    "textGroupValueType": "percent",
+    "textGroupValues": [],
+    "underline": false,
+    "underlineColor": "#000000",
+    "webUrlBasedOn": ""
+  },
+  "conditionSeed": {
+    "aggregationType": "includes",
+    "basedOn": "0",
+    "calculationMeasure1": "0",
+    "calculationMeasure2": "0",
+    "calculationOperator": "+",
+    "calculationType1": "value",
+    "calculationType2": "measure",
+    "calculationValue1": 0,
+    "calculationValue2": 100,
+    "comparisonDimension": "",
+    "comparisonMeasure": "0",
+    "comparisonText": "",
+    "comparisonValue": 0,
+    "conditionType": "singleMeasure",
+    "count": 10,
+    "dateBoundary": "none",
+    "dateCompareType": "custom",
+    "dimension": "",
+    "dimensionMembers": [],
+    "dynamicOperation": "includes",
+    "from": 0,
+    "fromMeasure": "0",
+    "gapRange": 0,
+    "isAllSelected": false,
+    "isSkipOffSet": false,
+    "measureMembers": [
+      {
+        "displayName": "All",
+        "key": "allSelected",
+        "value": "allSelected"
+      }
+    ],
+    "measureMembersObj": {
+      "allSelected": true
+    },
+    "name": "Condition",
+    "offSetRange": 0,
+    "operator": "<",
+    "periodOperator": ">",
+    "to": 100,
+    "toMeasure": "0",
+    "valueType": "static",
+    "variableDateRange": "",
+    "variableMultiSelectMember": "default",
+    "variablePeriodRange": 0,
+    "variablePeriodType": "day"
+  },
+  "patchTypes": {
+    "numberFormatting": {
+      "enabled": "boolean",
+      "ibcsformat": "boolean",
+      "enablePrefixAsUnit": "boolean",
+      "enableSuffixAsUnit": "boolean",
+      "decimalSeperator": "string",
+      "thousandSeperator": "string",
+      "noOfDecimal": "integer",
+      "noOfDecimalPercent": "integer",
+      "prefix": "string",
+      "suffix": "string",
+      "positiveValueColor": "color",
+      "positiveValueFormat": [
+        "x",
+        "+x",
+        "x+"
+      ],
+      "negativeValueColor": "color",
+      "negativeValueFormat": [
+        "-x",
+        "x-",
+        "(x)",
+        "x"
+      ],
+      "neutralValueColor": "color",
+      "showNegativeSign": "boolean",
+      "showZeroAs": [
+        "blank",
+        "zero",
+        "hyphen",
+        "custom"
+      ],
+      "customZeroText": "string",
+      "showNullAs": [
+        "blank",
+        "zero",
+        "hyphen",
+        "custom"
+      ],
+      "customNullText": "string",
+      "customizeScalingLabel": "boolean",
+      "scalingFactor": [
+        "none",
+        "auto",
+        "autoFixed",
+        "1000",
+        "1000000",
+        "1000000000",
+        "1000000000000"
+      ],
+      "showScalingUnit": "boolean",
+      "semanticFormatting": "boolean",
+      "formatType": [
+        "default",
+        "ibcs",
+        "flexible",
+        "custom"
+      ],
+      "showPercentageSymbol": "boolean",
+      "scalingTextType": [
+        "Short",
+        "Medium",
+        "Full"
+      ],
+      "thousands": "string",
+      "millions": "string",
+      "billions": "string",
+      "trillion": "string",
+      "thousandsMediumText": "string",
+      "millionsMediumText": "string",
+      "billionsMediumText": "string",
+      "trillionMediumText": "string",
+      "thousandsFullText": "string",
+      "millionsFullText": "string",
+      "billionsFullText": "string",
+      "trillionFullText": "string",
+      "displayPrefixAsUnit": "string",
+      "displaySuffixAsUnit": "string",
+      "showDisplayUnit": "boolean",
+      "showTooltipAsUnit": "boolean",
+      "showTooltipDecimal": "boolean",
+      "tooltipDecimal": "string",
+      "suppressCellErrors": "boolean",
+      "customErrorText": "string",
+      "autoLocaleNumberFormat": "boolean"
+    },
+    "gridStyles": {
+      "horizontalMinorGridLines": [
+        "solid",
+        "dotted",
+        "off"
+      ],
+      "verticalMinorGridLines": [
+        "solid",
+        "off"
+      ],
+      "horizontalMinorGridColor": "color",
+      "verticalMinorGridColor": "color",
+      "headerGridLines": "boolean",
+      "gridBackground": "color",
+      "indentSpacing": "number",
+      "majorGridLines": [
+        "single",
+        "double",
+        "off"
+      ],
+      "gridBorderLineColor": "color",
+      "gridBorderLineWidth": "number"
+    },
+    "themeColors": {
+      "enableRowHover": [
+        "rowHover",
+        "rowAlternate",
+        "rowAlternateContrast",
+        "rowAlternateFlashy",
+        "off"
+      ],
+      "rowOddColor": "color",
+      "rowEvenColor": "color",
+      "positiveColor": "color",
+      "negativeColor": "color",
+      "enableVarianceColor": "boolean"
+    }
+  }
+}

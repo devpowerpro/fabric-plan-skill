@@ -1,0 +1,192 @@
+{
+  "kpiControls": {
+    "instanceId": null,
+    "layout": 1,
+    "previousLayout": 1,
+    "preset": 0,
+    "appliedFetchedPresetId": null,
+    "kpiFitMode": "Content",
+    "validPresetMeta": {
+      "preset": null,
+      "width": null,
+      "height": null,
+      "isSimplePreset": null
+    },
+    "isLayoutEdited": true,
+    "isResponsiveTrellis": true,
+    "title": {
+      "enabled": true,
+      "style": {
+        "fontSize": 14,
+        "fontWeight": "bold",
+        "color": "#333333"
+      },
+      "prefix": {
+        "enabled": true,
+        "value": ""
+      },
+      "suffix": {
+        "enabled": true,
+        "value": ""
+      }
+    },
+    "total": {
+      "enabled": true,
+      "showBlankAsLabel": true,
+      "showCategoryLabel": true,
+      "value": {
+        "measure": null,
+        "type": "total",
+        "isDefaultType": true
+      },
+      "style": {
+        "fontSize": 18,
+        "fontWeight": "bold",
+        "color": "#333333"
+      },
+      "averagePrefix": null
+    },
+    "variance": {
+      "showVariance": false,
+      "value": true,
+      "percentage": true,
+      "treatZeroAsNeutral": false,
+      "icon": {
+        "enabled": true,
+        "variableSize": false,
+        "positiveIcon": {
+          "value": "up",
+          "isCustomIcon": false,
+          "customIconValue": ""
+        },
+        "negativeIcon": {
+          "value": "down",
+          "isCustomIcon": false,
+          "customIconValue": ""
+        },
+        "neutralIcon": {
+          "value": "minus",
+          "isCustomIcon": false,
+          "customIconValue": ""
+        }
+      },
+      "colors": {
+        "positive": "",
+        "negative": "",
+        "neutral": ""
+      },
+      "style": {
+        "fontSize": 15,
+        "fontWeight": "normal",
+        "color": "#333333"
+      },
+      "border": {
+        "width": 1,
+        "position": "none",
+        "measureKey": ""
+      },
+      "accentBar": {
+        "width": 1,
+        "position": "none",
+        "measureKey": ""
+      },
+      "showVarianceColorAccent": false,
+      "varianceDisplay": "percentage",
+      "showVarianceColorBorder": false
+    },
+    "gridLayout": [],
+    "gridContainer": {
+      "width": 460,
+      "height": 75
+    },
+    "isLayoutModified": false,
+    "groupID": "NO_GROUP",
+    "hasStateChange": false,
+    "minimalDimension": {
+      "height": null,
+      "width": null
+    },
+    "isMinimalView": false,
+    "minimalViewConfig": "actual",
+    "isDefaultMinimalViewConfig": true,
+    "individualKpiControls": {},
+    "measures": {
+      "varianceMeasures": [],
+      "variancePercentageMeasures": []
+    },
+    "isSimplePreset": true,
+    "isAutoLayout": true,
+    "isDefaultPreset": true,
+    "isDefaultLayout": true,
+    "responsiveFontSize": true,
+    "prevResponsiveFontSize": true,
+    "bgImage": {
+      "backgroundFill": "contain",
+      "opacity": 15,
+      "showBackground": false,
+      "customBackgroundImage": "",
+      "customBackgroundImageName": ""
+    },
+    "maxEditedVarianceFontSize": null,
+    "DEFAULT_KPI_HEIGHT_MIGRATION_FLAG": true,
+    "groups": {},
+    "framesMapping": {},
+    "individualImageMeta": {},
+    "coreContainer": {
+      "width": 460,
+      "height": 101
+    },
+    "isNewVariancePreset1": true,
+    "tooltip": {
+      "enabled": true,
+      "absolute": true,
+      "relative": true,
+      "config": []
+    }
+  },
+  "numberFormatting": {
+    "enabled": false,
+    "ibcsformat": false,
+    "thousandSeparator": ",",
+    "decimalSeparator": ".",
+    "noOfDecimal": 1,
+    "noOfDecimalPercent": 2,
+    "prefix": "",
+    "suffix": "",
+    "scalingFactor": "autoFixed",
+    "showScalingUnit": true,
+    "semanticFormatting": true,
+    "showValueColor": false,
+    "positiveValueColor": "#82ba00",
+    "positiveValueFormat": "x",
+    "negativeValueColor": "#ff000a",
+    "negativeValueFormat": "-x",
+    "showNullAs": "hidden",
+    "showZeroAs": "0",
+    "includeBetweenSign": false,
+    "customFormat": {},
+    "isIndividual": false,
+    "isCustomUnitLabel": false,
+    "shortUnitText": {
+      "thousands": "k",
+      "billions": "b",
+      "millions": "m",
+      "trillions": "t",
+      "percentagePoints": "pp",
+      "basisPoints": "bps"
+    },
+    "longUnitText": {
+      "thousands": "in Thousands",
+      "billions": "in Billions",
+      "millions": "in Millions",
+      "trillions": "in Trillions"
+    },
+    "kpiTotalType": "native",
+    "displayScalingIn": "title",
+    "tableFormatType": "auto",
+    "showInPP": false,
+    "showInBPS": false,
+    "enforceSign": false,
+    "enableTextCategoryNF": false
+  }
+}

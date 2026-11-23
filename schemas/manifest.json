@@ -1,0 +1,118 @@
+{
+  "retrievedAt": "2026-11-13T04:11:35.313Z",
+  "schemas": [
+    {
+      "url": "https://developer.microsoft.com/json-schemas/fabric/item/plan/definition/Definition/1.0.0/schema.json",
+      "file": "829c1d2b3890c92b.json",
+      "sha256": "e3b5f51d0197249ce2a639ec70094705eb6529602bf939294ff5ac0ae4373926",
+      "status": "downloaded"
+    },
+    {
+      "url": "https://developer.microsoft.com/json-schemas/fabric/item/plan/definition/PlanProperties/1.0.0/schema.json",
+      "file": "8215f606191fa52a.json",
+      "sha256": "184257b12cd46e3a47a039615a091e144e50f29a6b82b48cce0bf391a44728cf",
+      "status": "downloaded"
+    },
+    {
+      "url": "https://developer.microsoft.com/json-schemas/fabric/item/plan/definition/Planning/Properties/1.0.0/schema.json",
+      "file": "3e612f41460c55b1.json",
+      "sha256": "fe07fe989739604c42f2d0b81e5a6122b7d8b9ccddde7ddd0dec8571d0f3bcea",
+      "status": "downloaded"
+    },
+    {
+      "url": "https://developer.microsoft.com/json-schemas/fabric/item/plan/definition/Planning/DataInput/1.0.0/schema.json",
+      "file": "7450377b46c0dc6c.json",
+      "sha256": "70e564d066f0317141cc2fdba2854e6d2ae8a8ecc31f2e9458d2fe0c3547bbd1",
+      "status": "downloaded"
+    },
+    {
+      "url": "https://developer.microsoft.com/json-schemas/fabric/item/plan/definition/PowerTable/Source/1.0.0/schema.json",
+      "file": "b9ef4a60a68efead.json",
+      "sha256": "195e47aab16706f9050cf47ceed66692c5d37fe842e8c2185ae47e04708ba3bc",
+      "status": "downloaded"
+    },
+    {
+      "url": "https://developer.microsoft.com/json-schemas/fabric/item/plan/definition/PowerTable/ColumnConfigs/1.0.0/schema.json",
+      "file": "30b09487d79e487c.json",
+      "sha256": "973a61f50441b463a06132403d2f005a6ed933f64dbcce16af8eeccd291c49c9",
+      "status": "downloaded"
+    },
+    {
+      "url": "https://developer.microsoft.com/json-schemas/fabric/item/plan/definition/PowerTable/Properties/1.0.0/schema.json",
+      "file": "bed490a2dd8ae0d0.json",
+      "sha256": "10db332db52c5215513bb37dca4fa7de1ecc84b1dd670ae1235b4d55b6652418",
+      "status": "downloaded"
+    },
+    {
+      "url": "https://developer.microsoft.com/json-schemas/fabric/common/connectionReference/1.0.0/schema.json",
+      "file": "a14a3fc9b44a92aa.json",
+      "sha256": "069c14605c821e2b5fdf74fccd02c6a837a7f8ed1a7a3b5f85bac1875577ed43",
+      "status": "downloaded"
+    },
+    {
+      "url": "https://developer.microsoft.com/json-schemas/fabric/common/itemReference/1.0.0/schema.json",
+      "file": "f2eaccad769a6000.json",
+      "sha256": "92242caf1406298ca5b6ddac827677da7b0975f74e9d129b823712263a4dadb5",
+      "status": "downloaded"
+    },
+    {
+      "url": "https://developer.microsoft.com/json-schemas/fabric/common/auxiliaryTypes/1.0.0/schema.json",
+      "file": "7a2f731d47ca76d0.json",
+      "sha256": "52533dbaa0635ea25199096bf9448b72eccb7d57962afe56d716e90e784be564",
+      "status": "downloaded"
+    },
+    {
+      "url": "https://developer.microsoft.com/json-schemas/fabric/common/variableReference/1.0.0/schema.json",
+      "file": "ff82c275ce99c8ef.json",
+      "sha256": "82cf6feeb3151b2ee16a173a1bad52a4c978dc0f8ea911ba1eb02a9720b8f7fc",
+      "status": "downloaded"
+    },
+    {
+      "url": "https://developer.microsoft.com/json-schemas/fabric/item/plan/definition/PowerTable/Settings/1.0.0/schema.json",
+      "file": "b18e483eabb58258.json",
+      "sha256": "b5a46957e2f4bd7a44f87c55551527b965786fa0225d771914290d51d3b7f3b3",
+      "status": "downloaded"
+    },
+    {
+      "url": "https://developer.microsoft.com/json-schemas/fabric/item/plan/definition/Planning/ModelTemplate/1.0.0/schema.json",
+      "status": "unavailable",
+      "reason": "HTTP 404"
+    },
+    {
+      "url": "https://developer.microsoft.com/json-schemas/fabric/item/plan/definition/Planning/Writeback/1.0.0/schema.json",
+      "file": "3ed5b6e0001cd41e.json",
+      "sha256": "aff4f05aea4c195fd93a79baf9efe3a0f379b115d991e23d64176c0b47bcd14e",
+      "status": "downloaded"
+    },
+    {
+      "url": "https://developer.microsoft.com/json-schemas/fabric/item/plan/definition/Planning/InsertRows/1.0.0/schema.json",
+      "file": "ede5e93fa4c39ab0.json",
+      "sha256": "41ecbef3c5d58f0bcafda013a55c9ef9b6ebc2505a237d47271e0b9df265a707",
+      "status": "downloaded"
+    },
+    {
+      "url": "https://developer.microsoft.com/json-schemas/fabric/item/plan/definition/ConnectedPlanning/Infobridge/1.0.0/schema.json",
+      "file": "12a41184d57a59fe.json",
+      "sha256": "501ef2d5e201720110748070eb1b3b96f4ea895628e501a01d8404a69c888cc0",
+      "status": "downloaded"
+    },
+    {
+      "url": "https://developer.microsoft.com/json-schemas/fabric/item/plan/definition/cube/1.0.0/schema.json",
+      "file": "9102a7cceb308853.json",
+      "sha256": "bace273f59c09d521f2fb701c6ed37424bc1ddf1cb2abb15a8931020246cc06a",
+      "status": "downloaded"
+    },
+    {
+      "url": "https://developer.microsoft.com/json-schemas/fabric/item/plan/definition/Sheets/Sheet/1.0.0/schema.json",
+      "file": "a778c78d57d29f3f.json",
+      "sha256": "4856f13b02fdb7e3fd5abb0b5643653a1922a514d87c96ee7d7f35546c635d15",
+      "status": "downloaded"
+    },
+    {
+      "url": "https://developer.microsoft.com/json-schemas/fabric/item/plan/definition/Sheets/CommentSettings/1.0.0/schema.json",
+      "file": "061b3d23cc81d845.json",
+      "sha256": "b1043964ce814d51d3f6cd8509545f96fd357a8b275c8c0bb57480bf1e8fefb6",
+      "status": "downloaded"
+    }
+  ]
+}

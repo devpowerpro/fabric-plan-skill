@@ -1,0 +1,494 @@
+{
+  "id": "05-currency-risk",
+  "title": "Risk Adjusted Currency Outlook",
+  "prompt": "Build a 2026 sales outlook with three connected workspaces. First, let regional teams maintain monthly local-currency estimates starting from the current forecast. Second, reuse those estimates and let finance add risks, opportunities and an exchange-rate sensitivity to calculate a risk-adjusted USD outlook. Third, roll the USD results into a quarterly executive review with baseline comparisons, negative-impact flags and commentary. Changes must flow from the original inputs rather than copied values.",
+  "spec": {
+    "name": "Risk Adjusted Currency Outlook",
+    "sheets": [
+      {
+        "name": "Local Sales Estimate",
+        "header": "Maintain monthly local-currency estimates by region and product. Estimates start from the current forecast and remain editable. Compare local amounts within each region.",
+        "rows": [
+          "DimRegion[Country]",
+          "DimRegion[RegionName]",
+          "DimProduct[Category]",
+          "DimProduct[ProductName]"
+        ],
+        "columns": [
+          "DimMonth[Year]",
+          "DimMonth[Quarter]",
+          "DimMonth[MonthName]"
+        ],
+        "measures": [
+          {
+            "kind": "Native",
+            "key": "current",
+            "label": "Current Forecast LC",
+            "source": "DeploymentAudit[Curr FC LC Amt]",
+            "aggregation": "Sum"
+          },
+          {
+            "kind": "Native",
+            "key": "actual",
+            "label": "Actual Sales LC",
+            "source": "DeploymentAudit[AC LC Amt]",
+            "aggregation": "Sum"
+          },
+          {
+            "kind": "DataInput",
+            "key": "estimate",
+            "label": "Local Estimate LC",
+            "default_value": {
+              "Measure": "current"
+            },
+            "aggregation": "Sum",
+            "distribute": true,
+            "min_value": {
+              "Static": 0
+            }
+          }
+        ],
+        "dimensionKeyGroups": [
+          {
+            "leaf": "DimRegion[RegionName]",
+            "key": "DimRegion[RegionID]",
+            "ancestors": [
+              "DimRegion[Country]"
+            ],
+            "unique": true,
+            "determinesAncestors": true,
+            "evidence": "Current semantic model master ID and relationship key: DimRegion[RegionID]; descriptive attributes belong to the same entity record."
+          },
+          {
+            "leaf": "DimProduct[ProductName]",
+            "key": "DimProduct[ProductID]",
+            "ancestors": [
+              "DimProduct[Category]"
+            ],
+            "unique": true,
+            "determinesAncestors": true,
+            "evidence": "Current semantic model master ID and relationship key: DimProduct[ProductID]; descriptive attributes belong to the same entity record."
+          }
+        ]
+      },
+      {
+        "name": "Currency and Risk Outlook",
+        "header": "Reuse the local estimate, enter opportunity and risk amounts, and model a currency-rate multiplier. Convert each region and month to USD before aggregating.",
+        "rows": [
+          "DimRegion[Country]",
+          "DimRegion[RegionName]",
+          "DimProduct[Category]",
+          "DimProduct[ProductName]"
+        ],
+        "columns": [
+          "DimMonth[Year]",
+          "DimMonth[Quarter]",
+          "DimMonth[MonthName]"
+        ],
+        "measures": [
+          {
+            "kind": "Native",
+            "key": "fx",
+            "label": "Current Forecast FX",
+            "source": "DeploymentAudit[Curr FC Exch Rate]",
+            "aggregation": "AverageLeaf"
+          },
+          {
+            "kind": "DataInput",
+            "key": "opportunity",
+            "label": "Opportunity LC",
+            "default_value": {
+              "Static": 0
+            },
+            "aggregation": "Sum",
+            "distribute": true,
+            "min_value": {
+              "Static": 0
+            }
+          },
+          {
+            "kind": "DataInput",
+            "key": "risk",
+            "label": "Risk LC",
+            "default_value": {
+              "Static": 0
+            },
+            "aggregation": "Sum",
+            "distribute": true,
+            "min_value": {
+              "Static": 0
+            }
+          },
+          {
+            "kind": "DataInput",
+            "key": "multiplier",
+            "label": "FX Multiplier",
+            "default_value": {
+              "Static": 1
+            },
+            "aggregation": "AverageLeaf",
+            "distribute": true,
+            "min_value": {
+              "Measure": "multiplierMinimum"
+            },
+            "max_value": {
+              "Measure": "multiplierMaximum"
+            }
+          },
+          {
+            "kind": "Formula",
+            "key": "multiplierMinimum",
+            "label": "FX Multiplier Minimum",
+            "formula": "0.5",
+            "aggregation": "Formula",
+            "visible": false
+          },
+          {
+            "kind": "Formula",
+            "key": "multiplierMaximum",
+            "label": "FX Multiplier Maximum",
+            "formula": "1.5",
+            "aggregation": "Formula",
+            "visible": false
+          }
+        ],
+        "dimensionKeyGroups": [
+          {
+            "leaf": "DimRegion[RegionName]",
+            "key": "DimRegion[RegionID]",
+            "ancestors": [
+              "DimRegion[Country]"
+            ],
+            "unique": true,
+            "determinesAncestors": true,
+            "evidence": "Current semantic model master ID and relationship key: DimRegion[RegionID]; descriptive attributes belong to the same entity record."
+          },
+          {
+            "leaf": "DimProduct[ProductName]",
+            "key": "DimProduct[ProductID]",
+            "ancestors": [
+              "DimProduct[Category]"
+            ],
+            "unique": true,
+            "determinesAncestors": true,
+            "evidence": "Current semantic model master ID and relationship key: DimProduct[ProductID]; descriptive attributes belong to the same entity record."
+          }
+        ]
+      },
+      {
+        "name": "Quarterly Executive Outlook",
+        "header": "Review baseline and risk-adjusted USD estimates by region and quarter. Add an executive explanation for changes; values come from the monthly currency and risk sheet.",
+        "rows": [
+          "DimRegion[Country]",
+          "DimRegion[RegionName]"
+        ],
+        "columns": [
+          "DimMonth[Year]",
+          "DimMonth[Quarter]"
+        ],
+        "measures": [
+          {
+            "kind": "Native",
+            "key": "actual",
+            "label": "Actual Sales USD",
+            "source": "DeploymentAudit[Revenue USD]",
+            "aggregation": "Sum"
+          }
+        ],
+        "dimensionKeyGroups": [
+          {
+            "leaf": "DimRegion[RegionName]",
+            "key": "DimRegion[RegionID]",
+            "ancestors": [
+              "DimRegion[Country]"
+            ],
+            "unique": true,
+            "determinesAncestors": true,
+            "evidence": "Current semantic model master ID and relationship key: DimRegion[RegionID]; descriptive attributes belong to the same entity record."
+          }
+        ]
+      }
+    ],
+    "dashboards": [
+      {
+        "name": "Local Sales Estimate Dashboard",
+        "owner": "Local Sales Estimate",
+        "title": "Local Sales Estimate",
+        "description": "Maintain monthly local-currency estimates by region and product. Estimates start from the current forecast and remain editable. Compare local amounts within each region.",
+        "slicers": [
+          {
+            "field": "DimMonth[Year]",
+            "values": [
+              2026
+            ]
+          },
+          {
+            "field": "DimRegion[Country]"
+          },
+          {
+            "field": "DimRegion[RegionName]"
+          },
+          {
+            "field": "DimProduct[Category]"
+          }
+        ],
+        "cards": [],
+        "charts": [
+          {
+            "category": "DimRegion[RegionName]",
+            "field": "DeploymentAudit[Curr FC LC Amt]",
+            "label": "Local Sales Estimate by RegionName"
+          },
+          {
+            "category": "DimProduct[Category]",
+            "field": "DeploymentAudit[Curr FC LC Amt]",
+            "label": "Local Sales Estimate by Category"
+          }
+        ],
+        "gridHeight": 750
+      },
+      {
+        "name": "Currency and Risk Outlook Dashboard",
+        "owner": "Currency and Risk Outlook",
+        "title": "Currency and Risk Outlook",
+        "description": "Reuse the local estimate, enter opportunity and risk amounts, and model a currency-rate multiplier. Convert each region and month to USD before aggregating.",
+        "slicers": [
+          {
+            "field": "DimMonth[Year]",
+            "values": [
+              2026
+            ]
+          },
+          {
+            "field": "DimRegion[Country]"
+          },
+          {
+            "field": "DimRegion[RegionName]"
+          },
+          {
+            "field": "DimProduct[Category]"
+          }
+        ],
+        "cards": [],
+        "charts": [
+          {
+            "category": "DimRegion[RegionName]",
+            "field": "DeploymentAudit[Curr FC LC Amt]",
+            "label": "Currency and Risk Outlook by RegionName"
+          },
+          {
+            "category": "DimProduct[Category]",
+            "field": "DeploymentAudit[Curr FC LC Amt]",
+            "label": "Currency and Risk Outlook by Category"
+          }
+        ],
+        "gridHeight": 750
+      },
+      {
+        "name": "Quarterly Executive Outlook Dashboard",
+        "owner": "Quarterly Executive Outlook",
+        "title": "Quarterly Executive Outlook",
+        "description": "Review baseline and risk-adjusted USD estimates by region and quarter. Add an executive explanation for changes; values come from the monthly currency and risk sheet.",
+        "slicers": [
+          {
+            "field": "DimMonth[Year]",
+            "values": [
+              2026
+            ]
+          },
+          {
+            "field": "DimRegion[Country]"
+          },
+          {
+            "field": "DimRegion[RegionName]"
+          }
+        ],
+        "cards": [],
+        "charts": [
+          {
+            "category": "DimRegion[RegionName]",
+            "field": "DeploymentAudit[Revenue USD]",
+            "label": "Quarterly Executive Outlook by RegionName"
+          },
+          {
+            "category": "DimRegion[Country]",
+            "field": "DeploymentAudit[Revenue USD]",
+            "label": "Quarterly Executive Outlook by Country"
+          }
+        ],
+        "gridHeight": 750
+      }
+    ],
+    "home": {
+      "show": true,
+      "roleId": "__everyone__",
+      "order": 1,
+      "blocks": [
+        {
+          "key": "intro",
+          "type": "text",
+          "title": "Risk Adjusted Currency Outlook",
+          "description": "Build a 2026 sales outlook with three connected workspaces. First, let regional teams maintain monthly local-currency estimates starting from the current forecast. Second, reuse those estimates and let finance add risks, opportunities and an exchange-rate sensitivity to calculate a risk-adjusted USD outlook. Third, roll the USD results into a quarterly executive review with baseline comparisons, negative-impact flags and commentary. Changes must flow from the original inputs rather than copied values."
+        },
+        {
+          "key": "workflow",
+          "type": "text",
+          "title": "Start here",
+          "description": "Use the dashboards to select your planning scope, review the charts and work in the grid below. Local Sales Estimate Dashboard Then Currency and Risk Outlook Dashboard Then Quarterly Executive Outlook Dashboard."
+        },
+        {
+          "key": "sheets",
+          "type": "preview-cards",
+          "columns": 4
+        }
+      ],
+      "rows": [
+        {
+          "blocks": [
+            "intro"
+          ]
+        },
+        {
+          "blocks": [
+            "workflow"
+          ]
+        },
+        {
+          "blocks": [
+            "sheets"
+          ]
+        }
+      ]
+    }
+  },
+  "post": {
+    "comparisons": [
+      {
+        "owner": "Local Sales Estimate",
+        "left": "Local Estimate LC",
+        "right": "Current Forecast LC"
+      },
+      {
+        "owner": "Currency and Risk Outlook",
+        "left": "Risk Adjusted USD",
+        "right": "Baseline Estimate USD"
+      },
+      {
+        "owner": "Quarterly Executive Outlook",
+        "left": "Risk Adjusted USD",
+        "right": "Baseline Estimate USD"
+      }
+    ],
+    "steps": [
+      {
+        "sheet": "Currency and Risk Outlook",
+        "links": [
+          {
+            "label": "Local Estimate LC",
+            "sourceSheet": "Local Sales Estimate",
+            "sourceMeasure": "Local Estimate LC"
+          }
+        ],
+        "formulas": [
+          {
+            "label": "Baseline Estimate USD",
+            "expression": "${estimate} * ${fx}",
+            "symbols": {
+              "estimate": "Local Estimate LC",
+              "fx": "Current Forecast FX"
+            }
+          },
+          {
+            "label": "Risk Adjusted LC",
+            "expression": "${estimate} + ${opportunity} - ${risk}",
+            "symbols": {
+              "estimate": "Local Estimate LC",
+              "opportunity": "Opportunity LC",
+              "risk": "Risk LC"
+            }
+          },
+          {
+            "label": "Risk Adjusted USD",
+            "expression": "${adjusted} * ${fx} * ${multiplier}",
+            "symbols": {
+              "adjusted": "Risk Adjusted LC",
+              "fx": "Current Forecast FX",
+              "multiplier": "FX Multiplier"
+            }
+          },
+          {
+            "label": "Outlook Impact USD",
+            "expression": "${adjusted} - ${baseline}",
+            "symbols": {
+              "adjusted": "Risk Adjusted USD",
+              "baseline": "Baseline Estimate USD"
+            }
+          }
+        ],
+        "negative": [
+          "Outlook Impact USD"
+        ]
+      },
+      {
+        "sheet": "Quarterly Executive Outlook",
+        "links": [
+          {
+            "label": "Baseline Estimate USD",
+            "sourceSheet": "Currency and Risk Outlook",
+            "sourceMeasure": "Baseline Estimate USD"
+          },
+          {
+            "label": "Risk Adjusted USD",
+            "sourceSheet": "Currency and Risk Outlook",
+            "sourceMeasure": "Risk Adjusted USD"
+          }
+        ],
+        "formulas": [
+          {
+            "label": "Executive Impact USD",
+            "expression": "${adjusted} - ${baseline}",
+            "symbols": {
+              "adjusted": "Risk Adjusted USD",
+              "baseline": "Baseline Estimate USD"
+            }
+          }
+        ],
+        "commentary": "Executive Commentary",
+        "negative": [
+          "Executive Impact USD"
+        ]
+      }
+    ],
+    "periodFilters": {
+      "Local Sales Estimate": {
+        "field": "DimMonth[Year]",
+        "values": [
+          2026
+        ]
+      },
+      "Currency and Risk Outlook": {
+        "field": "DimMonth[Year]",
+        "values": [
+          2026
+        ]
+      },
+      "Quarterly Executive Outlook": {
+        "field": "DimMonth[Year]",
+        "values": [
+          2026
+        ]
+      }
+    }
+  },
+  "expected": {
+    "planningSheets": 3,
+    "dashboards": 3,
+    "comparisonCharts": 6,
+    "home": true
+  },
+  "normalizationNotes": [
+    "FX Multiplier: fractional min_value uses hidden formula 0.5; original stored units unchanged.",
+    "FX Multiplier: fractional max_value uses hidden formula 1.5; original stored units unchanged."
+  ],
+  "referenceScope": "Recreate business structure and v14 presentation with current IDs/data; not an export of existing reports."
+}

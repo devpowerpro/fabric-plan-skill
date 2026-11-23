@@ -1,0 +1,72 @@
+{
+  "name": "Illustrative Regional Plan",
+  "visual_id": "illustrative-planning-owner",
+  "catalog": {
+    "dimensions": [
+      {
+        "id": "Region[Name]",
+        "name": "Region",
+        "type": "VARCHAR"
+      }
+    ],
+    "columns": [
+      {
+        "id": "Month[Key]",
+        "name": "Month",
+        "type": "INTEGER"
+      }
+    ],
+    "measures": [
+      {
+        "id": "18446744073709551001",
+        "name": "Unit Forecast",
+        "alias": "Unit Forecast",
+        "type": "DOUBLE",
+        "dataType": "NUMERIC",
+        "aggregationType": "sum"
+      },
+      {
+        "id": "15000000000000000003",
+        "name": "Revenue Plan",
+        "alias": "Revenue Plan",
+        "type": "DOUBLE",
+        "dataType": "NUMERIC",
+        "aggregationType": "sum"
+      }
+    ]
+  },
+  "owner_columns": [
+    {
+      "id": 31,
+      "measureGuid": "18446744073709551001",
+      "name": "Unit Forecast",
+      "columnMeta": {
+        "measure_type": {
+          "Forecast": {}
+        }
+      }
+    },
+    {
+      "id": 42,
+      "measureGuid": "15000000000000000003",
+      "name": "Revenue Plan",
+      "columnMeta": {
+        "measure_type": {
+          "Formula": {}
+        }
+      }
+    }
+  ],
+  "include_measures": [
+    {
+      "id": "18446744073709551001",
+      "name": "Unit Forecast"
+    },
+    {
+      "id": "15000000000000000003",
+      "name": "Revenue Plan"
+    }
+  ],
+  "include_scenarios": [],
+  "honor_filters": true
+}

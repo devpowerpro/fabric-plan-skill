@@ -1,0 +1,237 @@
+{
+  "id": "03-expense-budget",
+  "title": "Department Expense Budget",
+  "prompt": "Create a 2026 expense-budget workspace by department, expense account and region. Start from prior-year USD spending with a 3% inflation assumption that managers can change, plus discretionary adjustments. Show the proposed budget, actual spend and remaining budget. Flag overspending and provide a monthly explanation field.",
+  "spec": {
+    "name": "Department Expense Budget",
+    "sheets": [
+      {
+        "name": "Department Expense Budget",
+        "header": "Build a monthly expense budget in USD from prior-year spend, inflation assumptions and discretionary adjustments. Negative remaining budget means actual spend has exceeded budget.",
+        "rows": [
+          "DimDepartment[DepartmentName]",
+          "DimAccount[AccountName]",
+          "DimRegion[RegionName]"
+        ],
+        "columns": [
+          "DimMonth[Year]",
+          "DimMonth[Quarter]",
+          "DimMonth[MonthName]"
+        ],
+        "measures": [
+          {
+            "kind": "Native",
+            "key": "actual",
+            "label": "Actual Expense USD",
+            "source": "DeploymentAudit[Expense USD]",
+            "aggregation": "Sum"
+          },
+          {
+            "kind": "Native",
+            "key": "prior",
+            "label": "Prior Year Expense USD",
+            "source": "DeploymentAudit[Prior-Year Expense]",
+            "aggregation": "Sum"
+          },
+          {
+            "kind": "DataInput",
+            "key": "inflation",
+            "label": "Inflation Assumption",
+            "default_value": {
+              "Static": 0.03
+            },
+            "aggregation": "AverageLeaf",
+            "distribute": true,
+            "min_value": {
+              "Static": 0
+            },
+            "max_value": {
+              "Measure": "inflationMaximum"
+            }
+          },
+          {
+            "kind": "DataInput",
+            "key": "adjust",
+            "label": "Discretionary Adjustment USD",
+            "default_value": {
+              "Static": 0
+            },
+            "aggregation": "Sum",
+            "distribute": true
+          },
+          {
+            "kind": "Formula",
+            "key": "budget",
+            "label": "Expense Budget USD",
+            "formula": "${prior} * (1 + ${inflation}) + ${adjust}",
+            "aggregation": "Sum"
+          },
+          {
+            "kind": "Formula",
+            "key": "remaining",
+            "label": "Remaining Budget USD",
+            "formula": "${budget} - ${actual}",
+            "aggregation": "Sum"
+          },
+          {
+            "kind": "Formula",
+            "key": "inflationMaximum",
+            "label": "Inflation Assumption Maximum",
+            "formula": "0.25",
+            "aggregation": "Formula",
+            "visible": false
+          }
+        ],
+        "dimensionKeyGroups": [
+          {
+            "leaf": "DimRegion[RegionName]",
+            "key": "DimRegion[RegionID]",
+            "ancestors": [],
+            "unique": true,
+            "determinesAncestors": true,
+            "evidence": "Current semantic model master ID and relationship key: DimRegion[RegionID]; descriptive attributes belong to the same entity record."
+          },
+          {
+            "leaf": "DimDepartment[DepartmentName]",
+            "key": "DimDepartment[DepartmentID]",
+            "ancestors": [],
+            "unique": true,
+            "determinesAncestors": true,
+            "evidence": "Current semantic model master ID and relationship key: DimDepartment[DepartmentID]; descriptive attributes belong to the same entity record."
+          },
+          {
+            "leaf": "DimAccount[AccountName]",
+            "key": "DimAccount[AccountID]",
+            "ancestors": [],
+            "unique": true,
+            "determinesAncestors": true,
+            "evidence": "Current semantic model master ID and relationship key: DimAccount[AccountID]; descriptive attributes belong to the same entity record."
+          }
+        ]
+      }
+    ],
+    "dashboards": [
+      {
+        "name": "Department Expense Budget Dashboard",
+        "owner": "Department Expense Budget",
+        "title": "Department Expense Budget",
+        "description": "Build a monthly expense budget in USD from prior-year spend, inflation assumptions and discretionary adjustments. Negative remaining budget means actual spend has exceeded budget.",
+        "slicers": [
+          {
+            "field": "DimMonth[Year]",
+            "values": [
+              2026
+            ]
+          },
+          {
+            "field": "DimDepartment[DepartmentName]"
+          },
+          {
+            "field": "DimAccount[AccountName]"
+          },
+          {
+            "field": "DimRegion[RegionName]"
+          }
+        ],
+        "cards": [],
+        "charts": [
+          {
+            "category": "DimDepartment[DepartmentName]",
+            "field": "DeploymentAudit[Expense USD]",
+            "label": "Department Expense Budget by DepartmentName"
+          },
+          {
+            "category": "DimAccount[AccountName]",
+            "field": "DeploymentAudit[Expense USD]",
+            "label": "Department Expense Budget by AccountName"
+          }
+        ],
+        "gridHeight": 750
+      }
+    ],
+    "home": {
+      "show": true,
+      "roleId": "__everyone__",
+      "order": 1,
+      "blocks": [
+        {
+          "key": "intro",
+          "type": "text",
+          "title": "Department Expense Budget",
+          "description": "Create a 2026 expense-budget workspace by department, expense account and region. Start from prior-year USD spending with a 3% inflation assumption that managers can change, plus discretionary adjustments. Show the proposed budget, actual spend and remaining budget. Flag overspending and provide a monthly explanation field."
+        },
+        {
+          "key": "workflow",
+          "type": "text",
+          "title": "Start here",
+          "description": "Use the dashboards to select your planning scope, review the charts and work in the grid below. Department Expense Budget Dashboard."
+        },
+        {
+          "key": "sheets",
+          "type": "preview-cards",
+          "columns": 4
+        }
+      ],
+      "rows": [
+        {
+          "blocks": [
+            "intro"
+          ]
+        },
+        {
+          "blocks": [
+            "workflow"
+          ]
+        },
+        {
+          "blocks": [
+            "sheets"
+          ]
+        }
+      ]
+    }
+  },
+  "post": {
+    "comparisons": [
+      {
+        "owner": "Department Expense Budget",
+        "left": "Expense Budget USD",
+        "right": "Actual Expense USD"
+      }
+    ],
+    "negative": {
+      "Department Expense Budget": [
+        "Remaining Budget USD"
+      ]
+    },
+    "percent": {
+      "Department Expense Budget": [
+        "Inflation Assumption"
+      ]
+    },
+    "steps": [
+      {
+        "sheet": "Department Expense Budget",
+        "commentary": "Budget Explanation"
+      }
+    ],
+    "periodFilters": {
+      "Department Expense Budget": {
+        "field": "DimMonth[Year]",
+        "values": [
+          2026
+        ]
+      }
+    }
+  },
+  "expected": {
+    "planningSheets": 1,
+    "dashboards": 1,
+    "comparisonCharts": 2,
+    "home": true
+  },
+  "normalizationNotes": [
+    "Inflation Assumption: fractional max_value uses hidden formula 0.25; original stored units unchanged."
+  ],
+  "referenceScope": "Recreate business structure and v14 presentation with current IDs/data; not an export of existing reports."
+}

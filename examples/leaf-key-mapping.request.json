@@ -1,0 +1,174 @@
+{
+  "model": {
+    "fields": [
+      {
+        "id": "Product[Brand]",
+        "tableName": "Product",
+        "columnName": "Brand",
+        "columnType": "Column",
+        "dataType": "Text"
+      },
+      {
+        "id": "Product[Category]",
+        "tableName": "Product",
+        "columnName": "Category",
+        "columnType": "Column",
+        "dataType": "Text"
+      },
+      {
+        "id": "Product[SKU]",
+        "tableName": "Product",
+        "columnName": "SKU",
+        "columnType": "Column",
+        "dataType": "Text"
+      },
+      {
+        "id": "Product[Key]",
+        "tableName": "Product",
+        "columnName": "Key",
+        "columnType": "Column",
+        "dataType": "Text"
+      },
+      {
+        "id": "Region[Area]",
+        "tableName": "Region",
+        "columnName": "Area",
+        "columnType": "Column",
+        "dataType": "Text"
+      },
+      {
+        "id": "Region[Region]",
+        "tableName": "Region",
+        "columnName": "Region",
+        "columnType": "Column",
+        "dataType": "Text"
+      },
+      {
+        "id": "Region[Key]",
+        "tableName": "Region",
+        "columnName": "Key",
+        "columnType": "Column",
+        "dataType": "Text"
+      },
+      {
+        "id": "Calendar[Year]",
+        "tableName": "Calendar",
+        "columnName": "Year",
+        "columnType": "Column",
+        "dataType": "Text"
+      },
+      {
+        "id": "Calendar[Month]",
+        "tableName": "Calendar",
+        "columnName": "Month",
+        "columnType": "Column",
+        "dataType": "Text"
+      }
+    ]
+  },
+  "assignments": [
+    {
+      "id": "Product[Brand]",
+      "sourceId": "Product[Brand]",
+      "sourceType": "PowerBI",
+      "bucketId": "rows",
+      "columnName": "Brand",
+      "tableName": "Product",
+      "name": "Brand",
+      "columnType": "Column",
+      "dataType": "Text",
+      "dataRoleType": "Grouping",
+      "order": 0,
+      "contents": "",
+      "formatString": "",
+      "distinctValueCount": 0,
+      "isFlatHierarchy": false,
+      "isHierarchyItemInMeasure": false
+    },
+    {
+      "id": "Product[Category]",
+      "sourceId": "Product[Category]",
+      "sourceType": "PowerBI",
+      "bucketId": "rows",
+      "columnName": "Category",
+      "tableName": "Product",
+      "name": "Category",
+      "columnType": "Column",
+      "dataType": "Text",
+      "dataRoleType": "Grouping",
+      "order": 1,
+      "contents": "",
+      "formatString": "",
+      "distinctValueCount": 0,
+      "isFlatHierarchy": false,
+      "isHierarchyItemInMeasure": false
+    },
+    {
+      "id": "Product[SKU]",
+      "sourceId": "Product[SKU]",
+      "sourceType": "PowerBI",
+      "bucketId": "rows",
+      "columnName": "SKU",
+      "tableName": "Product",
+      "name": "SKU",
+      "columnType": "Column",
+      "dataType": "Text",
+      "dataRoleType": "Grouping",
+      "order": 2,
+      "contents": "",
+      "formatString": "",
+      "distinctValueCount": 0,
+      "isFlatHierarchy": false,
+      "isHierarchyItemInMeasure": false
+    },
+    {
+      "id": "Region[Area]",
+      "sourceId": "Region[Area]",
+      "sourceType": "PowerBI",
+      "bucketId": "rows",
+      "columnName": "Area",
+      "tableName": "Region",
+      "name": "Area",
+      "columnType": "Column",
+      "dataType": "Text",
+      "dataRoleType": "Grouping",
+      "order": 3,
+      "contents": "",
+      "formatString": "",
+      "distinctValueCount": 0,
+      "isFlatHierarchy": false,
+      "isHierarchyItemInMeasure": false
+    },
+    {
+      "id": "Region[Region]",
+      "sourceId": "Region[Region]",
+      "sourceType": "PowerBI",
+      "bucketId": "rows",
+      "columnName": "Region",
+      "tableName": "Region",
+      "name": "Region",
+      "columnType": "Column",
+      "dataType": "Text",
+      "dataRoleType": "Grouping",
+      "order": 4,
+      "contents": "",
+      "formatString": "",
+      "distinctValueCount": 0,
+      "isFlatHierarchy": false,
+      "isHierarchyItemInMeasure": false
+    }
+  ],
+  "groups": [
+    {
+      "leaf": "Product[SKU]",
+      "key": "Product[Key]",
+      "ancestors": [
+        "Product[Brand]",
+        "Product[Category]"
+      ],
+      "unique": true,
+      "determinesAncestors": true,
+      "evidence": "Synthetic stable unique key contract"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "sourceSheet": "01 Monthly Rolling Forecast",
+  "sourceForecast": "Sales Forecast",
+  "targetSheet": "02 Quarterly Forecast Review",
+  "targetActuals": "Sales Actuals",
+  "forecastLabel": "Sales Forecast",
+  "commentaryLabel": "Quarterly Commentary",
+  "varianceLabel": "Variance",
+  "charts": [
+    {
+      "sheet": "00 Forecast Intelligence",
+      "visualName": "Forecast versus actuals by region",
+      "actualsField": "<resolved actuals Table[Measure] key>",
+      "actualsLabel": "Sales Actuals"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "properties": {
+    "visualState": {
+      "manage_measures": [
+        {
+          "id": "9007199254741000",
+          "label": "Opening balance",
+          "order": 0,
+          "visible": true
+        },
+        {
+          "id": "9007199254741001",
+          "label": "Net movement",
+          "order": 1,
+          "visible": true
+        },
+        {
+          "id": "9007199254741002",
+          "label": "Receipts",
+          "order": 2,
+          "visible": true
+        },
+        {
+          "id": "9007199254741003",
+          "label": "Payments",
+          "order": 3,
+          "visible": true
+        },
+        {
+          "id": "9007199254741004",
+          "label": "Closing balance",
+          "order": 4,
+          "visible": true
+        }
+      ],
+      "aggregation_config": {
+        "measure_aggregation": {}
+      },
+      "formatConfig": {
+        "measure": {}
+      },
+      "totals_config": {
+        "freeze_total": false
+      }
+    },
+    "pivotAssignments": []
+  },
+  "reset": false
+}

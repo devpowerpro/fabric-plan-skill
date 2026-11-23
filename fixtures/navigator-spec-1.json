@@ -1,0 +1,265 @@
+{
+  "type": "NAVIGATOR_BUTTON",
+  "navigatorButtonState": {
+    "actionType": "NONE",
+    "bookmarkId": null,
+    "webUrl": null,
+    "pageDestinationId": null
+  },
+  "navigatorTabsState": {
+    "gap": 5,
+    "layoutType": "horizontal",
+    "scrollDirection": "vertical",
+    "showScrollButtons": true,
+    "hiddenBookmarks": [],
+    "columns": 2,
+    "rows": 2,
+    "destinationType": {
+      "all": true,
+      "tooltip": false,
+      "hidden": false
+    },
+    "collapsible": {
+      "isEnabled": false,
+      "collapsedWidth": 44,
+      "collapseAnimation": "instant",
+      "collapseDirection": "start",
+      "collapseTriggerIcon": {
+        "backgroundColor": "#ffffff",
+        "fillColor": "#000",
+        "position": "start",
+        "size": 12
+      },
+      "isCollapsed": false,
+      "identifierType": "number"
+    },
+    "tabsShortText": {},
+    "hierarchy": {
+      "isEnabled": false,
+      "indentation": 10,
+      "triggerColor": "#000",
+      "fixedHeight": {
+        "isEnabled": false,
+        "value": 50
+      }
+    },
+    "allowDeselection": false,
+    "selectedBookmarkNavigatorOption": "all",
+    "launchOnDeselection": "none",
+    "isHideDeselectedBookmark": false
+  },
+  "style": {
+    "DEFAULT": {
+      "shapeType": "RECTANGLE",
+      "shapeState": {
+        "tooltip": {
+          "content": "",
+          "isEnabled": true
+        },
+        "rotation": {
+          "all": 0,
+          "shape": 0,
+          "text": 0,
+          "isEnabled": true,
+          "type": "all"
+        },
+        "border": {
+          "isEnabled": true,
+          "color": "#d0d0d0",
+          "side": "all",
+          "width": 1,
+          "style": "solid"
+        },
+        "cornerRadius": {
+          "isEnabled": true,
+          "isCustomCornerRadius": false,
+          "radiusBottomLeft": 0,
+          "radiusBottomRight": 0,
+          "radiusTopLeft": 0,
+          "radiusTopRight": 0
+        },
+        "padding": {
+          "isEnabled": true,
+          "isCustomPaddingSize": false,
+          "bottomPadding": 5,
+          "leftPadding": 5,
+          "rightPadding": 5,
+          "topPadding": 5
+        },
+        "shadow": {
+          "isEnabled": false,
+          "blur": 12,
+          "color": "#000000",
+          "side": "bottom",
+          "placement": "outer",
+          "opacity": 16,
+          "width": 3,
+          "distance": 10,
+          "angle": 135
+        },
+        "glow": {
+          "isEnabled": false,
+          "blur": 10,
+          "opacity": 100,
+          "color": "#F7DE6E"
+        },
+        "fill": {
+          "fillColor": "#e0e0e0",
+          "isEnabled": true
+        },
+        "line": {
+          "thickness": 1,
+          "style": "solid",
+          "edgeCap": "normal",
+          "isEnabled": true
+        },
+        "arrow": {
+          "direction": "right",
+          "arrowheadSize": 50,
+          "stemWidth": 25,
+          "isEnabled": true
+        },
+        "chevronArrow": {
+          "angle": 90,
+          "isEnabled": true
+        },
+        "hexagon": {
+          "slant": 25,
+          "isEnabled": true
+        },
+        "octagon": {
+          "snipSize": 33,
+          "isEnabled": true
+        },
+        "parallelogram": {
+          "slant": 33,
+          "isEnabled": true
+        },
+        "speechBubble": {
+          "chatBubbleHeight": 80,
+          "tailPosition": "bottom-left",
+          "tailAngle": 12.5,
+          "isEnabled": true
+        },
+        "trapezoid": {
+          "slant": 33,
+          "isEnabled": true
+        },
+        "triangle": {
+          "tipPosition": 50,
+          "isEnabled": true
+        },
+        "snip": {
+          "isEnabled": false,
+          "verticalSnipPosition": "top",
+          "horizontalSnipPosition": "right",
+          "snipSize": 30
+        },
+        "text": {
+          "value": "Button",
+          "isEnabled": true,
+          "fontFamily": "\"Segoe UI\", wf_segoe-ui_normal, helvetica, arial, sans-serif",
+          "fontSize": 12,
+          "fontColor": "#333333",
+          "horizontalAlign": "center",
+          "verticalAlign": "middle",
+          "isBold": false,
+          "isItalic": false,
+          "isUnderline": false,
+          "textRotation": 0,
+          "padding": {
+            "leftPadding": 0,
+            "bottomPadding": 0,
+            "rightPadding": 0,
+            "topPadding": 0,
+            "isCustomPaddingSize": false,
+            "isEnabled": true
+          }
+        },
+        "icon": {
+          "isEnabled": false,
+          "color": "#000",
+          "weight": 1,
+          "size": 30,
+          "transparency": 100,
+          "placement": "custom",
+          "horizontalAlign": "center",
+          "verticalAlign": "middle",
+          "padding": {
+            "leftPadding": 4,
+            "bottomPadding": 4,
+            "rightPadding": 4,
+            "topPadding": 4,
+            "isCustomPaddingSize": false,
+            "isEnabled": true
+          },
+          "iconTypeMapping": {
+            "default": {
+              "customIcon": {
+                "name": "",
+                "isEnabled": false
+              },
+              "src": ""
+            }
+          },
+          "customIconScale": "fit",
+          "iconRotation": 0,
+          "gap": 4
+        },
+        "action": {
+          "actionType": "NONE",
+          "isEnabled": false,
+          "pageDestinationId": null,
+          "bookmarkId": null,
+          "webUrl": null
+        },
+        "initialShapeType": {
+          "isEnabled": true,
+          "type": "RECTANGLE"
+        },
+        "accentBar": {
+          "isEnabled": false,
+          "value": {
+            "color": "#252423",
+            "side": "left",
+            "width": 2
+          }
+        }
+      }
+    },
+    "HOVER": {
+      "shapeState": {
+        "fill": {
+          "fillColor": "#c0c0c0"
+        },
+        "text": {
+          "fontColor": "#000000"
+        }
+      }
+    },
+    "PRESSED": {
+      "shapeState": {
+        "fill": {
+          "fillColor": "#a0a0a0"
+        },
+        "text": {
+          "fontColor": "#ffffff"
+        }
+      }
+    },
+    "ACTIVE": {
+      "shapeState": {
+        "fill": {
+          "fillColor": "#000000"
+        },
+        "text": {
+          "fontColor": "#ffffff"
+        },
+        "icon": {
+          "color": "#ffffff"
+        }
+      }
+    }
+  },
+  "activeEditStyle": "DEFAULT"
+}

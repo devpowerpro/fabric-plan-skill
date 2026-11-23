@@ -1,0 +1,47 @@
+{
+  "name": "Synthetic Team Capacity",
+  "sheets": [
+    {
+      "name": "Capacity",
+      "rows": [
+        "Region[Region]",
+        "Employee[Employee]",
+        "Version[Version]"
+      ],
+      "columns": [
+        "Period[Month]"
+      ],
+      "measures": [
+        {
+          "key": "allowed",
+          "kind": "Native",
+          "source": "Metrics[CanEdit]",
+          "label": "CanEdit",
+          "aggregation": "Sum"
+        },
+        {
+          "key": "base",
+          "kind": "Native",
+          "source": "Metrics[Hours]",
+          "label": "Hours",
+          "aggregation": "Sum"
+        },
+        {
+          "key": "hours",
+          "kind": "DataInput",
+          "label": "Available Hours",
+          "default_value": {
+            "Measure": "base"
+          },
+          "min_value": {
+            "Static": 0
+          },
+          "allow_input": {
+            "BasedOnFormula": "${allowed} > 0"
+          },
+          "aggregation": "Sum"
+        }
+      ]
+    }
+  ]
+}

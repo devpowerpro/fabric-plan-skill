@@ -1,0 +1,40 @@
+{
+  "request": "Project liquidity by bank account each week. Carry the close into the next opening and show the funding shortfall.",
+  "requirements": [
+    {
+      "id": "cash-bridge",
+      "text": "Carry the close into the next opening and show the funding shortfall.",
+      "intent": "balance-roll-forward",
+      "details": {
+        "grain": "Company x Bank account x Week",
+        "calendar": "Resolve business weekly calendar from target",
+        "unit": "Account currency; scale to be resolved",
+        "seedAuthority": "Prior reconciled actual close",
+        "movements": [
+          "receipts",
+          "operating payments",
+          "capex",
+          "manual funding draw"
+        ],
+        "signConvention": "Subtract positive outflows; add inflows",
+        "forecastCutoff": "Resolve from business calendar and actual close",
+        "editableFields": [
+          "capex",
+          "funding draw",
+          "cash floor"
+        ],
+        "dependencyStrategy": "Backward temporal recurrence if supported; cumulative only for independent manual movements",
+        "aggregation": {
+          "openingTime": "First",
+          "closingTime": "Last",
+          "flowsTime": "Sum",
+          "entity": "Sum only in compatible currency at same date"
+        }
+      },
+      "evidence": [
+        "Business interpretation; target bindings/calendar/currency still require resolution"
+      ]
+    }
+  ],
+  "assumptions": []
+}

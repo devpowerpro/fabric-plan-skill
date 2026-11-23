@@ -1,0 +1,12 @@
+{
+  "package": "lzutf8",
+  "version": "0.6.3",
+  "source": "https://registry.npmjs.org/lzutf8/-/lzutf8-0.6.3.tgz",
+  "integrity": "sha512-CAkF9HKrM+XpB0f3DepQ2to2iUEo0zrbh+XgBqgNBc1+k8HMM3u/YSfHI3Dr4GmoTIez2Pr/If1XFl3rU26AwA==",
+  "license": "MIT",
+  "files": {
+    "lzutf8.js": "0e5ecc318fc5dbaa428651f7fd4232342f44fc2740321d878b54055f669e0cf6",
+    "LICENSE.txt": "4772988eba2d352058f5e82b863e9443ebfdad87d523a3d4e64c4225eff49abb"
+  },
+  "use": "Decode native role metadata; no network or package installation at runtime"
+}

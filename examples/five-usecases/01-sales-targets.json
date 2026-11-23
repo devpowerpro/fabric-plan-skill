@@ -1,0 +1,194 @@
+{
+  "id": "01-sales-targets",
+  "title": "Regional Sales Targets",
+  "prompt": "Create a 2026 sales target workspace by region and product. Start monthly targets from last year's sales in USD and let managers revise them. Show actual sales against target, highlight shortfalls, and make it easy to compare regions and product categories.",
+  "spec": {
+    "name": "Regional Sales Targets",
+    "sheets": [
+      {
+        "name": "Regional Sales Targets",
+        "header": "Set monthly USD sales targets, compare with actual sales and focus on shortfalls by region and product category.",
+        "rows": [
+          "DimRegion[Country]",
+          "DimRegion[RegionName]",
+          "DimProduct[Category]",
+          "DimProduct[ProductName]"
+        ],
+        "columns": [
+          "DimMonth[Year]",
+          "DimMonth[Quarter]",
+          "DimMonth[MonthName]"
+        ],
+        "measures": [
+          {
+            "kind": "Native",
+            "key": "actual",
+            "label": "Actual Sales USD",
+            "source": "DeploymentAudit[Revenue USD]",
+            "aggregation": "Sum"
+          },
+          {
+            "kind": "Native",
+            "key": "prior",
+            "label": "Prior Year Sales USD",
+            "source": "DeploymentAudit[Prior-Year Revenue]",
+            "aggregation": "Sum"
+          },
+          {
+            "kind": "DataInput",
+            "key": "target",
+            "label": "Sales Target USD",
+            "default_value": {
+              "Measure": "prior"
+            },
+            "aggregation": "Sum",
+            "distribute": true,
+            "min_value": {
+              "Static": 0
+            }
+          },
+          {
+            "kind": "Formula",
+            "key": "gap",
+            "label": "Actual versus Target USD",
+            "formula": "${actual} - ${target}",
+            "aggregation": "Sum"
+          }
+        ],
+        "dimensionKeyGroups": [
+          {
+            "leaf": "DimRegion[RegionName]",
+            "key": "DimRegion[RegionID]",
+            "ancestors": [
+              "DimRegion[Country]"
+            ],
+            "unique": true,
+            "determinesAncestors": true,
+            "evidence": "Current semantic model master ID and relationship key: DimRegion[RegionID]; descriptive attributes belong to the same entity record."
+          },
+          {
+            "leaf": "DimProduct[ProductName]",
+            "key": "DimProduct[ProductID]",
+            "ancestors": [
+              "DimProduct[Category]"
+            ],
+            "unique": true,
+            "determinesAncestors": true,
+            "evidence": "Current semantic model master ID and relationship key: DimProduct[ProductID]; descriptive attributes belong to the same entity record."
+          }
+        ]
+      }
+    ],
+    "dashboards": [
+      {
+        "name": "Regional Sales Targets Dashboard",
+        "owner": "Regional Sales Targets",
+        "title": "Regional Sales Targets",
+        "description": "Set monthly USD sales targets, compare with actual sales and focus on shortfalls by region and product category.",
+        "slicers": [
+          {
+            "field": "DimMonth[Year]",
+            "values": [
+              2026
+            ]
+          },
+          {
+            "field": "DimRegion[Country]"
+          },
+          {
+            "field": "DimRegion[RegionName]"
+          },
+          {
+            "field": "DimProduct[Category]"
+          }
+        ],
+        "cards": [],
+        "charts": [
+          {
+            "category": "DimRegion[RegionName]",
+            "field": "DeploymentAudit[Revenue USD]",
+            "label": "Regional Sales Targets by RegionName"
+          },
+          {
+            "category": "DimProduct[Category]",
+            "field": "DeploymentAudit[Revenue USD]",
+            "label": "Regional Sales Targets by Category"
+          }
+        ],
+        "gridHeight": 750
+      }
+    ],
+    "home": {
+      "show": true,
+      "roleId": "__everyone__",
+      "order": 1,
+      "blocks": [
+        {
+          "key": "intro",
+          "type": "text",
+          "title": "Regional Sales Targets",
+          "description": "Create a 2026 sales target workspace by region and product. Start monthly targets from last year's sales in USD and let managers revise them. Show actual sales against target, highlight shortfalls, and make it easy to compare regions and product categories."
+        },
+        {
+          "key": "workflow",
+          "type": "text",
+          "title": "Start here",
+          "description": "Use the dashboards to select your planning scope, review the charts and work in the grid below. Regional Sales Targets Dashboard."
+        },
+        {
+          "key": "sheets",
+          "type": "preview-cards",
+          "columns": 4
+        }
+      ],
+      "rows": [
+        {
+          "blocks": [
+            "intro"
+          ]
+        },
+        {
+          "blocks": [
+            "workflow"
+          ]
+        },
+        {
+          "blocks": [
+            "sheets"
+          ]
+        }
+      ]
+    }
+  },
+  "post": {
+    "comparisons": [
+      {
+        "owner": "Regional Sales Targets",
+        "left": "Actual Sales USD",
+        "right": "Sales Target USD"
+      }
+    ],
+    "negative": {
+      "Regional Sales Targets": [
+        "Actual versus Target USD"
+      ]
+    },
+    "steps": [],
+    "periodFilters": {
+      "Regional Sales Targets": {
+        "field": "DimMonth[Year]",
+        "values": [
+          2026
+        ]
+      }
+    }
+  },
+  "expected": {
+    "planningSheets": 1,
+    "dashboards": 1,
+    "comparisonCharts": 2,
+    "home": true
+  },
+  "normalizationNotes": [],
+  "referenceScope": "Recreate business structure and v14 presentation with current IDs/data; not an export of existing reports."
+}

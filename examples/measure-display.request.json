@@ -1,0 +1,1017 @@
+{
+  "properties": {
+    "pivotAssignments": [
+      {
+        "id": "Region[Region]",
+        "sourceId": "Region[Region]",
+        "sourceType": "PowerBI",
+        "bucketId": "rows",
+        "columnName": "Region",
+        "tableName": "Region",
+        "name": "Region",
+        "columnType": "Column",
+        "dataType": "String",
+        "dataRoleType": "Grouping",
+        "order": 0,
+        "contents": "",
+        "formatString": "",
+        "distinctValueCount": 0,
+        "isFlatHierarchy": false,
+        "isHierarchyItemInMeasure": false
+      },
+      {
+        "id": "Employee[Employee]",
+        "sourceId": "Employee[Employee]",
+        "sourceType": "PowerBI",
+        "bucketId": "rows",
+        "columnName": "Employee",
+        "tableName": "Employee",
+        "name": "Employee",
+        "columnType": "Column",
+        "dataType": "String",
+        "dataRoleType": "Grouping",
+        "order": 1,
+        "contents": "",
+        "formatString": "",
+        "distinctValueCount": 0,
+        "isFlatHierarchy": false,
+        "isHierarchyItemInMeasure": false
+      },
+      {
+        "id": "Version[Version]",
+        "sourceId": "Version[Version]",
+        "sourceType": "PowerBI",
+        "bucketId": "rows",
+        "columnName": "Version",
+        "tableName": "Version",
+        "name": "Version",
+        "columnType": "Column",
+        "dataType": "String",
+        "dataRoleType": "Grouping",
+        "order": 2,
+        "contents": "",
+        "formatString": "",
+        "distinctValueCount": 0,
+        "isFlatHierarchy": false,
+        "isHierarchyItemInMeasure": false
+      },
+      {
+        "id": "Period[Month]",
+        "sourceId": "Period[Month]",
+        "sourceType": "PowerBI",
+        "bucketId": "columns",
+        "columnName": "Month",
+        "tableName": "Period",
+        "name": "Month",
+        "columnType": "Column",
+        "dataType": "String",
+        "dataRoleType": "Grouping",
+        "order": 0,
+        "contents": "",
+        "formatString": "",
+        "distinctValueCount": 0,
+        "isFlatHierarchy": false,
+        "isHierarchyItemInMeasure": false
+      },
+      {
+        "id": "Metrics[CanEdit]",
+        "sourceId": "Metrics[CanEdit]",
+        "sourceType": "PowerBI",
+        "bucketId": "ameasure",
+        "columnName": "CanEdit",
+        "tableName": "Metrics",
+        "name": "CanEdit",
+        "columnType": "Measure",
+        "dataType": "Double",
+        "dataRoleType": "Measure",
+        "order": 0,
+        "contents": "",
+        "formatString": "",
+        "distinctValueCount": 0,
+        "isFlatHierarchy": false,
+        "isHierarchyItemInMeasure": false,
+        "measureGuid": "9080479580834374903",
+        "customName": "CanEdit"
+      },
+      {
+        "id": "Metrics[BasePay]",
+        "sourceId": "Metrics[BasePay]",
+        "sourceType": "PowerBI",
+        "bucketId": "ameasure",
+        "columnName": "BasePay",
+        "tableName": "Metrics",
+        "name": "BasePay",
+        "columnType": "Measure",
+        "dataType": "Double",
+        "dataRoleType": "Measure",
+        "order": 1,
+        "contents": "",
+        "formatString": "",
+        "distinctValueCount": 0,
+        "isFlatHierarchy": false,
+        "isHierarchyItemInMeasure": false,
+        "measureGuid": "4800218235927602244",
+        "customName": "BasePay"
+      }
+    ],
+    "superFilterAssignments": [
+      {
+        "id": "filter_24e1850d-8e94-4c12-802d-035eefaed435",
+        "pivotAssignments": [
+          {
+            "id": "Region[Region]",
+            "sourceId": "Region[Region]",
+            "sourceType": "PowerBI",
+            "bucketId": "rows",
+            "columnName": "Region",
+            "tableName": "Region",
+            "name": "Region",
+            "columnType": "Column",
+            "dataType": "String",
+            "dataRoleType": "Grouping",
+            "order": 0,
+            "contents": "",
+            "formatString": "",
+            "distinctValueCount": 0,
+            "isFlatHierarchy": false,
+            "isHierarchyItemInMeasure": false
+          }
+        ],
+        "isDefault": true,
+        "isDefaultMeasure": false,
+        "isDaxMeasure": false,
+        "bucketId": "rows",
+        "configuration": {
+          "name": "Region",
+          "hide": false,
+          "isExpanded": false,
+          "locked": false,
+          "filterMode": "basic",
+          "visualType": "FACET",
+          "singleSelect": false,
+          "selectAll": true,
+          "measureSearch": true,
+          "filterOperator": "is",
+          "sheetDataItemAggregationType": "sum",
+          "toolBarTrigger": false,
+          "paneWidth": 200,
+          "sort": [
+            {
+              "id": "Region[Region]",
+              "columnId": "Region[Region]",
+              "columnName": "Region",
+              "direction": "ASC"
+            }
+          ],
+          "topN": {
+            "rankMode": "TOP",
+            "rankValue": 5,
+            "rankType": "value",
+            "rankMeasure": "",
+            "displayOthers": true,
+            "otherLabel": "Others",
+            "rankMeasureLabel": ""
+          }
+        },
+        "filter": [],
+        "position": "RIGHT",
+        "filterLevel": "visual"
+      },
+      {
+        "id": "filter_6fb02a06-d734-4621-8b1a-b81a8d7916f9",
+        "pivotAssignments": [
+          {
+            "id": "Employee[Employee]",
+            "sourceId": "Employee[Employee]",
+            "sourceType": "PowerBI",
+            "bucketId": "rows",
+            "columnName": "Employee",
+            "tableName": "Employee",
+            "name": "Employee",
+            "columnType": "Column",
+            "dataType": "String",
+            "dataRoleType": "Grouping",
+            "order": 1,
+            "contents": "",
+            "formatString": "",
+            "distinctValueCount": 0,
+            "isFlatHierarchy": false,
+            "isHierarchyItemInMeasure": false
+          }
+        ],
+        "isDefault": true,
+        "isDefaultMeasure": false,
+        "isDaxMeasure": false,
+        "bucketId": "rows",
+        "configuration": {
+          "name": "Employee",
+          "hide": false,
+          "isExpanded": false,
+          "locked": false,
+          "filterMode": "basic",
+          "visualType": "FACET",
+          "singleSelect": false,
+          "selectAll": true,
+          "measureSearch": true,
+          "filterOperator": "is",
+          "sheetDataItemAggregationType": "sum",
+          "toolBarTrigger": false,
+          "paneWidth": 200,
+          "sort": [
+            {
+              "id": "Employee[Employee]",
+              "columnId": "Employee[Employee]",
+              "columnName": "Employee",
+              "direction": "ASC"
+            }
+          ],
+          "topN": {
+            "rankMode": "TOP",
+            "rankValue": 5,
+            "rankType": "value",
+            "rankMeasure": "",
+            "displayOthers": true,
+            "otherLabel": "Others",
+            "rankMeasureLabel": ""
+          }
+        },
+        "filter": [],
+        "position": "RIGHT",
+        "filterLevel": "visual"
+      },
+      {
+        "id": "filter_561da2f7-e2c0-469e-aef7-505f2b742d36",
+        "pivotAssignments": [
+          {
+            "id": "Version[Version]",
+            "sourceId": "Version[Version]",
+            "sourceType": "PowerBI",
+            "bucketId": "rows",
+            "columnName": "Version",
+            "tableName": "Version",
+            "name": "Version",
+            "columnType": "Column",
+            "dataType": "String",
+            "dataRoleType": "Grouping",
+            "order": 2,
+            "contents": "",
+            "formatString": "",
+            "distinctValueCount": 0,
+            "isFlatHierarchy": false,
+            "isHierarchyItemInMeasure": false
+          }
+        ],
+        "isDefault": true,
+        "isDefaultMeasure": false,
+        "isDaxMeasure": false,
+        "bucketId": "rows",
+        "configuration": {
+          "name": "Version",
+          "hide": false,
+          "isExpanded": false,
+          "locked": false,
+          "filterMode": "basic",
+          "visualType": "FACET",
+          "singleSelect": false,
+          "selectAll": true,
+          "measureSearch": true,
+          "filterOperator": "is",
+          "sheetDataItemAggregationType": "sum",
+          "toolBarTrigger": false,
+          "paneWidth": 200,
+          "sort": [
+            {
+              "id": "Version[Version]",
+              "columnId": "Version[Version]",
+              "columnName": "Version",
+              "direction": "ASC"
+            }
+          ],
+          "topN": {
+            "rankMode": "TOP",
+            "rankValue": 5,
+            "rankType": "value",
+            "rankMeasure": "",
+            "displayOthers": true,
+            "otherLabel": "Others",
+            "rankMeasureLabel": ""
+          }
+        },
+        "filter": [],
+        "position": "RIGHT",
+        "filterLevel": "visual"
+      },
+      {
+        "id": "filter_a4fbc67a-d19a-4aff-88d2-df87213f69b1",
+        "pivotAssignments": [
+          {
+            "id": "Period[Month]",
+            "sourceId": "Period[Month]",
+            "sourceType": "PowerBI",
+            "bucketId": "columns",
+            "columnName": "Month",
+            "tableName": "Period",
+            "name": "Month",
+            "columnType": "Column",
+            "dataType": "String",
+            "dataRoleType": "Grouping",
+            "order": 0,
+            "contents": "",
+            "formatString": "",
+            "distinctValueCount": 0,
+            "isFlatHierarchy": false,
+            "isHierarchyItemInMeasure": false
+          }
+        ],
+        "isDefault": true,
+        "isDefaultMeasure": false,
+        "isDaxMeasure": false,
+        "bucketId": "columns",
+        "configuration": {
+          "name": "Month",
+          "hide": false,
+          "isExpanded": false,
+          "locked": false,
+          "filterMode": "basic",
+          "visualType": "FACET",
+          "singleSelect": false,
+          "selectAll": true,
+          "measureSearch": true,
+          "filterOperator": "is",
+          "sheetDataItemAggregationType": "sum",
+          "toolBarTrigger": false,
+          "paneWidth": 200,
+          "sort": [
+            {
+              "id": "Period[Month]",
+              "columnId": "Period[Month]",
+              "columnName": "Month",
+              "direction": "ASC"
+            }
+          ],
+          "topN": {
+            "rankMode": "TOP",
+            "rankValue": 5,
+            "rankType": "value",
+            "rankMeasure": "",
+            "displayOthers": true,
+            "otherLabel": "Others",
+            "rankMeasureLabel": ""
+          }
+        },
+        "filter": [],
+        "position": "RIGHT",
+        "filterLevel": "visual"
+      },
+      {
+        "id": "filter_759d2ced-165c-4250-b59a-205380144754",
+        "pivotAssignments": [
+          {
+            "id": "Region[Region]",
+            "sourceId": "Region[Region]",
+            "sourceType": "PowerBI",
+            "bucketId": "rows",
+            "columnName": "Region",
+            "tableName": "Region",
+            "name": "Region",
+            "columnType": "Column",
+            "dataType": "String",
+            "dataRoleType": "Grouping",
+            "order": 0,
+            "contents": "",
+            "formatString": "",
+            "distinctValueCount": 0,
+            "isFlatHierarchy": false,
+            "isHierarchyItemInMeasure": false
+          },
+          {
+            "id": "Employee[Employee]",
+            "sourceId": "Employee[Employee]",
+            "sourceType": "PowerBI",
+            "bucketId": "rows",
+            "columnName": "Employee",
+            "tableName": "Employee",
+            "name": "Employee",
+            "columnType": "Column",
+            "dataType": "String",
+            "dataRoleType": "Grouping",
+            "order": 1,
+            "contents": "",
+            "formatString": "",
+            "distinctValueCount": 0,
+            "isFlatHierarchy": false,
+            "isHierarchyItemInMeasure": false
+          },
+          {
+            "id": "Version[Version]",
+            "sourceId": "Version[Version]",
+            "sourceType": "PowerBI",
+            "bucketId": "rows",
+            "columnName": "Version",
+            "tableName": "Version",
+            "name": "Version",
+            "columnType": "Column",
+            "dataType": "String",
+            "dataRoleType": "Grouping",
+            "order": 2,
+            "contents": "",
+            "formatString": "",
+            "distinctValueCount": 0,
+            "isFlatHierarchy": false,
+            "isHierarchyItemInMeasure": false
+          },
+          {
+            "id": "Period[Month]",
+            "sourceId": "Period[Month]",
+            "sourceType": "PowerBI",
+            "bucketId": "columns",
+            "columnName": "Month",
+            "tableName": "Period",
+            "name": "Month",
+            "columnType": "Column",
+            "dataType": "String",
+            "dataRoleType": "Grouping",
+            "order": 0,
+            "contents": "",
+            "formatString": "",
+            "distinctValueCount": 0,
+            "isFlatHierarchy": false,
+            "isHierarchyItemInMeasure": false
+          },
+          {
+            "id": "Metrics[CanEdit]",
+            "sourceId": "Metrics[CanEdit]",
+            "sourceType": "PowerBI",
+            "bucketId": "ameasure",
+            "columnName": "CanEdit",
+            "tableName": "Metrics",
+            "name": "CanEdit",
+            "columnType": "Measure",
+            "dataType": "Double",
+            "dataRoleType": "Measure",
+            "order": 0,
+            "contents": "",
+            "formatString": "",
+            "distinctValueCount": 0,
+            "isFlatHierarchy": false,
+            "isHierarchyItemInMeasure": false,
+            "measureGuid": "9080479580834374903",
+            "customName": "CanEdit"
+          }
+        ],
+        "isDefault": true,
+        "isDefaultMeasure": true,
+        "isDaxMeasure": true,
+        "bucketId": "ameasure",
+        "configuration": {
+          "name": "CanEdit",
+          "hide": false,
+          "isExpanded": false,
+          "locked": false,
+          "singleSelect": false,
+          "selectAll": true,
+          "measureSearch": true,
+          "sort": [
+            {
+              "id": "Metrics[CanEdit]",
+              "columnId": "Metrics[CanEdit]",
+              "columnName": "CanEdit",
+              "direction": "ASC"
+            }
+          ],
+          "topN": {
+            "rankMode": "TOP",
+            "rankValue": 5,
+            "rankType": "value",
+            "rankMeasure": "",
+            "displayOthers": true,
+            "otherLabel": "Others",
+            "rankMeasureLabel": ""
+          },
+          "sheetDataItemAggregationType": "sum",
+          "toolBarTrigger": false,
+          "paneWidth": 200,
+          "filterMode": "advanced",
+          "visualType": "NUMERIC",
+          "scale": "none",
+          "enableNumericToFacet": false,
+          "filterOperator": "between",
+          "slider": false,
+          "regex": "",
+          "alphaNumericValues": {
+            "minValue": null,
+            "maxValue": null,
+            "equalValue": null
+          }
+        },
+        "filter": [],
+        "position": "RIGHT",
+        "filterLevel": "visual"
+      },
+      {
+        "id": "filter_1d7874d8-0586-4238-9b9d-204394ef6c83",
+        "pivotAssignments": [
+          {
+            "id": "Region[Region]",
+            "sourceId": "Region[Region]",
+            "sourceType": "PowerBI",
+            "bucketId": "rows",
+            "columnName": "Region",
+            "tableName": "Region",
+            "name": "Region",
+            "columnType": "Column",
+            "dataType": "String",
+            "dataRoleType": "Grouping",
+            "order": 0,
+            "contents": "",
+            "formatString": "",
+            "distinctValueCount": 0,
+            "isFlatHierarchy": false,
+            "isHierarchyItemInMeasure": false
+          },
+          {
+            "id": "Employee[Employee]",
+            "sourceId": "Employee[Employee]",
+            "sourceType": "PowerBI",
+            "bucketId": "rows",
+            "columnName": "Employee",
+            "tableName": "Employee",
+            "name": "Employee",
+            "columnType": "Column",
+            "dataType": "String",
+            "dataRoleType": "Grouping",
+            "order": 1,
+            "contents": "",
+            "formatString": "",
+            "distinctValueCount": 0,
+            "isFlatHierarchy": false,
+            "isHierarchyItemInMeasure": false
+          },
+          {
+            "id": "Version[Version]",
+            "sourceId": "Version[Version]",
+            "sourceType": "PowerBI",
+            "bucketId": "rows",
+            "columnName": "Version",
+            "tableName": "Version",
+            "name": "Version",
+            "columnType": "Column",
+            "dataType": "String",
+            "dataRoleType": "Grouping",
+            "order": 2,
+            "contents": "",
+            "formatString": "",
+            "distinctValueCount": 0,
+            "isFlatHierarchy": false,
+            "isHierarchyItemInMeasure": false
+          },
+          {
+            "id": "Period[Month]",
+            "sourceId": "Period[Month]",
+            "sourceType": "PowerBI",
+            "bucketId": "columns",
+            "columnName": "Month",
+            "tableName": "Period",
+            "name": "Month",
+            "columnType": "Column",
+            "dataType": "String",
+            "dataRoleType": "Grouping",
+            "order": 0,
+            "contents": "",
+            "formatString": "",
+            "distinctValueCount": 0,
+            "isFlatHierarchy": false,
+            "isHierarchyItemInMeasure": false
+          },
+          {
+            "id": "Metrics[BasePay]",
+            "sourceId": "Metrics[BasePay]",
+            "sourceType": "PowerBI",
+            "bucketId": "ameasure",
+            "columnName": "BasePay",
+            "tableName": "Metrics",
+            "name": "BasePay",
+            "columnType": "Measure",
+            "dataType": "Double",
+            "dataRoleType": "Measure",
+            "order": 1,
+            "contents": "",
+            "formatString": "",
+            "distinctValueCount": 0,
+            "isFlatHierarchy": false,
+            "isHierarchyItemInMeasure": false,
+            "measureGuid": "4800218235927602244",
+            "customName": "BasePay"
+          }
+        ],
+        "isDefault": true,
+        "isDefaultMeasure": true,
+        "isDaxMeasure": true,
+        "bucketId": "ameasure",
+        "configuration": {
+          "name": "BasePay",
+          "hide": false,
+          "isExpanded": false,
+          "locked": false,
+          "singleSelect": false,
+          "selectAll": true,
+          "measureSearch": true,
+          "sort": [
+            {
+              "id": "Metrics[BasePay]",
+              "columnId": "Metrics[BasePay]",
+              "columnName": "BasePay",
+              "direction": "ASC"
+            }
+          ],
+          "topN": {
+            "rankMode": "TOP",
+            "rankValue": 5,
+            "rankType": "value",
+            "rankMeasure": "",
+            "displayOthers": true,
+            "otherLabel": "Others",
+            "rankMeasureLabel": ""
+          },
+          "sheetDataItemAggregationType": "sum",
+          "toolBarTrigger": false,
+          "paneWidth": 200,
+          "filterMode": "advanced",
+          "visualType": "NUMERIC",
+          "scale": "none",
+          "enableNumericToFacet": false,
+          "filterOperator": "between",
+          "slider": false,
+          "regex": "",
+          "alphaNumericValues": {
+            "minValue": null,
+            "maxValue": null,
+            "equalValue": null
+          }
+        },
+        "filter": [],
+        "position": "RIGHT",
+        "filterLevel": "visual"
+      }
+    ],
+    "visualState": {
+      "manage_measures": [
+        {
+          "id": "9080479580834374903",
+          "label": "CanEdit",
+          "order": 0,
+          "visible": true
+        },
+        {
+          "id": "4800218235927602244",
+          "label": "BasePay",
+          "order": 1,
+          "visible": true
+        },
+        {
+          "id": "10039641788472639594",
+          "label": "Monthly Salary",
+          "order": 2,
+          "visible": true
+        },
+        {
+          "id": "1427080859442232256",
+          "label": "Compensation",
+          "order": 3,
+          "visible": true
+        }
+      ],
+      "aggregation_config": {
+        "measure_aggregation": {
+          "9080479580834374903": {
+            "row": "Sum",
+            "column": "Sum"
+          },
+          "4800218235927602244": {
+            "row": "Sum",
+            "column": "Sum"
+          },
+          "10039641788472639594": {
+            "row": "Sum",
+            "column": "Sum"
+          },
+          "1427080859442232256": {
+            "row": "Sum",
+            "column": "Sum"
+          }
+        },
+        "row_measure_aggregation": {},
+        "row_member_measure_aggregation": {},
+        "row_dimension_aggregation": {}
+      },
+      "formatConfig": {
+        "row": {},
+        "column": {},
+        "cell": {},
+        "measure": {
+          "9080479580834374903": [
+            {
+              "format": {
+                "4": "Arial",
+                "3": "#1F5AA6",
+                "5": "#EAF2FC"
+              },
+              "order": 0
+            },
+            {
+              "format": {
+                "13": "auto"
+              },
+              "order": 4
+            }
+          ],
+          "4800218235927602244": [
+            {
+              "format": {
+                "4": "Arial",
+                "3": "#1F5AA6",
+                "5": "#EAF2FC"
+              },
+              "order": 1
+            },
+            {
+              "format": {
+                "13": "auto"
+              },
+              "order": 5
+            }
+          ],
+          "10039641788472639594": [
+            {
+              "format": {
+                "4": "Arial",
+                "3": "#8A5700",
+                "5": "#FFF4D6"
+              },
+              "order": 2
+            },
+            {
+              "format": {
+                "13": "auto"
+              },
+              "order": 6
+            }
+          ],
+          "1427080859442232256": [
+            {
+              "format": {
+                "4": "Arial",
+                "3": "#6B3FA0",
+                "5": "#F2EAFB"
+              },
+              "order": 3
+            },
+            {
+              "format": {
+                "13": "auto"
+              },
+              "order": 7
+            }
+          ]
+        },
+        "columnDimension": {},
+        "rowDimension": {},
+        "labelCellGroup": {},
+        "rowGroup": {},
+        "rowMemberInDimension": {},
+        "columnMemberInDimension": {},
+        "columnHierarchy": {},
+        "formatSize": 8,
+        "__lastHouseKeepedSize": 0
+      },
+      "rowDimensions": [
+        {
+          "externalKey": "Region[Region]",
+          "id": "727229777356808254",
+          "isNative": true,
+          "label": "Region"
+        },
+        {
+          "externalKey": "Employee[Employee]",
+          "id": "595969242269306258",
+          "isNative": true,
+          "label": "Employee"
+        },
+        {
+          "externalKey": "Version[Version]",
+          "id": "5925888673205606840",
+          "isNative": true,
+          "label": "Version"
+        }
+      ],
+      "columnDimensions": [
+        {
+          "externalKey": "Period[Month]",
+          "id": "4713858660256075655",
+          "isNative": true,
+          "label": "Month"
+        }
+      ],
+      "globalStyles": {
+        "fontFamily": "Arial",
+        "fontSize": "12",
+        "fontWeight": "normal",
+        "fontStyle": "normal",
+        "textColor": "#333333",
+        "hierarchyfontWeight": "bold",
+        "hierarchyFontStyle": "normal",
+        "columnHierarchyFontWeight": "normal",
+        "columnHierarchyFontStyle": "normal",
+        "subTotalFontWeight": "semiBold",
+        "headerFormat": false,
+        "headerHeight": 30,
+        "headerFontSize": "14px",
+        "headerFontColor": "#333333",
+        "headerLabelOrient": "initial",
+        "isHeightUpdatedManually": false,
+        "showRowLabelEditor": false,
+        "variableColor": "#0078D4",
+        "varianceBarFont": 12,
+        "kpiFontSize": 45,
+        "chartScale": "universal"
+      },
+      "layoutSizes": {
+        "labelWidth": 230,
+        "tableWidth": 80,
+        "chartWidth": 150,
+        "isResponsive": false,
+        "bulletWidth": 300,
+        "maximumChartWidth": 200,
+        "isMaximumChartWidthAllowed": false,
+        "preferedWidthSelection": "measure"
+      },
+      "row_height_config": {
+        "default_row_height": 26,
+        "sub_total_row_height": 26,
+        "custom_row_height": {},
+        "row_level_height": []
+      },
+      "dimension_id_mapping": {
+        "mappings": null,
+        "pivot": []
+      },
+      "measureAttributes": {},
+      "totals_config": {
+        "freeze_total": false,
+        "row_grand_total": "Top",
+        "row_sub_total": "Top"
+      },
+      "columnExpandCollapse": {
+        "columnExpandCollapse": {},
+        "expandColumnToLastLevel": true
+      },
+      "tableState": {
+        "columnHierarchyLevel": {
+          "4713858660256075655": {
+            "collapsed": "Expanded"
+          }
+        }
+      },
+      "chartCustomTitle": {
+        "customTitle": {
+          "elements": [
+            {
+              "type": "TEXT",
+              "id": "planning-description",
+              "position": {
+                "top": 0,
+                "left": 0
+              },
+              "dimension": {
+                "width": "1552",
+                "height": "150"
+              },
+              "layout": {
+                "x": 0,
+                "y": 0,
+                "w": 64,
+                "h": 15,
+                "i": "planning-description",
+                "static": false
+              },
+              "content": "<div style=\"font-family:Arial;color:#24364B\"><p style=\"font-family:Arial;font-size:22px;margin:0 0 8px 0\"><strong style=\"font-family:Arial\">Workforce</strong></p><p style=\"font-family:Arial;font-size:14px;margin:0 0 8px 0\">Review Workforce. Adjust eligible planning inputs and compare them with the available source measures. Formula measures show calculated outcomes. Use the dashboard selections to focus the planning grid.</p><p style=\"font-family:Arial;font-size:13px;margin:0\"><span style=\"font-family:Arial;color:#8A5700;font-weight:bold\">Input / Forecast</span> &nbsp; <span style=\"font-family:Arial;color:#6B3FA0;font-weight:bold\">Formula</span> &nbsp; <span style=\"font-family:Arial;color:#1F5AA6;font-weight:bold\">Power BI</span><span style=\"font-family:Arial;color:#526070\"> &nbsp; Editability follows period and lock rules.</span></p></div>",
+              "align": "left",
+              "verticalAlign": "TOP"
+            }
+          ],
+          "layout": "planning-description",
+          "layoutType": "CUSTOM",
+          "containerPosition": "top",
+          "containerMeta": {
+            "width": 1552,
+            "height": 150
+          }
+        }
+      },
+      "showHeaderFooter": true
+    },
+    "position": {
+      "x": 24,
+      "y": 24
+    },
+    "dimension": {
+      "width": 1552,
+      "height": 900
+    }
+  },
+  "records": [
+    {
+      "columnMeta": {
+        "data_type": "Number",
+        "description": "",
+        "id": "9080479580834374903",
+        "label": "CanEdit",
+        "measure_type": {
+          "Native": {
+            "measure_role": "ACMeasure"
+          }
+        }
+      },
+      "dataInputType": 6,
+      "description": null,
+      "measureGuid": "9080479580834374903",
+      "name": "CanEdit",
+      "visualId": "a2b069a3-76e7-4bbc-a4c7-a166623d2e93"
+    },
+    {
+      "columnMeta": {
+        "data_type": "Number",
+        "description": "",
+        "id": "4800218235927602244",
+        "label": "BasePay",
+        "measure_type": {
+          "Native": {
+            "measure_role": "ACMeasure"
+          }
+        }
+      },
+      "dataInputType": 6,
+      "description": null,
+      "measureGuid": "4800218235927602244",
+      "name": "BasePay",
+      "visualId": "a2b069a3-76e7-4bbc-a4c7-a166623d2e93"
+    },
+    {
+      "columnMeta": {
+        "data_type": "Number",
+        "description": "",
+        "id": "10039641788472639594",
+        "label": "Monthly Salary",
+        "measure_type": {
+          "DataInput": {
+            "allow_input": {
+              "BasedOnFormula": "M_9080479580834374903 > 0"
+            },
+            "bound_to_filter_context": true,
+            "column_type": {
+              "Number": {
+                "default_value": {
+                  "Measure": "4800218235927602244"
+                },
+                "min_value": {
+                  "Static": 0
+                },
+                "max_value": null,
+                "distribute_parent_value_to_children": false
+              }
+            },
+            "id": "",
+            "on_change_formula": "",
+            "title": "Monthly Salary"
+          }
+        }
+      },
+      "dataInputType": 6,
+      "description": null,
+      "measureGuid": "10039641788472639594",
+      "name": "Monthly Salary",
+      "visualId": "a2b069a3-76e7-4bbc-a4c7-a166623d2e93",
+      "boundToFilterContext": 10
+    },
+    {
+      "columnMeta": {
+        "data_type": "Number",
+        "description": "",
+        "id": "1427080859442232256",
+        "label": "Compensation",
+        "measure_type": {
+          "Formula": {
+            "formula": "M_10039641788472639594 * 1.20"
+          }
+        }
+      },
+      "dataInputType": 6,
+      "description": null,
+      "measureGuid": "1427080859442232256",
+      "name": "Compensation",
+      "visualId": "a2b069a3-76e7-4bbc-a4c7-a166623d2e93"
+    }
+  ],
+  "overwrite_scaling": true,
+  "clear_measure_selections": true
+}

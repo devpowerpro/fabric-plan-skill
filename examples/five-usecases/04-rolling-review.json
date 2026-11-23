@@ -1,0 +1,279 @@
+{
+  "id": "04-rolling-review",
+  "title": "Rolling Forecast and Quarterly Review",
+  "prompt": "Create a rolling sales forecast with January to December 2026 open for planning. Closed periods should follow actuals; each open month should default to the previous month plus 10% and remain editable. Add a quarterly review that reuses the monthly forecast directly, compares it with actual sales, highlights negative variance and lets managers add quarterly commentary.",
+  "spec": {
+    "name": "Rolling Forecast and Quarterly Review",
+    "sheets": [
+      {
+        "name": "Monthly Rolling Forecast",
+        "header": "Maintain the monthly USD sales forecast. January through December 2026 are editable; closed periods follow actuals. Open months default to the previous month increased by 10%.",
+        "rows": [
+          "DimRegion[Country]",
+          "DimRegion[RegionName]",
+          "DimProduct[Category]",
+          "DimProduct[ProductName]"
+        ],
+        "columns": [
+          "DimMonth[Year]",
+          "DimMonth[Quarter]",
+          "DimMonth[MonthName]"
+        ],
+        "measures": [
+          {
+            "kind": "Native",
+            "key": "actual",
+            "label": "Sales Actuals USD",
+            "source": "DeploymentAudit[Revenue USD]",
+            "aggregation": "Sum"
+          },
+          {
+            "kind": "Forecast",
+            "key": "forecast",
+            "label": "Sales Forecast USD",
+            "actuals": "actual",
+            "start": "2026-01-01",
+            "end": "2026-12-31",
+            "timezone": "UTC",
+            "openDefault": {
+              "Formula": "COLUMN.ADDMONTH(-1) * 1.1"
+            }
+          }
+        ],
+        "dimensionKeyGroups": [
+          {
+            "leaf": "DimRegion[RegionName]",
+            "key": "DimRegion[RegionID]",
+            "ancestors": [
+              "DimRegion[Country]"
+            ],
+            "unique": true,
+            "determinesAncestors": true,
+            "evidence": "Current semantic model master ID and relationship key: DimRegion[RegionID]; descriptive attributes belong to the same entity record."
+          },
+          {
+            "leaf": "DimProduct[ProductName]",
+            "key": "DimProduct[ProductID]",
+            "ancestors": [
+              "DimProduct[Category]"
+            ],
+            "unique": true,
+            "determinesAncestors": true,
+            "evidence": "Current semantic model master ID and relationship key: DimProduct[ProductID]; descriptive attributes belong to the same entity record."
+          }
+        ]
+      },
+      {
+        "name": "Quarterly Forecast Review",
+        "header": "Review the monthly forecast rolled into quarters, compare it with actual sales and explain the variance. Forecast values are linked from the monthly owner.",
+        "rows": [
+          "DimRegion[Country]",
+          "DimRegion[RegionName]",
+          "DimProduct[Category]",
+          "DimProduct[ProductName]"
+        ],
+        "columns": [
+          "DimMonth[Year]",
+          "DimMonth[Quarter]"
+        ],
+        "measures": [
+          {
+            "kind": "Native",
+            "key": "actual",
+            "label": "Sales Actuals USD",
+            "source": "DeploymentAudit[Revenue USD]",
+            "aggregation": "Sum"
+          }
+        ],
+        "dimensionKeyGroups": [
+          {
+            "leaf": "DimRegion[RegionName]",
+            "key": "DimRegion[RegionID]",
+            "ancestors": [
+              "DimRegion[Country]"
+            ],
+            "unique": true,
+            "determinesAncestors": true,
+            "evidence": "Current semantic model master ID and relationship key: DimRegion[RegionID]; descriptive attributes belong to the same entity record."
+          },
+          {
+            "leaf": "DimProduct[ProductName]",
+            "key": "DimProduct[ProductID]",
+            "ancestors": [
+              "DimProduct[Category]"
+            ],
+            "unique": true,
+            "determinesAncestors": true,
+            "evidence": "Current semantic model master ID and relationship key: DimProduct[ProductID]; descriptive attributes belong to the same entity record."
+          }
+        ]
+      }
+    ],
+    "dashboards": [
+      {
+        "name": "Monthly Rolling Forecast Dashboard",
+        "owner": "Monthly Rolling Forecast",
+        "title": "Monthly Rolling Forecast",
+        "description": "Maintain the monthly USD sales forecast. January through December 2026 are editable; closed periods follow actuals. Open months default to the previous month increased by 10%.",
+        "slicers": [
+          {
+            "field": "DimMonth[Year]",
+            "values": [
+              2025,
+              2026
+            ]
+          },
+          {
+            "field": "DimRegion[Country]"
+          },
+          {
+            "field": "DimRegion[RegionName]"
+          },
+          {
+            "field": "DimProduct[Category]"
+          }
+        ],
+        "cards": [],
+        "charts": [
+          {
+            "category": "DimRegion[RegionName]",
+            "field": "DeploymentAudit[Revenue USD]",
+            "label": "Monthly Rolling Forecast by RegionName"
+          },
+          {
+            "category": "DimProduct[Category]",
+            "field": "DeploymentAudit[Revenue USD]",
+            "label": "Monthly Rolling Forecast by Category"
+          }
+        ],
+        "gridHeight": 750
+      },
+      {
+        "name": "Quarterly Forecast Review Dashboard",
+        "owner": "Quarterly Forecast Review",
+        "title": "Quarterly Forecast Review",
+        "description": "Review the monthly forecast rolled into quarters, compare it with actual sales and explain the variance. Forecast values are linked from the monthly owner.",
+        "slicers": [
+          {
+            "field": "DimMonth[Year]",
+            "values": [
+              2026
+            ]
+          },
+          {
+            "field": "DimRegion[Country]"
+          },
+          {
+            "field": "DimRegion[RegionName]"
+          },
+          {
+            "field": "DimProduct[Category]"
+          }
+        ],
+        "cards": [],
+        "charts": [
+          {
+            "category": "DimRegion[RegionName]",
+            "field": "DeploymentAudit[Revenue USD]",
+            "label": "Quarterly Forecast Review by RegionName"
+          },
+          {
+            "category": "DimProduct[Category]",
+            "field": "DeploymentAudit[Revenue USD]",
+            "label": "Quarterly Forecast Review by Category"
+          }
+        ],
+        "gridHeight": 750
+      }
+    ],
+    "home": {
+      "show": true,
+      "roleId": "__everyone__",
+      "order": 1,
+      "blocks": [
+        {
+          "key": "intro",
+          "type": "text",
+          "title": "Rolling Forecast and Quarterly Review",
+          "description": "Create a rolling sales forecast with January to December 2026 open for planning. Closed periods should follow actuals; each open month should default to the previous month plus 10% and remain editable. Add a quarterly review that reuses the monthly forecast directly, compares it with actual sales, highlights negative variance and lets managers add quarterly commentary."
+        },
+        {
+          "key": "workflow",
+          "type": "text",
+          "title": "Start here",
+          "description": "Use the dashboards to select your planning scope, review the charts and work in the grid below. Monthly Rolling Forecast Dashboard Then Quarterly Forecast Review Dashboard."
+        },
+        {
+          "key": "sheets",
+          "type": "preview-cards",
+          "columns": 4
+        }
+      ],
+      "rows": [
+        {
+          "blocks": [
+            "intro"
+          ]
+        },
+        {
+          "blocks": [
+            "workflow"
+          ]
+        },
+        {
+          "blocks": [
+            "sheets"
+          ]
+        }
+      ]
+    }
+  },
+  "post": {
+    "quarterly": {
+      "sourceSheet": "Monthly Rolling Forecast",
+      "sourceForecast": "Sales Forecast USD",
+      "targetSheet": "Quarterly Forecast Review",
+      "targetActuals": "Sales Actuals USD",
+      "forecastLabel": "Sales Forecast USD",
+      "commentaryLabel": "Quarterly Commentary",
+      "varianceLabel": "Forecast Variance USD",
+      "charts": []
+    },
+    "comparisons": [
+      {
+        "owner": "Monthly Rolling Forecast",
+        "left": "Sales Forecast USD",
+        "right": "Sales Actuals USD"
+      },
+      {
+        "owner": "Quarterly Forecast Review",
+        "left": "Sales Forecast USD",
+        "right": "Sales Actuals USD"
+      }
+    ],
+    "steps": [],
+    "periodFilters": {
+      "Monthly Rolling Forecast": {
+        "field": "DimMonth[Year]",
+        "values": [
+          2025,
+          2026
+        ]
+      },
+      "Quarterly Forecast Review": {
+        "field": "DimMonth[Year]",
+        "values": [
+          2026
+        ]
+      }
+    }
+  },
+  "expected": {
+    "planningSheets": 2,
+    "dashboards": 2,
+    "comparisonCharts": 4,
+    "home": true
+  },
+  "normalizationNotes": [],
+  "referenceScope": "Recreate business structure and v14 presentation with current IDs/data; not an export of existing reports."
+}

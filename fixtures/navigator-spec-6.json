@@ -1,0 +1,60 @@
+[
+  {
+    "navigatorState": {
+      "navigatorButtonState": {
+        "actionType": "BACK"
+      }
+    }
+  },
+  {
+    "navigatorState": {
+      "navigatorButtonState": {
+        "actionType": "PAGE_NAVIGATION",
+        "pageDestinationId": "${PAGE_ENTITY_ID}"
+      }
+    }
+  },
+  {
+    "navigatorState": {
+      "navigatorButtonState": {
+        "actionType": "BOOKMARK_NAVIGATION",
+        "bookmarkId": "${BOOKMARK_SLUG}"
+      }
+    }
+  },
+  {
+    "navigatorState": {
+      "navigatorButtonState": {
+        "actionType": "APPLY_SLICER"
+      }
+    }
+  },
+  {
+    "navigatorState": {
+      "navigatorButtonState": {
+        "actionType": "CLEAR_SLICER"
+      }
+    }
+  },
+  {
+    "navigatorState": {
+      "navigatorButtonState": {
+        "actionType": "VARIABLE",
+        "variableId": "${ACTION_VARIABLE_ID}"
+      }
+    }
+  },
+  {
+    "navigatorState": {
+      "navigatorButtonState": {
+        "actionType": "DRILL_THROUGH",
+        "pageDestinationId": "${DRILLTHROUGH_PAGE_ENTITY_ID}"
+      }
+    },
+    "drillThroughTooltipConfig": {
+      "enabled": true,
+      "enabledTooltip": "Open detail",
+      "disabledTooltip": "Select one matching data point"
+    }
+  }
+]

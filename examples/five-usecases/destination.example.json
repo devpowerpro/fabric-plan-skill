@@ -1,0 +1,20 @@
+{
+  "apiBase": "https://api.fabric.microsoft.com/v1",
+  "allowedHosts": [
+    "api.fabric.microsoft.com"
+  ],
+  "workspaceId": "10000000-0000-4000-8000-000000000010",
+  "tokenEnvironment": "FABRIC_TOKEN",
+  "authorizedMutation": false,
+  "modelReference": {
+    "connectionId": "10000000-0000-4000-8000-000000000011",
+    "semanticModelId": "10000000-0000-4000-8000-000000000012",
+    "semanticModelName": "SyntheticPlanningModel",
+    "semanticModelWorkspaceId": "10000000-0000-4000-8000-000000000010",
+    "semanticModelWorkspaceName": "Example workspace",
+    "directLakeMode": false,
+    "directQueryMode": true,
+    "sourceType": "WORKLOAD",
+    "url": "https://example.invalid/model/synthetic"
+  }
+}

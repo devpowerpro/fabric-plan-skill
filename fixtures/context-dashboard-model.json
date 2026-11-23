@@ -1,0 +1,85 @@
+{
+  "reference": {
+    "connectionId": "10000000-0000-4000-8000-000000000001",
+    "semanticModelId": "10000000-0000-4000-8000-000000000002",
+    "semanticModelName": "Synthetic",
+    "semanticModelWorkspaceId": "10000000-0000-4000-8000-000000000003",
+    "semanticModelWorkspaceName": "Offline",
+    "directLakeMode": false,
+    "directQueryMode": false,
+    "sourceType": "WORKLOAD",
+    "url": "https://example.invalid/current-model"
+  },
+  "fields": [
+    {
+      "id": "Workforce[Name]",
+      "tableName": "Workforce",
+      "columnName": "Name",
+      "columnType": "Column",
+      "dataType": "String"
+    },
+    {
+      "id": "Workforce[Key]",
+      "tableName": "Workforce",
+      "columnName": "Key",
+      "columnType": "Column",
+      "dataType": "Int64"
+    },
+    {
+      "id": "Workforce[Group]",
+      "tableName": "Workforce",
+      "columnName": "Group",
+      "columnType": "Column",
+      "dataType": "String"
+    },
+    {
+      "id": "Time[Year]",
+      "tableName": "Time",
+      "columnName": "Year",
+      "columnType": "Column",
+      "dataType": "Int64"
+    },
+    {
+      "id": "Time[Month]",
+      "tableName": "Time",
+      "columnName": "Month",
+      "columnType": "Column",
+      "dataType": "String"
+    },
+    {
+      "id": "Version[Name]",
+      "tableName": "Version",
+      "columnName": "Name",
+      "columnType": "Column",
+      "dataType": "String"
+    },
+    {
+      "id": "Version[Key]",
+      "tableName": "Version",
+      "columnName": "Key",
+      "columnType": "Column",
+      "dataType": "Int64"
+    },
+    {
+      "id": "Geography[Area]",
+      "tableName": "Geography",
+      "columnName": "Area",
+      "columnType": "Column",
+      "dataType": "String"
+    },
+    {
+      "id": "Facts[Amount]",
+      "tableName": "Facts",
+      "columnName": "Amount",
+      "columnType": "Column",
+      "dataType": "Double"
+    },
+    {
+      "id": "Facts[Total]",
+      "tableName": "Facts",
+      "columnName": "Total",
+      "columnType": "Measure",
+      "dataType": "Double"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "type": "BOOKMARK_TABS",
+  "navigatorTabsState": {
+    "layoutType": "horizontal",
+    "selectedBookmarkNavigatorOption": "${BOOKMARK_GROUP_ID}",
+    "allowDeselection": true,
+    "launchOnDeselection": "${RESET_BOOKMARK_SLUG}",
+    "isHideDeselectedBookmark": true,
+    "hiddenBookmarks": [
+      "${OUTSIDE_GROUP_BOOKMARK_SLUG}",
+      "${RESET_BOOKMARK_SLUG}"
+    ]
+  }
+}

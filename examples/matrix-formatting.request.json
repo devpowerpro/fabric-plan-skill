@@ -1,0 +1,228 @@
+{
+  "state": {
+    "manage_measures": [
+      {
+        "id": "18446744073709550001",
+        "label": "Amount"
+      },
+      {
+        "id": "2",
+        "label": "Comment"
+      },
+      {
+        "id": "3",
+        "label": "Flag"
+      }
+    ],
+    "rowDimensions": [
+      {
+        "id": "product"
+      }
+    ],
+    "columnDimensions": [
+      {
+        "id": "year"
+      }
+    ],
+    "globalStyles": {
+      "fontSize": "12",
+      "privateFutureOption": true
+    },
+    "formatConfig": {
+      "measure": {
+        "18446744073709550001": [
+          {
+            "format": {
+              "4": "Arial"
+            },
+            "order": 7
+          }
+        ]
+      },
+      "formatSize": 8
+    },
+    "businessPolicy": {
+      "closed": "unchanged"
+    },
+    "filters": [
+      {
+        "opaque": "preserve"
+      }
+    ],
+    "row_height_config": {
+      "default_row_height": 26,
+      "sub_total_row_height": 26,
+      "custom_row_height": {
+        "root": 38
+      },
+      "row_level_height": [
+        40
+      ]
+    }
+  },
+  "request": {
+    "typography": {
+      "fontFamily": "Segoe UI",
+      "size": {
+        "value": 10,
+        "unit": "pt"
+      },
+      "headerSize": {
+        "value": 14,
+        "unit": "px"
+      }
+    },
+    "headers": [
+      {
+        "scope": "year",
+        "format": {
+          "textColor": "#FFFFFF",
+          "background": "#303B5D",
+          "fontSize": 14,
+          "bold": true
+        },
+        "headerId": "year-band",
+        "height": 28
+      },
+      {
+        "scope": "measureHeader",
+        "format": {
+          "textColor": "#212121",
+          "background": "#FFFFFF",
+          "fontSize": 14
+        },
+        "height": 48
+      }
+    ],
+    "columnStyles": {
+      "forecastOpen": {
+        "read": {
+          "background": "#FFFFDD",
+          "textColor": "#4F86D9",
+          "fontSize": 13.333333,
+          "fillType": "none"
+        },
+        "edit": {
+          "background": "#FFFFDD",
+          "textColor": "#4F86D9",
+          "fontSize": 13.333333,
+          "fillType": "none"
+        }
+      },
+      "forecastClosed": {
+        "read": {
+          "background": "#DDDDDD",
+          "textColor": "#212121",
+          "fontSize": 13.333333,
+          "fillType": "none"
+        },
+        "edit": {
+          "background": "#DDDDDD",
+          "textColor": "#212121",
+          "fontSize": 13.333333,
+          "fillType": "none"
+        }
+      },
+      "custom": {
+        "read": {
+          "background": "#FFFFDD",
+          "textColor": "#212121",
+          "fontSize": 13.333333,
+          "fillType": "none"
+        },
+        "edit": {
+          "background": "#FFFFDD",
+          "textColor": "#212121",
+          "fontSize": 13.333333,
+          "fillType": "none"
+        }
+      }
+    },
+    "rules": [
+      {
+        "id": "amount-negative",
+        "label": "Indicator",
+        "target": "18446744073709550001",
+        "test": "18446744073709550001",
+        "operator": "<",
+        "threshold": 0,
+        "rowScope": "both",
+        "columnScope": "both",
+        "excludeRowTotal": false,
+        "excludeColumnTotal": false,
+        "appearance": {
+          "textColor": "#A60000"
+        }
+      },
+      {
+        "id": "comment-attention",
+        "label": "Indicator",
+        "target": "2",
+        "test": "3",
+        "operator": "==",
+        "threshold": 1,
+        "rowScope": "child",
+        "columnScope": "child",
+        "excludeRowTotal": true,
+        "excludeColumnTotal": true,
+        "appearance": {
+          "icon": "flag",
+          "iconColor": "#A60000"
+        }
+      }
+    ],
+    "operations": [
+      {
+        "key": "amount-display",
+        "scope": "measure",
+        "id": "18446744073709550001",
+        "format": {
+          "decimals": 0,
+          "scaling": "none"
+        }
+      },
+      {
+        "key": "comment-text",
+        "scope": "measure",
+        "id": "2",
+        "format": {
+          "textColor": "#000000",
+          "horizontalAlignment": 1
+        }
+      }
+    ],
+    "numberFormatting": {
+      "showZeroAs": "hyphen",
+      "showNullAs": "blank",
+      "scalingFactor": "none",
+      "noOfDecimal": 0
+    },
+    "sizing": {
+      "rowHeight": 26,
+      "measureWidths": {
+        "18446744073709550001": 120,
+        "2": 300
+      },
+      "labelWidth": 240,
+      "wrapColumns": true
+    },
+    "themeColors": {
+      "enableRowHover": "rowAlternate",
+      "rowOddColor": "#F5F5F5",
+      "rowEvenColor": "#FFFFFF",
+      "enableVarianceColor": false
+    },
+    "gridStyles": {
+      "horizontalMinorGridLines": "solid",
+      "verticalMinorGridLines": "solid",
+      "horizontalMinorGridColor": "#E6E6E6",
+      "verticalMinorGridColor": "#E6E6E6"
+    },
+    "selectionBlueBorderOnly": true
+  },
+  "resolved": {
+    "header": [
+      "year-band"
+    ]
+  }
+}

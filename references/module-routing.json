@@ -1,0 +1,1176 @@
+{
+  "version": 2,
+  "release": "public-fabric",
+  "discoveryOnly": true,
+  "coverageMeaning": {
+    "local": "Construct or inspect candidates locally; no remote change.",
+    "public-api": "Includes explicitly selected Fabric Plan definition operations.",
+    "guide-only": "Scope and limitations only; no executable operation."
+  },
+  "actions": {
+    "integrated-variance": {
+      "phase": "local",
+      "description": "Style a locally supplied comparison while preserving bindings.",
+      "inputs": "Current comparison properties with resolved actual and baseline roles.",
+      "command": "python plan.py integrated-variance --input comparison.json --out candidate.json",
+      "symbols": [
+        "runtime.integrated_variance.apply_integrated_variance"
+      ]
+    },
+    "build": {
+      "phase": "local",
+      "description": "Construct a Planning definition.",
+      "inputs": "Model catalog and sheet spec.",
+      "command": "python plan.py build --model current-model.json --spec application.json --out draft",
+      "symbols": [
+        "runtime.construct.build"
+      ]
+    },
+    "forecast": {
+      "phase": "local",
+      "description": "Construct closed/open forecast settings.",
+      "inputs": "Actuals key, horizon and ordered calendar fields.",
+      "command": "python plan.py build --model current-model.json --spec forecast.json --out draft",
+      "symbols": [
+        "runtime.forecast.forecast_config"
+      ]
+    },
+    "decode": {
+      "phase": "local",
+      "description": "Decode definition parts locally.",
+      "inputs": "Exported definition envelope.",
+      "command": "python plan.py decode definition.json --out decoded",
+      "symbols": [
+        "runtime.codec.unpack"
+      ]
+    },
+    "export": {
+      "phase": "public-read",
+      "description": "Export the selected Plan definition.",
+      "inputs": "Authorized destination config and Plan ID.",
+      "command": "python plan.py api export --config destination.json --run run --label baseline",
+      "symbols": [
+        "runtime.transport.plan_operation"
+      ]
+    },
+    "create": {
+      "phase": "public-write",
+      "description": "Create a new Plan from a complete definition.",
+      "inputs": "Authorized workspace, display name and definition.",
+      "command": "python plan.py api create --config destination.json --payload definition.json --run run --label create",
+      "symbols": [
+        "runtime.transport.plan_operation"
+      ]
+    },
+    "update": {
+      "phase": "public-write",
+      "description": "Update the selected Plan definition.",
+      "inputs": "Authorized destination, Plan ID and complete candidate.",
+      "command": "python plan.py api update --config destination.json --payload candidate.json --run run --label update",
+      "symbols": [
+        "runtime.transport.plan_operation"
+      ]
+    },
+    "input": {
+      "phase": "local",
+      "description": "Construct a typed input.",
+      "inputs": "Owner, input type, unit, default and edit policy.",
+      "command": "python plan.py construct-native input --input input.request.json --out input.payload.json",
+      "symbols": [
+        "runtime.input_factories.input_create"
+      ]
+    },
+    "formula": {
+      "phase": "local",
+      "description": "Construct a formula measure.",
+      "inputs": "Expression and resolved measure identities.",
+      "command": "python plan.py construct-native formula --input formula.request.json --out formula.payload.json",
+      "symbols": [
+        "runtime.input_factories.formula_create"
+      ]
+    },
+    "filters": {
+      "phase": "local",
+      "description": "Construct Planning axis/filter registrations.",
+      "inputs": "Sheet spec and current model.",
+      "command": "python plan.py build --model current-model.json --spec application.json --out draft",
+      "symbols": [
+        "runtime.filters.ensure_axis_filters"
+      ]
+    },
+    "mapping": {
+      "phase": "local",
+      "description": "Construct a dimension mapping.",
+      "inputs": "Current fields, ordered axes and stable keys.",
+      "command": "python plan.py construct-native dimension-mapping --input mapping.request.json --out mapping.json",
+      "symbols": [
+        "runtime.dimension_mapping.dimension_mapping"
+      ]
+    },
+    "rule": {
+      "phase": "local",
+      "description": "Construct a planning rule candidate.",
+      "inputs": "Rule type, target scope and current measure IDs.",
+      "command": "python plan.py construct-native rule --input rule.request.json --out rule.payload.json",
+      "symbols": [
+        "runtime.rule_factories.new_rule"
+      ]
+    },
+    "weighted-rule": {
+      "phase": "local",
+      "description": "Construct a weighted allocation rule.",
+      "inputs": "Source amount, target grain, weight measure and total policy.",
+      "command": "python plan.py construct-native weighted-rule --input weighted-rule.request.json --out rule.payload.json",
+      "symbols": [
+        "runtime.rule_factories.measure_weighted_rule"
+      ]
+    },
+    "bridge-source": {
+      "phase": "local",
+      "description": "Describe a Planning source.",
+      "inputs": "Resolved source catalog and grain.",
+      "command": "python plan.py construct-bridge planning-source --input source.request.json --out source.json",
+      "symbols": [
+        "runtime.bridge.planning_source"
+      ]
+    },
+    "bridge-construct-query": {
+      "phase": "local",
+      "description": "Construct a transformation graph.",
+      "inputs": "Source and transformation metadata.",
+      "command": "python plan.py construct-bridge query --input bridge.request.json --out bridge.json",
+      "symbols": [
+        "runtime.bridge_operations.construct_query"
+      ]
+    },
+    "bridge-append": {
+      "phase": "local",
+      "description": "Align and append source definitions.",
+      "inputs": "Compatible supplied source schemas.",
+      "command": "python plan.py construct-bridge append --input bridge.request.json --out bridge.json",
+      "symbols": [
+        "runtime.bridge_operations.append_queries"
+      ]
+    },
+    "bridge-merge": {
+      "phase": "local",
+      "description": "Construct a merge definition.",
+      "inputs": "Supplied left/right fields and join keys.",
+      "command": "python plan.py construct-bridge merge --input bridge.request.json --out bridge.json",
+      "symbols": [
+        "runtime.bridge_operations.merge_queries"
+      ]
+    },
+    "bridge-join": {
+      "phase": "local",
+      "description": "Construct a join definition.",
+      "inputs": "Supplied source definitions, join type and key mapping.",
+      "command": "python plan.py construct-bridge join --input bridge.request.json --out bridge.json",
+      "symbols": [
+        "runtime.bridge_operations.join_queries"
+      ]
+    },
+    "bridge-sql": {
+      "phase": "local",
+      "description": "Describe a SQL source.",
+      "inputs": "Resolved SQL source identity and schema.",
+      "command": "python plan.py construct-bridge sql --input bridge.request.json --out bridge.json",
+      "symbols": [
+        "runtime.bridge_operations.sql_source"
+      ]
+    },
+    "bridge-consumer": {
+      "phase": "local",
+      "description": "Construct a query consumer binding.",
+      "inputs": "Current query and post-transform output metadata.",
+      "command": "python plan.py construct-native bridge-consumer --input consumer.request.json --out consumer.json",
+      "symbols": [
+        "runtime.connected_components.bridge_consumer"
+      ]
+    },
+    "check-bridge-mappings": {
+      "phase": "local",
+      "description": "Check a transformation graph locally.",
+      "inputs": "Graph with current source and output identities.",
+      "command": "python plan.py check-bridge-mappings --input request.json --out result.json",
+      "symbols": [
+        "runtime.bridge_identity.check_planning_graph"
+      ]
+    },
+    "powertable": {
+      "phase": "local",
+      "description": "Construct table definition parts in Python.",
+      "inputs": "Authorized source identity, physical schema and column configuration.",
+      "command": null,
+      "symbols": [
+        "runtime.powertable_factory.configured_table"
+      ]
+    },
+    "table-source": {
+      "phase": "local",
+      "description": "Describe an existing table source.",
+      "inputs": "Database, connection and physical table identity.",
+      "command": "python plan.py construct-native powertable-source --input source.request.json --out source.json",
+      "symbols": [
+        "runtime.powertable_factory.existing_source"
+      ]
+    },
+    "table-column": {
+      "phase": "local",
+      "description": "Construct a table column configuration.",
+      "inputs": "Physical column metadata, key role and editing policy.",
+      "command": "python plan.py construct-native table-column --input column.request.json --out column.json",
+      "symbols": [
+        "runtime.table_columns.column_config"
+      ]
+    },
+    "table-config-repair": {
+      "phase": "local",
+      "description": "Prepare a scoped lookup/source metadata change.",
+      "inputs": "Current definition, destination metadata and approved change.",
+      "command": "python plan.py repair-powertable-config --baseline current-definition.json --input repair.request.json --out candidate",
+      "symbols": [
+        "runtime.powertable_config.repair_definition"
+      ]
+    },
+    "format-matrix": {
+      "phase": "local",
+      "description": "Compile matrix formatting rules.",
+      "inputs": "Current state, selected measures, conditions and requested appearance.",
+      "command": "python plan.py format-matrix --input examples/matrix-formatting.request.json --out candidate.json",
+      "symbols": [
+        "runtime.matrix_formatting.compile_formatting"
+      ]
+    },
+    "leaf-key-mapping": {
+      "phase": "local",
+      "description": "Map storage to stable leaf keys.",
+      "inputs": "Ordered axes, field IDs and verified dependencies.",
+      "command": "python plan.py leaf-key-mapping --input examples/leaf-key-mapping.request.json --out mapping.json",
+      "symbols": [
+        "runtime.dimension_mapping.leaf_key_mapping"
+      ]
+    },
+    "resolve-measure-binding": {
+      "phase": "local",
+      "description": "Resolve a supplied model, sheet or query binding.",
+      "inputs": "Typed source request and current metadata for its owner.",
+      "command": "python plan.py resolve-measure-binding --input binding-request.json --out assignment.json",
+      "symbols": [
+        "runtime.measure_bindings.resolve_measure"
+      ]
+    },
+    "planning-totals": {
+      "phase": "local",
+      "description": "Set the requested placement of totals.",
+      "inputs": "Current Planning properties and intended axis settings.",
+      "command": "python plan.py planning-totals --input examples/planning-totals.request.json --out candidate.json",
+      "symbols": [
+        "runtime.roll_forward.apply_totals_defaults"
+      ]
+    },
+    "roll-forward-presentation": {
+      "phase": "local",
+      "description": "Group balance and movement measures.",
+      "inputs": "Resolved measures, hierarchy and current properties.",
+      "command": "python plan.py roll-forward-presentation --input examples/roll-forward-presentation.request.json --out candidate.json",
+      "symbols": [
+        "runtime.roll_forward.roll_forward_presentation"
+      ]
+    },
+    "plan-intent": {
+      "phase": "local",
+      "description": "Route a structured business brief locally.",
+      "inputs": "Original request, requirements, evidence and dependencies.",
+      "command": "python plan.py plan-intent --input business-brief.json --out decision-plan.json",
+      "symbols": [
+        "runtime.business_intent.plan_intent"
+      ]
+    },
+    "planning-time-axis": {
+      "phase": "local",
+      "description": "Construct or inspect a calendar axis.",
+      "inputs": "Model fields, ordered hierarchy and calendar choices.",
+      "command": "python plan.py planning-time-axis --input request.json --out result",
+      "symbols": [
+        "runtime.time_authoring.preferred_calendar_axis"
+      ]
+    },
+    "planning-time-column": {
+      "phase": "local",
+      "description": "Prepare a time calculation column.",
+      "inputs": "Baseline definition, resolved source, cutoff and period grain.",
+      "command": "python plan.py planning-time-column --baseline definition.json --input request.json --out result",
+      "symbols": [
+        "runtime.time_authoring.add_time_column"
+      ]
+    },
+    "check-formula-syntax": {
+      "phase": "local",
+      "description": "Find single-equals comparison errors.",
+      "inputs": "One Planning formula string.",
+      "command": "python plan.py check-formula-syntax --input request.json --out result",
+      "symbols": [
+        "runtime.formula_syntax.equality_issues"
+      ]
+    },
+    "repair-formula-equality": {
+      "phase": "local",
+      "description": "Repair comparison operators in a candidate.",
+      "inputs": "One Planning formula string.",
+      "command": "python plan.py repair-formula-equality --input request.json --out result",
+      "symbols": [
+        "runtime.formula_syntax.repair_equality"
+      ]
+    },
+    "check-import-contract": {
+      "phase": "local",
+      "description": "Compare requested inputs, formulas and rules with the candidate.",
+      "inputs": "Original spec and construction result.",
+      "command": "python plan.py check-import-contract --spec application.json --construction draft/construction.json --candidate candidate.json --out import-contract.json",
+      "symbols": [
+        "runtime.authoring_flow.require_import_contract"
+      ]
+    },
+    "anchor-construct": {
+      "phase": "local",
+      "description": "Attach an anchor at the decision grain.",
+      "inputs": "Current ordered pivot dimensions and selected measure.",
+      "command": "python plan.py construct-native anchor --input REQUEST --out CANDIDATE",
+      "symbols": [
+        "runtime.anchor_measures.capture_context"
+      ]
+    },
+    "planning-column-presentation": {
+      "phase": "local",
+      "description": "Prepare column sizing and expansion settings.",
+      "inputs": "Current Planning properties.",
+      "command": "python plan.py planning-column-presentation --input properties.json --out candidate.json",
+      "symbols": [
+        "runtime.column_presentation.expand_columns"
+      ]
+    },
+    "planning-display-defaults": {
+      "phase": "local",
+      "description": "Prepare numeric display and card defaults.",
+      "inputs": "Current properties and requested presentation.",
+      "command": "python plan.py planning-display-defaults --input display-request.json --out candidate.json",
+      "symbols": [
+        "runtime.display_defaults.planning_display_defaults"
+      ]
+    },
+    "fit-planning-header": {
+      "phase": "local",
+      "description": "Estimate header fit locally.",
+      "inputs": "Header content, width and typography.",
+      "command": "python plan.py fit-planning-header --input request.json --out candidate.json",
+      "symbols": [
+        "runtime.header_sizing.fit_header"
+      ]
+    },
+    "chart-filter-audit": {
+      "phase": "local",
+      "description": "Audit visible field cards and assignment identity in Python.",
+      "inputs": "Current chart properties.",
+      "command": null,
+      "symbols": [
+        "runtime.chart_filters.audit_chart_filters"
+      ]
+    }
+  },
+  "modules": [
+    {
+      "id": "LIFECYCLE",
+      "name": "Build, export, create or update a Plan",
+      "guides": [
+        {
+          "file": "runtime-guide.md"
+        }
+      ],
+      "operations": [
+        "build",
+        "decode",
+        "check-import-contract",
+        "export",
+        "create",
+        "update"
+      ],
+      "aliases": [
+        "getDefinition",
+        "updateDefinition",
+        "publish",
+        "deployment"
+      ],
+      "businessRequests": [
+        "Build, export, create or update a Plan"
+      ],
+      "prerequisites": "Resolve the model, target and authorized identity before API calls.",
+      "limitations": "Local validation and API completion do not validate calculated values.",
+      "coverage": "public-api"
+    },
+    {
+      "id": "VERIFIED-AUTHORING-FLOW",
+      "name": "Preserve requested inputs, formulas and rules on import",
+      "guides": [
+        {
+          "file": "runtime-guide.md"
+        }
+      ],
+      "operations": [
+        "build",
+        "check-import-contract"
+      ],
+      "aliases": [
+        "stripped inputs",
+        "reference-only import",
+        "expected flow",
+        "planning grid validation",
+        "findPaginatedRows"
+      ],
+      "businessRequests": [
+        "Preserve requested inputs, formulas and rules on import"
+      ],
+      "prerequisites": "Keep the original spec and current complete definition.",
+      "limitations": "A local contract check does not execute grid queries.",
+      "coverage": "local"
+    },
+    {
+      "id": "BUSINESS-INTENT",
+      "name": "Decompose a planning request into decisions",
+      "guides": [
+        {
+          "file": "runtime-guide.md"
+        }
+      ],
+      "operations": [
+        "plan-intent"
+      ],
+      "aliases": [
+        "business intent",
+        "requirements",
+        "dependencies"
+      ],
+      "businessRequests": [
+        "Decompose a planning request into decisions"
+      ],
+      "prerequisites": "Retain the original business clauses and unresolved decisions.",
+      "limitations": "Routing is not delivery.",
+      "coverage": "local"
+    },
+    {
+      "id": "F01",
+      "name": "Lay out a Planning sheet",
+      "guides": [
+        {
+          "file": "planning-column-presentation.md"
+        },
+        {
+          "file": "planning-totals-defaults.md"
+        },
+        {
+          "file": "planning-presentation.md"
+        }
+      ],
+      "operations": [
+        "planning-totals",
+        "planning-column-presentation"
+      ],
+      "aliases": [
+        "layout",
+        "matrix columns",
+        "expand hierarchy",
+        "column expansion"
+      ],
+      "businessRequests": [
+        "Lay out a Planning sheet"
+      ],
+      "prerequisites": "Resolve the sheet and ordered axes.",
+      "limitations": "Presentation does not change calculation grain.",
+      "coverage": "local"
+    },
+    {
+      "id": "F02",
+      "name": "Choose source aggregation and grid totals",
+      "guides": [
+        {
+          "file": "numeric-column-values.md"
+        },
+        {
+          "file": "planning-totals-defaults.md"
+        },
+        {
+          "file": "planning-measures.md"
+        },
+        {
+          "file": "planning-presentation.md"
+        }
+      ],
+      "operations": [
+        "resolve-measure-binding",
+        "planning-totals"
+      ],
+      "aliases": [
+        "aggregation settings",
+        "sum",
+        "weighted average",
+        "grid totals"
+      ],
+      "businessRequests": [
+        "Choose source aggregation and grid totals"
+      ],
+      "prerequisites": "Resolve metric units and behavior across each axis.",
+      "limitations": "Rates and balances are not additive by default.",
+      "coverage": "local"
+    },
+    {
+      "id": "F05",
+      "name": "Add typed inputs and commentary",
+      "guides": [
+        {
+          "file": "input-editability.md"
+        },
+        {
+          "file": "numeric-input-constraints.md"
+        },
+        {
+          "file": "planning-measures.md"
+        }
+      ],
+      "operations": [
+        "input"
+      ],
+      "aliases": [
+        "insert column",
+        "quarterly commentary",
+        "editable value",
+        "numeric bounds",
+        "percentage limit"
+      ],
+      "businessRequests": [
+        "Add typed inputs and commentary"
+      ],
+      "prerequisites": "Identify the decision grain, type and eligibility.",
+      "limitations": "A constructed input does not prove writeback.",
+      "coverage": "local"
+    },
+    {
+      "id": "F09",
+      "name": "Plan a rolling forecast and time extension",
+      "guides": [
+        {
+          "file": "forecast-time-intelligence.md"
+        },
+        {
+          "file": "actual-forecast-review.md"
+        },
+        {
+          "file": "forecast-authoring.md"
+        }
+      ],
+      "operations": [
+        "forecast",
+        "planning-time-axis"
+      ],
+      "aliases": [
+        "rolling forecast",
+        "time extension",
+        "monthly forecasting",
+        "forecast hierarchy"
+      ],
+      "businessRequests": [
+        "Plan a rolling forecast and time extension"
+      ],
+      "prerequisites": "Identify actuals, cutoff, end date, calendar and open-period policy.",
+      "limitations": "Forecast definition construction does not populate cells.",
+      "coverage": "local"
+    },
+    {
+      "id": "TIME-INTELLIGENCE",
+      "name": "Calculate period-to-date values and one-time columns",
+      "guides": [
+        {
+          "file": "forecast-time-intelligence.md"
+        },
+        {
+          "file": "actual-forecast-review.md"
+        },
+        {
+          "file": "forecast-authoring.md"
+        }
+      ],
+      "operations": [
+        "planning-time-axis",
+        "planning-time-column"
+      ],
+      "aliases": [
+        "monthly forecasting",
+        "one-time column",
+        "as-of date",
+        "QTD",
+        "SELECTEDVALUE",
+        "YTD",
+        "actual forecast boundary"
+      ],
+      "businessRequests": [
+        "Calculate period-to-date values and one-time columns"
+      ],
+      "prerequisites": "Identify the ordered period key, source and cutoff scope.",
+      "limitations": "Do not treat absent actuals as zeros.",
+      "coverage": "local"
+    },
+    {
+      "id": "F12",
+      "name": "Model measures by business role",
+      "guides": [
+        {
+          "file": "measure-source-bindings.md"
+        },
+        {
+          "file": "planning-measures.md"
+        }
+      ],
+      "operations": [
+        "formula",
+        "resolve-measure-binding"
+      ],
+      "aliases": [
+        "measure model",
+        "measure hierarchy"
+      ],
+      "businessRequests": [
+        "Model measures by business role"
+      ],
+      "prerequisites": "Distinguish source, editable and calculated values.",
+      "limitations": "Grouping measures does not change their arithmetic.",
+      "coverage": "local"
+    },
+    {
+      "id": "F13",
+      "name": "Specify approval stages",
+      "guides": [
+        {
+          "file": "runtime-guide.md"
+        }
+      ],
+      "operations": [],
+      "aliases": [
+        "approval",
+        "review stages",
+        "sign-off"
+      ],
+      "businessRequests": [
+        "Specify approval stages"
+      ],
+      "prerequisites": "Identify workflow stages, actors and required audit trail.",
+      "limitations": "Approval workflows are not implemented by this package.",
+      "coverage": "guide-only"
+    },
+    {
+      "id": "F15",
+      "name": "Define conditional formatting for a Planning matrix",
+      "guides": [
+        {
+          "file": "conditional-formatting.md"
+        },
+        {
+          "file": "integrated-variance.md"
+        },
+        {
+          "file": "planning-presentation.md"
+        }
+      ],
+      "operations": [
+        "format-matrix",
+        "integrated-variance"
+      ],
+      "aliases": [
+        "CF rules missing in Manage Rules",
+        "red arrows and unfavorable variance",
+        "negative variance",
+        "conditional formatting",
+        "integrated variance",
+        "comparison chart"
+      ],
+      "businessRequests": [
+        "Define conditional formatting for a Planning matrix"
+      ],
+      "prerequisites": "Resolve target, comparator, favorable direction and scope.",
+      "limitations": "Compiled rules do not prove UI rendering.",
+      "coverage": "local"
+    },
+    {
+      "id": "CONDITIONAL-FORMATTING",
+      "name": "Define conditional formatting for a Planning matrix",
+      "guides": [
+        {
+          "file": "conditional-formatting.md"
+        },
+        {
+          "file": "planning-presentation.md"
+        }
+      ],
+      "operations": [
+        "format-matrix"
+      ],
+      "aliases": [
+        "CF rules missing in Manage Rules",
+        "red arrows and unfavorable variance",
+        "negative variance",
+        "conditional formatting"
+      ],
+      "businessRequests": [
+        "Define conditional formatting for a Planning matrix"
+      ],
+      "prerequisites": "Resolve target, comparator, favorable direction and scope.",
+      "limitations": "Compiled rules do not prove UI rendering.",
+      "coverage": "local"
+    },
+    {
+      "id": "F18",
+      "name": "Transform Planning sources with InfoBridge",
+      "guides": [
+        {
+          "file": "storage-context.md"
+        },
+        {
+          "file": "measure-source-bindings.md"
+        },
+        {
+          "file": "infobridge-construction.md"
+        }
+      ],
+      "operations": [
+        "bridge-source",
+        "bridge-construct-query",
+        "bridge-append",
+        "bridge-merge",
+        "bridge-join",
+        "bridge-sql",
+        "check-bridge-mappings",
+        "bridge-consumer"
+      ],
+      "aliases": [
+        "join",
+        "merge",
+        "append",
+        "query lineage",
+        "InfoBridge"
+      ],
+      "businessRequests": [
+        "Transform Planning sources with InfoBridge"
+      ],
+      "prerequisites": "Supply source schemas, grain and output identities.",
+      "limitations": "Local construction does not run SQL, refresh data or materialize results.",
+      "coverage": "local"
+    },
+    {
+      "id": "F19",
+      "name": "Reuse values from sheets or queries",
+      "guides": [
+        {
+          "file": "measure-source-bindings.md"
+        },
+        {
+          "file": "storage-context.md"
+        },
+        {
+          "file": "planning-measures.md"
+        }
+      ],
+      "operations": [
+        "resolve-measure-binding",
+        "bridge-consumer"
+      ],
+      "aliases": [
+        "from sheets",
+        "reuse values",
+        "from queries"
+      ],
+      "businessRequests": [
+        "Reuse values from sheets or queries"
+      ],
+      "prerequisites": "Resolve current source owner, measure or output ID and compatible grain.",
+      "limitations": "A matching caption does not establish a binding.",
+      "coverage": "local"
+    },
+    {
+      "id": "F20",
+      "name": "Anchor a shared assumption at its decision grain",
+      "guides": [
+        {
+          "file": "anchor-measures.md"
+        },
+        {
+          "file": "planning-measures.md"
+        }
+      ],
+      "operations": [
+        "anchor-construct"
+      ],
+      "aliases": [
+        "regional benefits hidden employee leaf formulas",
+        "plant quarterly scrap assumptions",
+        "product price policy shared across regions",
+        "hide repeated assumptions at hierarchy levels",
+        "anchor measures"
+      ],
+      "businessRequests": [
+        "Anchor a shared assumption at its decision grain"
+      ],
+      "prerequisites": "Resolve all ordered pivot fields and selected anchor dimensions.",
+      "limitations": "An anchor is neither a lookup nor an allocation rule.",
+      "coverage": "local"
+    },
+    {
+      "id": "F21",
+      "name": "Bind model measures and numeric columns",
+      "guides": [
+        {
+          "file": "numeric-column-values.md"
+        },
+        {
+          "file": "measure-source-bindings.md"
+        },
+        {
+          "file": "planning-measures.md"
+        }
+      ],
+      "operations": [
+        "resolve-measure-binding"
+      ],
+      "aliases": [
+        "data pane",
+        "implicit Sum",
+        "semantic measure",
+        "numeric column values",
+        "implicit measures"
+      ],
+      "businessRequests": [
+        "Bind model measures and numeric columns"
+      ],
+      "prerequisites": "Identify the physical field and source aggregation.",
+      "limitations": "A grid total setting does not select source aggregation.",
+      "coverage": "local"
+    },
+    {
+      "id": "F25",
+      "name": "Specify access control requirements",
+      "guides": [
+        {
+          "file": "runtime-guide.md"
+        }
+      ],
+      "operations": [],
+      "aliases": [
+        "security",
+        "permissions",
+        "access control"
+      ],
+      "businessRequests": [
+        "Specify access control requirements"
+      ],
+      "prerequisites": "Identify the protected scope, actors and authorized policy owner.",
+      "limitations": "A filter is not an access control. No permission-management action is exposed.",
+      "coverage": "guide-only"
+    },
+    {
+      "id": "F30",
+      "name": "Allow input based on a formula",
+      "guides": [
+        {
+          "file": "input-editability.md"
+        },
+        {
+          "file": "numeric-input-constraints.md"
+        },
+        {
+          "file": "planning-measures.md"
+        },
+        {
+          "file": "formula-equality.md"
+        }
+      ],
+      "operations": [
+        "input",
+        "check-formula-syntax"
+      ],
+      "aliases": [
+        "conditional input",
+        "eligibility",
+        "lock cell",
+        "input editability"
+      ],
+      "businessRequests": [
+        "Allow input based on a formula"
+      ],
+      "prerequisites": "Resolve the editable target and positive Boolean condition.",
+      "limitations": "Eligibility does not grant user access.",
+      "coverage": "local"
+    },
+    {
+      "id": "POWERTABLE",
+      "name": "Model, configure and analyze PowerTable sources",
+      "guides": [
+        {
+          "file": "powertable.md"
+        }
+      ],
+      "operations": [
+        "powertable",
+        "table-source",
+        "table-column",
+        "table-config-repair"
+      ],
+      "aliases": [
+        "employee master",
+        "PowerTable from scratch",
+        "compare PowerTable sheets",
+        "analyze PowerTable",
+        "database lookup",
+        "master data"
+      ],
+      "businessRequests": [
+        "Model, configure and analyze PowerTable sources"
+      ],
+      "prerequisites": "Supply physical schema, keys and authorized source identity.",
+      "limitations": "No SQL provisioning, row write, schema discovery or connection setup is performed.",
+      "coverage": "local"
+    },
+    {
+      "id": "RULES",
+      "name": "Allocate amounts and distribute by weight",
+      "guides": [
+        {
+          "file": "measure-weighted-distribution.md"
+        },
+        {
+          "file": "numeric-input-constraints.md"
+        },
+        {
+          "file": "planning-measures.md"
+        }
+      ],
+      "operations": [
+        "rule",
+        "weighted-rule"
+      ],
+      "aliases": [
+        "allocation",
+        "distribution",
+        "weighted spread",
+        "measure weighted distribution",
+        "budget weights"
+      ],
+      "businessRequests": [
+        "Allocate amounts and distribute by weight"
+      ],
+      "prerequisites": "Identify weights, grain, units and zero-weight policy.",
+      "limitations": "Local payload construction does not calculate allocations.",
+      "coverage": "local"
+    },
+    {
+      "id": "DIMENSION-ID",
+      "name": "Map dimensions to stable storage keys",
+      "guides": [
+        {
+          "file": "dimension-leaf-keys.md"
+        },
+        {
+          "file": "storage-context.md"
+        },
+        {
+          "file": "planning-measures.md"
+        }
+      ],
+      "operations": [
+        "leaf-key-mapping",
+        "mapping"
+      ],
+      "aliases": [
+        "dimension ID",
+        "leaf key",
+        "storage identity",
+        "dimension leaf keys"
+      ],
+      "businessRequests": [
+        "Map dimensions to stable storage keys"
+      ],
+      "prerequisites": "Confirm leaf uniqueness and ancestor dependencies.",
+      "limitations": "A candidate mapping does not migrate existing cell values.",
+      "coverage": "local"
+    },
+    {
+      "id": "FORMULAS",
+      "name": "Construct formulas for calculated measures",
+      "guides": [
+        {
+          "file": "formula-equality.md"
+        },
+        {
+          "file": "planning-measures.md"
+        }
+      ],
+      "operations": [
+        "formula",
+        "check-formula-syntax"
+      ],
+      "aliases": [
+        "calculated value",
+        "formula",
+        "expression"
+      ],
+      "businessRequests": [
+        "Construct formulas for calculated measures"
+      ],
+      "prerequisites": "Resolve referenced IDs and aggregation semantics.",
+      "limitations": "Syntax checks are not a calculation engine.",
+      "coverage": "local"
+    },
+    {
+      "id": "FORMULA-SYNTAX",
+      "name": "Check and repair formula equality",
+      "guides": [
+        {
+          "file": "formula-equality.md"
+        }
+      ],
+      "operations": [
+        "check-formula-syntax",
+        "repair-formula-equality"
+      ],
+      "aliases": [
+        "double equals",
+        "single equals",
+        "comparison equality"
+      ],
+      "businessRequests": [
+        "Check and repair formula equality"
+      ],
+      "prerequisites": "Identify a Planning expression, not SQL or DAX.",
+      "limitations": "The checker is scoped to the equality operator.",
+      "coverage": "local"
+    },
+    {
+      "id": "SCENARIOS",
+      "name": "Distinguish scenario inputs from lifecycle and access",
+      "guides": [
+        {
+          "file": "storage-context.md"
+        },
+        {
+          "file": "planning-measures.md"
+        },
+        {
+          "file": "runtime-guide.md"
+        }
+      ],
+      "operations": [
+        "input",
+        "filters"
+      ],
+      "aliases": [
+        "scenario",
+        "sensitivity",
+        "version",
+        "storage context"
+      ],
+      "businessRequests": [
+        "Distinguish scenario inputs from lifecycle and access"
+      ],
+      "prerequisites": "Determine whether a transient filter or stored version is requested.",
+      "limitations": "No scenario lifecycle management is implemented.",
+      "coverage": "local"
+    },
+    {
+      "id": "ROLL-FORWARD",
+      "name": "Carry opening balances through movements to closing balances",
+      "guides": [
+        {
+          "file": "roll-forward-authoring.md"
+        },
+        {
+          "file": "roll-forward-formula-patterns.md"
+        }
+      ],
+      "operations": [
+        "roll-forward-presentation",
+        "planning-totals",
+        "formula"
+      ],
+      "aliases": [
+        "roll forward",
+        "carry forward balances",
+        "cash runway and funding shortfall",
+        "stock depletion and replenishment",
+        "invoice cohorts and collections timing",
+        "staffing exits depend on opening headcount",
+        "unearned revenue recognition and cancellations"
+      ],
+      "businessRequests": [
+        "Carry opening balances through movements to closing balances"
+      ],
+      "prerequisites": "Resolve the seed, ordered calendar, signed movements and per-axis aggregation.",
+      "limitations": "The generic builder does not implement cyclic measure graphs.",
+      "coverage": "local"
+    },
+    {
+      "id": "REPORT-PRESENTATION",
+      "name": "Fit Planning headers, number displays and matrix columns",
+      "guides": [
+        {
+          "file": "measure-display-defaults.md"
+        },
+        {
+          "file": "planning-column-presentation.md"
+        },
+        {
+          "file": "planning-totals-defaults.md"
+        },
+        {
+          "file": "planning-presentation.md"
+        }
+      ],
+      "operations": [
+        "fit-planning-header",
+        "planning-column-presentation",
+        "planning-display-defaults"
+      ],
+      "aliases": [
+        "header fit",
+        "number scaling",
+        "column presentation",
+        "measure cards at All",
+        "Auto number formatting"
+      ],
+      "businessRequests": [
+        "Fit Planning headers, number displays and matrix columns"
+      ],
+      "prerequisites": "Start from current properties and preserve user choices.",
+      "limitations": "Local size estimates do not verify viewport rendering.",
+      "coverage": "local"
+    },
+    {
+      "id": "CHART-FILTERS",
+      "name": "Check chart visual filters on local definitions",
+      "guides": [
+        {
+          "file": "chart-visual-filters.md"
+        }
+      ],
+      "operations": [
+        "chart-filter-audit"
+      ],
+      "aliases": [
+        "chart visual filters",
+        "field filter registration",
+        "chart filter cards"
+      ],
+      "businessRequests": [
+        "Check that each assigned chart field has its own unrestricted card."
+      ],
+      "prerequisites": "Supply current chart properties and resolved assignments.",
+      "limitations": "The audit checks metadata only, not rendering or workspace state.",
+      "coverage": "local"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+[
+  {
+    "type": "PAGE_NAVIGATOR_TABS",
+    "navigatorTabsState": {
+      "layoutType": "auto-grid",
+      "scrollDirection": "horizontal",
+      "showScrollButtons": true
+    }
+  },
+  {
+    "type": "PAGE_NAVIGATOR_TABS",
+    "navigatorTabsState": {
+      "layoutType": "vertical",
+      "selectedPages": [
+        "${PAGE_ENTITY_ID}"
+      ],
+      "destinationType": {
+        "all": true,
+        "hidden": true,
+        "tooltip": true
+      }
+    }
+  },
+  {
+    "type": "PAGE_NAVIGATOR_TABS",
+    "navigatorTabsState": {
+      "layoutType": "vertical",
+      "collapsible": {
+        "isEnabled": true,
+        "isCollapsed": true,
+        "identifierType": "roman"
+      }
+    }
+  },
+  {
+    "type": "PAGE_NAVIGATOR_TABS",
+    "navigatorTabsState": {
+      "layoutType": "vertical",
+      "collapsible": {
+        "isEnabled": true,
+        "isCollapsed": true,
+        "identifierType": "text"
+      }
+    }
+  },
+  {
+    "type": "PAGE_NAVIGATOR_TABS",
+    "navigatorTabsState": {
+      "layoutType": "vertical",
+      "collapsible": {
+        "isEnabled": true,
+        "isCollapsed": true,
+        "identifierType": "icon"
+      }
+    },
+    "style": {
+      "DEFAULT": {
+        "shapeState": {
+          "icon": {
+            "isEnabled": true,
+            "iconTypeMapping": {
+              "default": {
+                "src": "ArrowLeft",
+                "customIcon": {
+                  "name": "",
+                  "isEnabled": false
+                }
+              }
+            }
+          }
+        }
+      },
+      "HOVER": {
+        "shapeState": {
+          "icon": {
+            "isEnabled": true
+          }
+        }
+      },
+      "PRESSED": {
+        "shapeState": {
+          "icon": {
+            "isEnabled": true
+          }
+        }
+      },
+      "ACTIVE": {
+        "shapeState": {
+          "icon": {
+            "isEnabled": true
+          }
+        }
+      }
+    }
+  }
+]

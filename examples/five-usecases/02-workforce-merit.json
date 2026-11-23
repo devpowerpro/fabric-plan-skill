@@ -1,0 +1,206 @@
+{
+  "id": "02-workforce-merit",
+  "title": "Workforce Merit Planning",
+  "prompt": "Build a 2026 merit-planning workspace by department and employee. Let managers enter monthly salary increases from 0% to 15%, starting at zero. Use the model's base salary and exchange rate to show proposed salary and incremental cost in USD, with a department view of the cost impact. Keep bonuses and benefits outside this plan.",
+  "spec": {
+    "name": "Workforce Merit Planning",
+    "sheets": [
+      {
+        "name": "Workforce Merit Plan",
+        "header": "Plan employee merit increases month by month. Review monthly base salary in USD, the proposed salary and incremental cost. This is a base-pay plan, excluding bonuses and benefits.",
+        "rows": [
+          "DimEmployee[DepartmentName]",
+          "DimEmployee[EmployeeName]"
+        ],
+        "columns": [
+          "DimMonth[Year]",
+          "DimMonth[Quarter]",
+          "DimMonth[MonthName]"
+        ],
+        "measures": [
+          {
+            "kind": "Native",
+            "key": "salary",
+            "label": "Monthly Base Salary",
+            "source": "DeploymentAudit[Monthly Base Salary]",
+            "aggregation": "Sum"
+          },
+          {
+            "kind": "Native",
+            "key": "fx",
+            "label": "Employee FX",
+            "source": "DeploymentAudit[Employee FX]",
+            "aggregation": "AverageLeaf"
+          },
+          {
+            "kind": "Formula",
+            "key": "base",
+            "label": "Base Salary USD",
+            "formula": "${salary} * ${fx}",
+            "aggregation": "Sum"
+          },
+          {
+            "kind": "DataInput",
+            "key": "merit",
+            "label": "Merit Increase",
+            "default_value": {
+              "Static": 0
+            },
+            "aggregation": "AverageLeaf",
+            "distribute": true,
+            "min_value": {
+              "Static": 0
+            },
+            "max_value": {
+              "Measure": "meritMaximum"
+            }
+          },
+          {
+            "kind": "Formula",
+            "key": "proposed",
+            "label": "Proposed Salary USD",
+            "formula": "${base} * (1 + ${merit})",
+            "aggregation": "Sum"
+          },
+          {
+            "kind": "Formula",
+            "key": "increase",
+            "label": "Incremental Salary Cost USD",
+            "formula": "${proposed} - ${base}",
+            "aggregation": "Sum"
+          },
+          {
+            "kind": "Formula",
+            "key": "meritMaximum",
+            "label": "Merit Increase Maximum",
+            "formula": "0.15",
+            "aggregation": "Formula",
+            "visible": false
+          }
+        ],
+        "dimensionKeyGroups": [
+          {
+            "leaf": "DimEmployee[EmployeeName]",
+            "key": "DimEmployee[EmployeeID]",
+            "ancestors": [
+              "DimEmployee[DepartmentName]"
+            ],
+            "unique": true,
+            "determinesAncestors": true,
+            "evidence": "Current semantic model master ID and relationship key: DimEmployee[EmployeeID]; descriptive attributes belong to the same entity record."
+          }
+        ]
+      }
+    ],
+    "dashboards": [
+      {
+        "name": "Workforce Merit Plan Dashboard",
+        "owner": "Workforce Merit Plan",
+        "title": "Workforce Merit Plan",
+        "description": "Plan employee merit increases month by month. Review monthly base salary in USD, the proposed salary and incremental cost. This is a base-pay plan, excluding bonuses and benefits.",
+        "slicers": [
+          {
+            "field": "DimMonth[Year]",
+            "values": [
+              2026
+            ]
+          },
+          {
+            "field": "DimEmployee[DepartmentName]"
+          },
+          {
+            "field": "DimEmployee[EmployeeName]"
+          }
+        ],
+        "cards": [],
+        "charts": [
+          {
+            "category": "DimEmployee[DepartmentName]",
+            "field": "DeploymentAudit[Monthly Base Salary]",
+            "label": "Workforce Merit Plan by DepartmentName"
+          },
+          {
+            "category": "DimEmployee[EmployeeName]",
+            "field": "DeploymentAudit[Monthly Base Salary]",
+            "label": "Workforce Merit Plan by EmployeeName"
+          }
+        ],
+        "gridHeight": 750
+      }
+    ],
+    "home": {
+      "show": true,
+      "roleId": "__everyone__",
+      "order": 1,
+      "blocks": [
+        {
+          "key": "intro",
+          "type": "text",
+          "title": "Workforce Merit Planning",
+          "description": "Build a 2026 merit-planning workspace by department and employee. Let managers enter monthly salary increases from 0% to 15%, starting at zero. Use the model's base salary and exchange rate to show proposed salary and incremental cost in USD, with a department view of the cost impact. Keep bonuses and benefits outside this plan."
+        },
+        {
+          "key": "workflow",
+          "type": "text",
+          "title": "Start here",
+          "description": "Use the dashboards to select your planning scope, review the charts and work in the grid below. Workforce Merit Plan Dashboard."
+        },
+        {
+          "key": "sheets",
+          "type": "preview-cards",
+          "columns": 4
+        }
+      ],
+      "rows": [
+        {
+          "blocks": [
+            "intro"
+          ]
+        },
+        {
+          "blocks": [
+            "workflow"
+          ]
+        },
+        {
+          "blocks": [
+            "sheets"
+          ]
+        }
+      ]
+    }
+  },
+  "post": {
+    "comparisons": [
+      {
+        "owner": "Workforce Merit Plan",
+        "left": "Proposed Salary USD",
+        "right": "Base Salary USD"
+      }
+    ],
+    "percent": {
+      "Workforce Merit Plan": [
+        "Merit Increase"
+      ]
+    },
+    "steps": [],
+    "periodFilters": {
+      "Workforce Merit Plan": {
+        "field": "DimMonth[Year]",
+        "values": [
+          2026
+        ]
+      }
+    }
+  },
+  "expected": {
+    "planningSheets": 1,
+    "dashboards": 1,
+    "comparisonCharts": 2,
+    "home": true
+  },
+  "normalizationNotes": [
+    "Merit Increase: fractional max_value uses hidden formula 0.15; original stored units unchanged."
+  ],
+  "referenceScope": "Recreate business structure and v14 presentation with current IDs/data; not an export of existing reports."
+}

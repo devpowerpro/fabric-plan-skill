@@ -1,0 +1,47 @@
+{
+  "properties": {
+    "dimension": {
+      "width": 1200,
+      "height": 900
+    },
+    "visualState": {
+      "chartCustomTitle": {
+        "customTitle": {
+          "elements": [
+            {
+              "type": "TEXT",
+              "id": "example-description",
+              "position": {
+                "top": 0,
+                "left": 0
+              },
+              "dimension": {
+                "width": "1200",
+                "height": "240"
+              },
+              "layout": {
+                "x": 0,
+                "y": 0,
+                "w": 64,
+                "h": 24,
+                "i": "example-description",
+                "static": false
+              },
+              "content": "<div style=\"font-family:Arial\"><p style=\"font-size:22px;margin:0 0 8px 0\"><strong>Operating Plan</strong></p><p style=\"font-size:14px;margin:0 0 8px 0\">Review planned activity and adjust eligible inputs for the selected period. Compare the resulting plan with the available baseline.</p><p style=\"font-size:13px;margin:0\"><span style=\"color:#8A5700;font-weight:bold\">Input / Forecast</span> <span style=\"color:#6B3FA0;font-weight:bold\">Formula</span> <span style=\"color:#1F5AA6;font-weight:bold\">Power BI</span></p></div>",
+              "align": "left",
+              "verticalAlign": "TOP"
+            }
+          ],
+          "layout": "example-description",
+          "layoutType": "CUSTOM",
+          "containerPosition": "top",
+          "containerMeta": {
+            "width": 1200,
+            "height": 240
+          }
+        },
+        "customTitleHeight": 240
+      }
+    }
+  }
+}

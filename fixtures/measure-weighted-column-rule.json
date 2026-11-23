@@ -1,0 +1,40 @@
+{
+  "id": "101",
+  "rule_id": "9007199254741001",
+  "name": "Distribute target using budget weights",
+  "is_disabled": false,
+  "is_updated": true,
+  "created_at": "2026-01-01T00:00:00",
+  "created_by": {
+    "email": "Example User",
+    "id": "planner@example.invalid"
+  },
+  "updated_at": "2026-01-01T00:00:01",
+  "updated_by": {
+    "email": "planner@example.invalid",
+    "name": "Example User"
+  },
+  "columns": "All",
+  "rows": "All",
+  "measures": {
+    "SelectedMeasures": [
+      "9007199254740993"
+    ]
+  },
+  "rule_type": {
+    "Distribute": {
+      "operation": {
+        "Column": {
+          "apply_to_dimensions": "All",
+          "reference": {
+            "MeasureIdWithReference": {
+              "measure": {
+                "Measure": "18446744073709551615"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

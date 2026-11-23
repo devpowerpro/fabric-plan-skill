@@ -1,0 +1,23 @@
+{
+  "query": {
+    "id": "Qillustrative-current-query",
+    "sqlPk": 77,
+    "sourceId": "illustrative-source",
+    "name": "Regional Revenue",
+    "meta": {
+      "selectedMeasures": [
+        {
+          "id": "12",
+          "measureGuid": "15000000000000000003",
+          "name": "Revenue Plan",
+          "alias": "Revenue Plan",
+          "type": "DOUBLE",
+          "dataType": "NUMERIC",
+          "columnType": "FORMULA"
+        }
+      ]
+    }
+  },
+  "expected_measure_guid": "15000000000000000003",
+  "expected_name": "Revenue Plan"
+}

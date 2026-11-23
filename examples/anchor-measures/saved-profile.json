@@ -1,0 +1,415 @@
+{
+  "status": "sanitized illustrative fixture; not a target configuration",
+  "evidenceDate": "2026-11-17",
+  "sourceDeckSha256": "f2ea03369906dd7e52b67fc2ff8bff54b9b38365ffe034ec974209ba1980ddbf",
+  "sourceDefinitionSha256": "0d335bba97dd9a482875be3b1c8953da364498cfddaeacce88319c820c4095eb",
+  "observations": {
+    "anchorCount": 21,
+    "allDisplayAtAllLevels": false,
+    "distinctNativeHashCount": 1,
+    "is_enabledPresent": false,
+    "nativeMeasureExamples": [
+      "Unit Cost (Store + Online)",
+      "Unit Price (Store + Online)"
+    ],
+    "runtimeValidation": "not performed",
+    "identityPolicy": "All dimension IDs, measure IDs, external keys and hash remapped; no target identity shipped"
+  },
+  "properties": {
+    "visualState": {
+      "rowDimensions": [
+        {
+          "id": "9007199254741000",
+          "externalKey": "ExampleRow[Entity Continent]",
+          "label": "Entity Continent"
+        },
+        {
+          "id": "9007199254741001",
+          "externalKey": "ExampleRow[Entity Country]",
+          "label": "Entity Country"
+        },
+        {
+          "id": "9007199254741002",
+          "externalKey": "ExampleRow[ProductCategoryName]",
+          "label": "ProductCategoryName"
+        },
+        {
+          "id": "9007199254741003",
+          "externalKey": "ExampleRow[ProductSubcategoryName]",
+          "label": "ProductSubcategoryName"
+        }
+      ],
+      "columnDimensions": [
+        {
+          "id": "9007199254741004",
+          "externalKey": "ExampleCalendar[Year]",
+          "label": "Year",
+          "isTimeDimension": true,
+          "timeIntervalUnit": "Year"
+        },
+        {
+          "id": "9007199254741005",
+          "externalKey": "ExampleCalendar[Month]",
+          "label": "Month",
+          "isTimeDimension": true,
+          "timeIntervalUnit": "Month"
+        }
+      ],
+      "manage_measures": [
+        {
+          "id": "9007199254742001",
+          "label": "Unit Cost (Store + Online)",
+          "order": 1,
+          "visible": true,
+          "anchor_config": {
+            "col_dimensions": [
+              "9007199254741004",
+              "9007199254741005"
+            ],
+            "dimension_hash": "eac059e2896ec2f0",
+            "display_at_all_levels": false,
+            "row_dimensions": [
+              "9007199254741000"
+            ]
+          }
+        },
+        {
+          "id": "9007199254742002",
+          "label": "Unit Price (Store + Online)",
+          "order": 2,
+          "visible": true,
+          "anchor_config": {
+            "col_dimensions": [
+              "9007199254741004",
+              "9007199254741005"
+            ],
+            "dimension_hash": "eac059e2896ec2f0",
+            "display_at_all_levels": false,
+            "row_dimensions": [
+              "9007199254741000"
+            ]
+          }
+        },
+        {
+          "id": "9007199254742005",
+          "label": "Price",
+          "order": 5,
+          "visible": true,
+          "anchor_config": {
+            "col_dimensions": [
+              "9007199254741004"
+            ],
+            "dimension_hash": "eac059e2896ec2f0",
+            "display_at_all_levels": false,
+            "row_dimensions": [
+              "9007199254741002"
+            ]
+          }
+        },
+        {
+          "id": "9007199254742006",
+          "label": "Uplift",
+          "order": 6,
+          "visible": true,
+          "anchor_config": {
+            "col_dimensions": [
+              "9007199254741004"
+            ],
+            "dimension_hash": "eac059e2896ec2f0",
+            "display_at_all_levels": false,
+            "row_dimensions": [
+              "9007199254741000"
+            ]
+          }
+        },
+        {
+          "id": "9007199254742007",
+          "label": "Discount",
+          "order": 7,
+          "visible": true,
+          "anchor_config": {
+            "col_dimensions": [
+              "9007199254741004",
+              "9007199254741005"
+            ],
+            "dimension_hash": "eac059e2896ec2f0",
+            "display_at_all_levels": false,
+            "row_dimensions": [
+              "9007199254741001"
+            ]
+          }
+        },
+        {
+          "id": "9007199254742008",
+          "label": "Returns",
+          "order": 8,
+          "visible": true,
+          "anchor_config": {
+            "col_dimensions": [
+              "9007199254741004",
+              "9007199254741005"
+            ],
+            "dimension_hash": "eac059e2896ec2f0",
+            "display_at_all_levels": false,
+            "row_dimensions": [
+              "9007199254741002"
+            ]
+          }
+        },
+        {
+          "id": "9007199254742009",
+          "label": "Unitcost",
+          "order": 9,
+          "visible": true,
+          "anchor_config": {
+            "col_dimensions": [
+              "9007199254741004"
+            ],
+            "dimension_hash": "eac059e2896ec2f0",
+            "display_at_all_levels": false,
+            "row_dimensions": [
+              "9007199254741003"
+            ]
+          }
+        },
+        {
+          "id": "9007199254742010",
+          "label": "Inflation",
+          "order": 10,
+          "visible": true,
+          "anchor_config": {
+            "col_dimensions": [
+              "9007199254741004"
+            ],
+            "dimension_hash": "eac059e2896ec2f0",
+            "display_at_all_levels": false,
+            "row_dimensions": [
+              "9007199254741000"
+            ]
+          }
+        },
+        {
+          "id": "9007199254742011",
+          "label": "Freightunit",
+          "order": 11,
+          "visible": true,
+          "anchor_config": {
+            "col_dimensions": [
+              "9007199254741004"
+            ],
+            "dimension_hash": "eac059e2896ec2f0",
+            "display_at_all_levels": false,
+            "row_dimensions": [
+              "9007199254741001"
+            ]
+          }
+        },
+        {
+          "id": "9007199254742012",
+          "label": "Duty",
+          "order": 12,
+          "visible": true,
+          "anchor_config": {
+            "col_dimensions": [
+              "9007199254741004"
+            ],
+            "dimension_hash": "eac059e2896ec2f0",
+            "display_at_all_levels": false,
+            "row_dimensions": [
+              "9007199254741001"
+            ]
+          }
+        },
+        {
+          "id": "9007199254742013",
+          "label": "Warehouseunit",
+          "order": 13,
+          "visible": true,
+          "anchor_config": {
+            "col_dimensions": [
+              "9007199254741004"
+            ],
+            "dimension_hash": "eac059e2896ec2f0",
+            "display_at_all_levels": false,
+            "row_dimensions": [
+              "9007199254741002"
+            ]
+          }
+        },
+        {
+          "id": "9007199254742014",
+          "label": "Marketing",
+          "order": 14,
+          "visible": true,
+          "anchor_config": {
+            "col_dimensions": [
+              "9007199254741004",
+              "9007199254741005"
+            ],
+            "dimension_hash": "eac059e2896ec2f0",
+            "display_at_all_levels": false,
+            "row_dimensions": [
+              "9007199254741001"
+            ]
+          }
+        },
+        {
+          "id": "9007199254742015",
+          "label": "Commission",
+          "order": 15,
+          "visible": true,
+          "anchor_config": {
+            "col_dimensions": [
+              "9007199254741004"
+            ],
+            "dimension_hash": "eac059e2896ec2f0",
+            "display_at_all_levels": false,
+            "row_dimensions": [
+              "9007199254741000"
+            ]
+          }
+        },
+        {
+          "id": "9007199254742016",
+          "label": "Overheadunit",
+          "order": 16,
+          "visible": true,
+          "anchor_config": {
+            "col_dimensions": [
+              "9007199254741004"
+            ],
+            "dimension_hash": "eac059e2896ec2f0",
+            "display_at_all_levels": false,
+            "row_dimensions": [
+              "9007199254741000"
+            ]
+          }
+        },
+        {
+          "id": "9007199254742017",
+          "label": "Dso",
+          "order": 17,
+          "visible": true,
+          "anchor_config": {
+            "col_dimensions": [
+              "9007199254741004"
+            ],
+            "dimension_hash": "eac059e2896ec2f0",
+            "display_at_all_levels": false,
+            "row_dimensions": [
+              "9007199254741001"
+            ]
+          }
+        },
+        {
+          "id": "9007199254742018",
+          "label": "Stockdays",
+          "order": 18,
+          "visible": true,
+          "anchor_config": {
+            "col_dimensions": [
+              "9007199254741004"
+            ],
+            "dimension_hash": "eac059e2896ec2f0",
+            "display_at_all_levels": false,
+            "row_dimensions": [
+              "9007199254741002"
+            ]
+          }
+        },
+        {
+          "id": "9007199254742019",
+          "label": "Dpo",
+          "order": 19,
+          "visible": true,
+          "anchor_config": {
+            "col_dimensions": [
+              "9007199254741004"
+            ],
+            "dimension_hash": "eac059e2896ec2f0",
+            "display_at_all_levels": false,
+            "row_dimensions": [
+              "9007199254741001"
+            ]
+          }
+        },
+        {
+          "id": "9007199254742020",
+          "label": "Capexunit",
+          "order": 20,
+          "visible": true,
+          "anchor_config": {
+            "col_dimensions": [
+              "9007199254741004"
+            ],
+            "dimension_hash": "eac059e2896ec2f0",
+            "display_at_all_levels": false,
+            "row_dimensions": [
+              "9007199254741000",
+              "9007199254741002"
+            ]
+          }
+        },
+        {
+          "id": "9007199254742021",
+          "label": "Tax",
+          "order": 21,
+          "visible": true,
+          "anchor_config": {
+            "col_dimensions": [
+              "9007199254741004"
+            ],
+            "dimension_hash": "eac059e2896ec2f0",
+            "display_at_all_levels": false,
+            "row_dimensions": [
+              "9007199254741001"
+            ]
+          }
+        },
+        {
+          "id": "9007199254742022",
+          "label": "Hurdle",
+          "order": 22,
+          "visible": true,
+          "anchor_config": {
+            "col_dimensions": [
+              "9007199254741004"
+            ],
+            "dimension_hash": "eac059e2896ec2f0",
+            "display_at_all_levels": false,
+            "row_dimensions": [
+              "9007199254741000"
+            ]
+          }
+        },
+        {
+          "id": "9007199254742024",
+          "label": "Sellprice",
+          "order": 24,
+          "visible": true,
+          "anchor_config": {
+            "col_dimensions": [
+              "9007199254741004"
+            ],
+            "dimension_hash": "eac059e2896ec2f0",
+            "display_at_all_levels": false,
+            "row_dimensions": [
+              "9007199254741000",
+              "9007199254741001",
+              "9007199254741002"
+            ]
+          }
+        }
+      ],
+      "totals_config": {
+        "column_grand_total": "Left",
+        "column_sub_total": "Left",
+        "freeze_total": false,
+        "row_grand_total": "Top",
+        "row_sub_total": "Top"
+      }
+    },
+    "pivotAssignments": []
+  },
+  "hashNote": "Computed from this synthetic fixture ordered dimension IDs. Never copy its hash or IDs to another report."
+}

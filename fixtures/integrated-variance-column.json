@@ -1,0 +1,80 @@
+{
+  "chartType": "COLUMN_INTEGRATED_VERTICAL",
+  "templateSelection": {
+    "id": "COLUMN_INTEGRATED_VERTICAL",
+    "previousId": "COLUMN_INTEGRATED_VERTICAL",
+    "rendererType": "columnChart",
+    "chartType": "columnChart",
+    "chartOrientation": "vertical",
+    "actualChartType": "integratedVariance",
+    "groupedBarEnabled": true,
+    "varianceWaterfallEnabled": true,
+    "templateChanged": false,
+    "isOrientChanged": false,
+    "isUserChangedTemplateID": true,
+    "lockedTemplateId": "COLUMN_INTEGRATED_VERTICAL"
+  },
+  "templateDefaults": {
+    "instanceId": "DEFAULT_VISUAL_INSTANCE",
+    "groupInfo": {
+      "groupType": "actual",
+      "previousGroupType": "actual",
+      "groupId": "NO_GROUP",
+      "previousGroupId": "NO_GROUP",
+      "expandedGroupMeta": {
+        "expandedGroupId": null,
+        "previousExpandedGroupId": null,
+        "parentGroupId": null,
+        "allSelectedFieldQueryNames": []
+      }
+    },
+    "lineSubChartType": "default",
+    "fromLandingPage": false,
+    "fromToolbar": false,
+    "isTrellisMenuChanged": false,
+    "summaryTable": false,
+    "tableLayout": "tableOnly",
+    "totalSummaryTable": false,
+    "tableModePreviousId": "COLUMN_VERTICAL"
+  },
+  "chartsMode": {
+    "visualMode": "CHART",
+    "prevVisualMode": "CHART",
+    "isFromKpiSettings": false
+  },
+  "measureConfig": {
+    "instanceId": "DEFAULT_VISUAL_INSTANCE",
+    "config": [
+      {
+        "role": "ΔPY%",
+        "isVisible": false,
+        "chartIsVisible": false,
+        "enable": false,
+        "chart": "variancePin",
+        "type": "RELATIVE_VARIANCE",
+        "order": 0,
+        "calcFormula": "",
+        "isWaterfallMeasure": false,
+        "yAxis": "none",
+        "isTrellis": false,
+        "dimension": null,
+        "legendMeasureInfoText": ""
+      },
+      {
+        "role": "AC",
+        "isVisible": true,
+        "chartIsVisible": true,
+        "enable": true,
+        "chart": "integratedVariance",
+        "type": "ACTUAL",
+        "order": 0,
+        "calcFormula": "",
+        "isWaterfallMeasure": false,
+        "yAxis": "yAxis1",
+        "isTrellis": false,
+        "dimension": null,
+        "legendMeasureInfoText": ""
+      }
+    ]
+  }
+}

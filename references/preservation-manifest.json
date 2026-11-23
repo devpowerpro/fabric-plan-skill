@@ -1,0 +1,9 @@
+[
+  {
+    "bundled": "references/roll-forward-formula-patterns.md",
+    "source": "Fabric Plan Roll-Forward Formula Patterns.md",
+    "sha256": "93c146a298040ed7aa9c023b8409f8c5b16f461d1410f4edc1312dbff3992335",
+    "preservation": "byte-exact",
+    "preservedFile": "references/roll-forward-formula-patterns.md"
+  }
+]

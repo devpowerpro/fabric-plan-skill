@@ -1,0 +1,24 @@
+{
+  "evidence": "Synthetic numeric-display default fixture",
+  "observedNumericMeasures": 4,
+  "owner": "properties.visualState.formatConfig.measure[resolvedMeasureId][]",
+  "operation": {
+    "format": {
+      "13": "auto"
+    }
+  },
+  "globalModeObserved": {
+    "formatType": "default",
+    "scalingFactor": "autoFixed",
+    "showScalingUnit": false
+  },
+  "measureCardDefault": {
+    "filter": [],
+    "alphaNumericValues": {
+      "minValue": null,
+      "maxValue": null,
+      "equalValue": null
+    }
+  },
+  "runtimeValidation": "not performed"
+}

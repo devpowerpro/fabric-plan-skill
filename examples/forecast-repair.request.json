@@ -1,0 +1,6 @@
+{
+  "target_sheet": "01 Monthly Rolling Forecast",
+  "reference_sheet": "Correct Version",
+  "target_forecast": "Sales Forecast",
+  "reference_forecast": "Forecast"
+}

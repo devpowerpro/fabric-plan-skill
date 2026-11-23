@@ -1,0 +1,106 @@
+{
+  "reference": {
+    "connectionId": "10000000-0000-4000-8000-000000000001",
+    "semanticModelId": "10000000-0000-4000-8000-000000000002",
+    "semanticModelName": "Synthetic Training Model",
+    "semanticModelWorkspaceId": "10000000-0000-4000-8000-000000000003",
+    "semanticModelWorkspaceName": "Offline fixture",
+    "directLakeMode": true,
+    "directQueryMode": false,
+    "sourceType": "WORKLOAD",
+    "url": "https://example.invalid/model/synthetic"
+  },
+  "fields": [
+    {
+      "id": "Region[Region]",
+      "tableName": "Region",
+      "columnName": "Region",
+      "columnType": "Column",
+      "dataType": "String"
+    },
+    {
+      "id": "Employee[Employee]",
+      "tableName": "Employee",
+      "columnName": "Employee",
+      "columnType": "Column",
+      "dataType": "String"
+    },
+    {
+      "id": "Product[Product]",
+      "tableName": "Product",
+      "columnName": "Product",
+      "columnType": "Column",
+      "dataType": "String"
+    },
+    {
+      "id": "Account[Account]",
+      "tableName": "Account",
+      "columnName": "Account",
+      "columnType": "Column",
+      "dataType": "String"
+    },
+    {
+      "id": "Period[Month]",
+      "tableName": "Period",
+      "columnName": "Month",
+      "columnType": "Column",
+      "dataType": "String"
+    },
+    {
+      "id": "Version[Version]",
+      "tableName": "Version",
+      "columnName": "Version",
+      "columnType": "Column",
+      "dataType": "String"
+    },
+    {
+      "id": "Metrics[BasePay]",
+      "tableName": "Metrics",
+      "columnName": "BasePay",
+      "columnType": "Measure",
+      "dataType": "Double"
+    },
+    {
+      "id": "Metrics[CanEdit]",
+      "tableName": "Metrics",
+      "columnName": "CanEdit",
+      "columnType": "Measure",
+      "dataType": "Double"
+    },
+    {
+      "id": "Metrics[Units]",
+      "tableName": "Metrics",
+      "columnName": "Units",
+      "columnType": "Measure",
+      "dataType": "Double"
+    },
+    {
+      "id": "Metrics[Price]",
+      "tableName": "Metrics",
+      "columnName": "Price",
+      "columnType": "Measure",
+      "dataType": "Double"
+    },
+    {
+      "id": "Metrics[Cost]",
+      "tableName": "Metrics",
+      "columnName": "Cost",
+      "columnType": "Measure",
+      "dataType": "Double"
+    },
+    {
+      "id": "Metrics[Expense]",
+      "tableName": "Metrics",
+      "columnName": "Expense",
+      "columnType": "Measure",
+      "dataType": "Double"
+    },
+    {
+      "id": "Metrics[Hours]",
+      "tableName": "Metrics",
+      "columnName": "Hours",
+      "columnType": "Measure",
+      "dataType": "Double"
+    }
+  ]
+}
